@@ -1,2 +1,2 @@
 # hellojunyi.github.io
-blog
+欢迎来到我的自留地
