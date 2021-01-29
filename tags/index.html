@@ -1,90 +1,1590 @@
+<!DOCTYPE html>
 <html>
-  <head>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<head>
+  <meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Gridea静态个人博客">
+<meta name="description" content="温故而知新">
+<meta name="theme-color" content="#000">
 <title>后院自留地</title>
-<link rel="shortcut icon" href="https://hellojunyi.github.io//favicon.ico?v=1611830845615">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="https://hellojunyi.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="后院自留地 - Atom Feed" href="https://hellojunyi.github.io//atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="shortcut icon" href="/favicon.ico?v=1611880979716">
+<link rel="stylesheet" href="/media/css/gemini.css">
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link
+  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+  rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/default.css"
+  rel="stylesheet">
+
+<link rel="stylesheet" href="/styles/main.css">
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
 
 
 
-  <meta name="description" content="温故而知新" />
-  </head>
-  <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://hellojunyi.github.io/">
-  <img class="avatar" src="https://hellojunyi.github.io//images/avatar.png?v=1611830845615" alt="">
-  </a>
-  <h1 class="site-title">
-    后院自留地
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
 
 
-        <div class="tags-container">
+</head>
+
+<body>
+  <div class="head-top-line"></div>
+  <div class="header-box">
+    
+<div class="gemini">
+  <header class="header  ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
           
-            <a class="tag" href="https://hellojunyi.github.io/tag/OijHPkCp6/">摘抄</a>
-          
-            <a class="tag" href="https://hellojunyi.github.io/tag/tEXQ1lNeC-/">笔记</a>
+            <a href="/" class="brand">
+              <span>后院自留地</span>
+            </a>  
           
         </div>
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/helloJunyi/hellojunyi.github.io/tree/master" target="_blank">junyi</a>
-  <a class="rss" href="https://hellojunyi.github.io//atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
+        
+          <p class="subtitle">精于心，简于形</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item nav-item-active">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about/" target="_self">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    <i class="fa fa-address-book"></i> 友情链接
+                  
+                </a>
+              </li>
+            
+          
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
 </div>
 
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout  gemini">
+      <div class="section-layout-wrapper">
+        <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">适用 Gemini,Pisces 布局,版权说明需配置</p>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-name language" data-lan="category">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="">
+              <i class="fa fa-globe" title=""></i>
+            </a>
+          
+        
+        
       </div>
     </div>
-  </body>
+  
+
+
+
+</div>
+</div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+        <div class="section-box box-shadow-wrapper">
+          <section class="section tags-section bg-color posts-expand">
+            <div class="tags-box">
+  <div class="tag-cloud-title language" data-lan="cloud-tags" data-count="2">
+    目前共计 2 个标签
+  </div>
+  <div class="tag-cloud-list" id="tags">
+    
+      
+      
+        
+          
+            
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+      <a class="cloud-tag" href="https://hellojunyi.github.io/tag/tEXQ1lNeC-/" rel="1">笔记</a>
+    
+      
+      
+        
+          
+        
+      
+        
+          
+            
+      
+        
+          
+            
+      
+        
+      
+        
+      
+        
+          
+        
+      
+      <a class="cloud-tag" href="https://hellojunyi.github.io/tag/OijHPkCp6/" rel="2">摘抄</a>
+    
+  </div>
+</div>
+<script>
+
+  let fontStart = 12, fontEnd = 30, colorStart = '#666', colorEnd = '#000';
+  let tags = document.querySelector('#tags').children;
+  let counts = [];
+  for(let i = 0; i < tags.length; i++) {
+    counts.push(tags[i].rel);
+  }
+  let lowest = Math.min.apply(null,counts), highest = Math.max.apply(null,counts);;
+  let range = highest - lowest;
+  if (range === 0) {
+    range = 1;
+  }
+  let fontIncr, colorIncr;
+  fontIncr = (fontEnd - fontStart) / range;
+  
+  let sColorArr = toRGB(colorStart), eColorArr = toRGB(colorEnd);
+
+  for(let i = 0; i < tags.length; i++) {
+    let disCount = tags[i].rel - lowest;
+    let fontSize = fontStart + disCount * fontIncr;
+    let style = 'font-size: ' + fontSize + 'px;';
+    let arr = [];
+    for(let c = 0; c < sColorArr.length; c++) {
+      if (disCount === 0) {
+        disCount = 1;
+      }
+      let val = (sColorArr[c] - eColorArr[c]) / range * disCount;
+      if (val >= 100) {
+        val = eColorArr[c];
+      } else if (val <= 0) {
+        val = sColorArr[c];
+      }
+      arr[c] = Math.floor(val);
+    }
+    style += 'color: ' + toHex(arr);
+    tags[i].style = style;
+  }
+
+  function toRGB(code) {
+    if (code.length === 4) {
+      code = code.replace(/(\w)(\w)(\w)/gi, "\$1\$1\$2\$2\$3\$3");
+    }
+    var hex = /(\w{2})(\w{2})(\w{2})/.exec(code);
+    return [parseInt(hex[1], 16), parseInt(hex[2], 16), parseInt(hex[3], 16)];
+  }
+
+  function toHex(ary) {
+    return "#" + ((1 << 24) + (ary[0] << 16) + (ary[1] << 8) + ary[2]).toString(16).slice(1);
+  }
+
+</script>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a
+        href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://github.com/helloJunyi/hellojunyi.github.io/tree/master" target="_blank">junyi</a>
+    </div>
+  </footer>
+  
+  
+  <div class="gemini back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" id="aplayer"></div>
+  <script>
+  let musics = JSON.parse('[]');
+  let mediaMusic = [];
+  for (let i = 0; i < musics.length; i++) {
+    let item = musics[i];
+    mediaMusic.push({
+      name: item.musicName,
+      artist: item.author,
+      url: item.musicLink,
+      lrc: item.lrc,
+      cover: item.cover
+    });
+  }
+
+  const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 3,
+      listFolded: false,
+      listMaxHeight: 90,
+      audio: mediaMusic
+  });
+  window.addEventListener('load', function() {
+    let postBody = document.querySelector('#post_body');
+    let hs = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    postBody && hs.forEach(h => {
+      let helems = postBody.querySelectorAll(h);
+      if (helems.length > 0) {
+        helems.forEach(elem => {
+          elem.id = encodeURI(elem.id);
+        })
+      }
+    })
+  })
+  </script>
+
+
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+    back2TopText = document.querySelector('#back_to_top_text'),
+    drawerBox = document.querySelector('#drawer_box'),
+    rightSideBar = document.querySelector('.sidebar'),
+    viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function (e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+
+  window.addEventListener('scroll', function (e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+
+  let hasCacu = false;
+  window.onresize = function () {
+    calcuHeight();
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function () {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, transitionDir, {});
+          }
+        })
+        window.Velocity(viewport, openProp, {
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp, {
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target", "_blank");
+      }
+    })
+  }
+
+  let faSearch = document.querySelector('#fa_search');
+  faSearch.addEventListener('click', function () {
+    document.querySelector('#search_mask').style = ''
+  })
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+  
+  // 离开当前页title变化
+  var leaveTitle = "";
+  if (leaveTitle) {
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = leaveTitle;
+      } else {
+        document.title = normal_title;
+      }
+    });
+  }
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script>
+  let images = document.querySelectorAll('.section img');
+  console.log(images);
+  images.forEach(image => {
+    var parent = image.parentElement;
+    var next = image.nextElementSibling;
+    parent.removeChild(image);
+    var aelem = document.createElement('a');
+    aelem.href = image.src;
+    aelem.dataset['fancybox'] = 'images';
+    aelem.dataset['rel'] = 'fancybox-button';
+    aelem.classList.add('fancybox');
+    aelem.appendChild(image);
+    parent.insertBefore(aelem, next);
+  })
+</script>
+  </div>
+</body>
+
+<div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
+      </div>
+      <i id="close" class="fa fa-times-circle"></i>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://hellojunyi.github.io/post/lesslesszhang-kong-xi-guan-greatergreater-zhai-chao/"" data-c="
+          &lt;h5 id=&#34;微习惯的惊人力量&#34;&gt;微习惯的惊人力量&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;小习惯会带来大变化--复利&lt;/li&gt;
+&lt;li&gt;真正的进步--潜能储积期&lt;/li&gt;
+&lt;li&gt;忘记目标，专注于体系&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- more --&gt;
+&lt;pre&gt;&lt;code&gt;1.赢家何输家心怀相同的目标
+2.实现一个目标知识短暂的改变
+3.目标束缚了你的幸福感
+4.目标与长远改进的大方向不一致
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;微习惯体系--不求拔高目标，但求落实体系&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;习惯塑造身份&#34;&gt;习惯塑造身份&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;变化的三层次 -- 结果变化、过程变化、身份变化&lt;/li&gt;
+&lt;li&gt;改变习惯最有效的方法 -- 你想成为谁，而不是要达到什么目标&lt;/li&gt;
+&lt;li&gt;身份来自习惯 -- 每个习惯都投票给你想成为的人&lt;/li&gt;
+&lt;li&gt;习惯至关重要的真正原因 -- 不是它能带给你更好的结果，而是它能改变你对自己的抱有希望&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;培养良好习惯的四步法&#34;&gt;培养良好习惯的四步法&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;习惯的形成 -- 习惯是一种行为，重复的次数足够多，便自然而然地出现&lt;/li&gt;
+&lt;li&gt;习惯的最终目标 -- 用尽可能少的精力和努力来解决生活中的问题&lt;/li&gt;
+&lt;li&gt;习惯是一个反馈循环
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;问题阶段&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;问题阶段&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;解决阶段&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;解决阶段&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1 提示&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2 渴求&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3 反应&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4奖励&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;如何培养好习惯
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;如何培养好习惯&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;如何戒除坏习惯&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;提示&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;让它显而易见&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;无提示&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;使其无从显现&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;渴求&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;让他有吸引力&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;无渴求&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;使其缺乏吸引力&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;反应&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;让它简便易行&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;无反应&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;使其难以施行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;奖励&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;让它令人愉悦&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;无奖励&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;使其令人厌烦&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;第一定律-让它显而易见&#34;&gt;第一定律 -- 让它显而易见&lt;/h4&gt;
+&lt;h5 id=&#34;习惯的预测性&#34;&gt;习惯的预测性&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;习惯的预测性 -- 足够的练习，使你的大脑会不假思索预测特定结果的提示&lt;/li&gt;
+&lt;li&gt;习惯成自然（熟能生巧） -- 我们不再关注自己在做什么&lt;/li&gt;
+&lt;li&gt;行为转变始于自觉 -- 改变习惯前，你得先了解它&lt;/li&gt;
+&lt;li&gt;指差确认 -- 说出你的行动，会将你的意识程度从下意识的习惯状态提升到警觉的水平&lt;/li&gt;
+&lt;li&gt;习惯记分卡 -- 深入了解你的行为&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;培养新习惯的最佳方法&#34;&gt;培养新习惯的最佳方法&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;让它显而易见 -- 行为转变的第一定律&lt;/li&gt;
+&lt;li&gt;执行意图公式 ：将新习惯与特定的时间和地点整合&lt;pre&gt;&lt;code&gt;我将于【时间】在【地点】【行为】
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;习惯叠加：将新习惯与当前习惯整合&lt;pre&gt;&lt;code&gt;继【当前习惯】之后，我将【新习惯】
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;原动力被高估环境更重要&#34;&gt;原动力被高估，环境更重要&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;随时间推移，情境中的微小变化会导致行为的巨大变化&lt;/li&gt;
+&lt;li&gt;提示引发习惯，我们更容易注意到鲜明的提示&lt;/li&gt;
+&lt;li&gt;情境变成提示 -- 新环境培养新习惯更容易，因为不会受到旧习惯相关提示的干扰&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;自我控制的秘密&#34;&gt;自我控制的秘密&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;养成习惯，不容易被忘记 -- 自我控制知识权宜之计，而非长远良策&lt;/li&gt;
+&lt;li&gt;戒除坏习惯的方法 -- 逃避诱惑，减少接触导致坏习惯的提示&lt;/li&gt;
+&lt;li&gt;让良好习惯的提示显而易见，让不良习惯的提示脱离视线&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;第二定律-让它有吸引力&#34;&gt;第二定律 -- 让它有吸引力&lt;/h4&gt;
+&lt;h5 id=&#34;怎样让习惯不可抗拒&#34;&gt;怎样让习惯不可抗拒&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;吸引力 -- 吸引力越大，习惯越容易养成&lt;/li&gt;
+&lt;li&gt;期待 -- 奖励的期待而非奖励本身，促使我们采取行动。预期越高，多巴胺峰值越大&lt;/li&gt;
+&lt;li&gt;喜好绑定让习惯更具吸引力 -- 将喜好的高频动作与需要做的低频动作搭配一起做&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;习惯形成中亲友所起的作用&#34;&gt;习惯形成中亲友所起的作用&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;我们倾向于培养被我们的文化推崇的习惯&lt;/li&gt;
+&lt;li&gt;有吸引的行为 -- 能为我们赢得认可、尊重、赞扬&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;消除坏习惯的根源&#34;&gt;消除坏习惯的根源&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;强调避免坏习惯所换来的好处，让坏习惯不再有吸引力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;第三定律-让它简便易行&#34;&gt;第三定律 -- 让它简便易行&lt;/h4&gt;
+&lt;h5 id=&#34;慢步前行但决不后退&#34;&gt;慢步前行，但决不后退&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;付诸实践，不纸上谈兵&lt;/li&gt;
+&lt;li&gt;采取行动，不只是酝酿行动&lt;/li&gt;
+&lt;li&gt;习惯的形成使行为通过重复逐渐变得更加自动化的过程&lt;/li&gt;
+&lt;li&gt;习惯培养 -- 不在于时间长短，而在于重复的次数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;最省力法则&#34;&gt;最省力法则&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;最省力法则 -- 天然地倾向于付出最少工作量的选择&lt;/li&gt;
+&lt;li&gt;创造一个让人们便于做正确事的环境&lt;/li&gt;
+&lt;li&gt;阻力 -- 阻力小，习惯容易养成；阻力大，习惯难以养成&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;利用两分钟规则停止拖延&#34;&gt;利用两分钟规则停止拖延&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;习惯可以在几秒钟内完成，但会持续影响你在接下来的几分钟或几个小时的行为&lt;/li&gt;
+&lt;li&gt;许多习惯发生在决定性的时刻，你的选择最终会导致卓有成效，或一事无成的一天&lt;/li&gt;
+&lt;li&gt;两分钟规则&lt;pre&gt;&lt;code&gt;当你开始一种新习惯时，它所用时间不应超过两分钟。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;开始阶段的仪式化，有利于进入做大事所需的注意力高度集中的状态&lt;/li&gt;
+&lt;li&gt;习惯优化前先要实现标准化&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;让好习惯不可避免坏习惯难以养成&#34;&gt;让好习惯不可避免，坏习惯难以养成&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;采用承诺机制、战略性的一次性决策、技术手段&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;第四定律-让它令人愉悦&#34;&gt;第四定律 -- 让它令人愉悦&lt;/h4&gt;
+&lt;h5 id=&#34;行为转变的基本准则&#34;&gt;行为转变的基本准则&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;行为令人愉悦 -- 我们更有可能重复行为&lt;/li&gt;
+&lt;li&gt;行为转变的基本准则：重复有即时回报的行为&lt;/li&gt;
+&lt;li&gt;保持习惯 -- 需要有即时成就感，即使它体现在细微之处&lt;/li&gt;
+&lt;li&gt;让它令人愉悦 -- 提高这种行为得以重复的可能性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;天天保持好习惯&#34;&gt;天天保持好习惯&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;最令人满意的感觉之一就是进步的感觉&lt;/li&gt;
+&lt;li&gt;习惯追踪法 -- 衡量你是否养成习惯的简单方法&lt;/li&gt;
+&lt;li&gt;不要中断培养习惯的进程，要坚持不懈&lt;/li&gt;
+&lt;li&gt;绝不错过两次 -- 如果错过了一天，试着尽快恢复固有的做事节奏&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;问责伙伴改变一切&#34;&gt;问责伙伴改变一切&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;问责伙伴对无所事事带来即时成本 -- 我们极不情愿感受被人的鄙视&lt;/li&gt;
+&lt;li&gt;知道别人在看着你，可以成为一种强大的动力&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;高级战术&#34;&gt;高级战术&lt;/h4&gt;
+&lt;h5 id=&#34;揭秘天才-基因重要和无关紧要时&#34;&gt;揭秘天才 -- 基因重要和无关紧要时&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;当你的习惯与天赋匹配时，你就容易养成并维持那种习惯。选择最适合你的习惯&lt;/li&gt;
+&lt;li&gt;基因不能排除艰苦努力的需要。他门只会帮着，告诉我们该努力做什么事甄别，告诉我们该努力做什么事情。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;金发女孩准则如何在生活和工作中保持充沛动力&#34;&gt;金发女孩准则：如何在生活和工作中保持充沛动力&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;金发女孩准则 -- 人们在处理其能力可及的事务时积极性最高&lt;/li&gt;
+&lt;li&gt;成功的最大威胁不是失败，而是倦怠&lt;/li&gt;
+&lt;li&gt;每个人受到激励都能努力工作，但工作不令人兴奋时，仍能继续奋进的则是人中佼佼者&lt;/li&gt;
+&lt;li&gt;专业人员依照计划行事，毫不动摇；业余爱好者则随波逐流，任性而为&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;培养好习惯的负面影响&#34;&gt;培养好习惯的负面影响&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;习惯工作 + 刻意练习 = 精通&lt;/li&gt;
+&lt;li&gt;反思和回顾是一个过程，使你能够时刻关注自己的表现&lt;/li&gt;
+&lt;li&gt;我们越执着于一个身份，就越难超越它&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;结论获得持久成果的秘诀&#34;&gt;结论：获得持久成果的秘诀&lt;/h5&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;怎样养成好习惯&#34;&gt;怎样养成好习惯&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;第一定律&lt;/th&gt;
+&lt;th&gt;让它显而易见&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1.1&lt;/td&gt;
+&lt;td&gt;填写“习惯记分卡”；记下你当前的习惯并留意它们&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1.2&lt;/td&gt;
+&lt;td&gt;应用执行意图：我将于【时间】在【地点】【行为】&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1.3&lt;/td&gt;
+&lt;td&gt;应用习惯叠加：继【当前习惯】之后，我将【新习惯】&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1.4&lt;/td&gt;
+&lt;td&gt;设计环境，让好习惯的提示清晰明了&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;第二定律&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;让它有吸引力&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.1&lt;/td&gt;
+&lt;td&gt;利用喜好绑定。用你喜好的行为强化你需要的动作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.2&lt;/td&gt;
+&lt;td&gt;加入把你喜好的行为视为正常行为的文化群体&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2.3&lt;/td&gt;
+&lt;td&gt;创设一种激励仪式。在实施低频行为前先做一件你特别喜好的事&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;第三定律&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;让它简便易行&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.1&lt;/td&gt;
+&lt;td&gt;减少阻力。减少培养好习惯的步骤&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.2&lt;/td&gt;
+&lt;td&gt;备好环境。创造一种有利于未来行为的环境&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.3&lt;/td&gt;
+&lt;td&gt;把握好决定时刻。优化可以产生重大影响的小选择&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.4&lt;/td&gt;
+&lt;td&gt;利用两分钟准则。缩短你的习惯所占用的时间，争取只需要量分钟&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;3.5&lt;/td&gt;
+&lt;td&gt;自动化你的习惯。在能够锁定你未来行为的技术和物品上有所投入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;第四定律&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;让它令人愉悦&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4.1&lt;/td&gt;
+&lt;td&gt;利用增强法。完成一套习惯动作后立即奖励自己&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4.2&lt;/td&gt;
+&lt;td&gt;让“无所事事”变得愉悦。让避免坏习惯的好处显而易见&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4.3&lt;/td&gt;
+&lt;td&gt;利用习惯追踪法。记录习惯倾向，不要中断&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4.4&lt;/td&gt;
+&lt;td&gt;决不连续错过两次。如果你忘了做，一定要尽快补救&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;怎样戒除坏习惯&#34;&gt;怎样戒除坏习惯&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;第一定律反用&lt;/th&gt;
+&lt;th&gt;让它脱离视线&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.5&lt;/td&gt;
+&lt;td&gt;降低出现频率。把坏习惯的提示清除出你所在的环境&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;第二定律反用&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;让它缺乏吸引力&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2.4&lt;/td&gt;
+&lt;td&gt;重新梳理你的思路。罗列出戒除坏习惯所带来的益处&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;第三定律反用&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;让它难以施行&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3.6&lt;/td&gt;
+&lt;td&gt;增大阻力。增加实行坏习惯的步骤&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3.7&lt;/td&gt;
+&lt;td&gt;利用承诺机制。锁定未来会有利于你的选择项&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;第四定律反用&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;让它令人厌恶&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4.5&lt;/td&gt;
+&lt;td&gt;找一个问责伙伴。请人监督你的行为&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4.6&lt;/td&gt;
+&lt;td&gt;创立习惯契约。让坏习惯的恶果公开化并令人难以忍受&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+">《掌空习惯》-- 笔记</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://hellojunyi.github.io/post/lesslesszhang-kong-xi-guan-greatergreater-bi-ji/"" data-c="
+          &lt;h3 id=&#34;基本原理-点滴变化何以意义重大&#34;&gt;基本原理 -- 点滴变化何以意义重大&lt;/h3&gt;
+&lt;h4 id=&#34;微习惯的惊人力&#34;&gt;微习惯的惊人力&lt;/h4&gt;
+&lt;p&gt;1	这一经历给了我一个重要的教训：只要你愿意坚持下去，起初看似微小和不起眼的变化，会随着岁月的积累，复合成显著的结果。我们都要应对挫败，但从长远来看，我们的生活品质往往取决于我们保持的习惯的质量。种什么因结什么果，你有什么样的习惯，就会享有什么样的结果。但是只要养成了更好的习惯，则凡事皆有可能。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;2	成功是日常习惯累积的产物，而不是一生仅有一次的重大转变的结果。&lt;/p&gt;
+&lt;p&gt;3	你此时此刻是成就辉煌还是一事无成并不重要，重要的是你当前的习惯是否让你走上了通向成功的道路。你应该更关心你在当下前行的轨迹，而不是你已经取得了什么样的结果。&lt;/p&gt;
+&lt;p&gt;4	成功与失败之间的差距会随着时间的延续而不断扩大。无论你朝哪个方向努力，它都会予以增益。好习惯使时间成为你的盟友，坏习惯使时间成为你的敌人。&lt;/p&gt;
+&lt;p&gt;5	这是任何复利进程的共同特征：最有力的结果总是姗姗来迟。&lt;/p&gt;
+&lt;p&gt;6	熟练掌握某种技能需要足够的耐心。&lt;/p&gt;
+&lt;p&gt;7	社会改革家雅各布·里斯（Jacob Riis）的名言：“每当我感到无能为力时，我就会去看石匠凿石头，也许他凿了100次，但石头上没有出现裂缝的迹象。然而，在他凿到第101次时，那块石头裂成了两半。我知道这不是最后那次凿击造成的，而是此前连续凿击的结果。”&lt;/p&gt;
+&lt;p&gt;8	目标是关于你想要达到的结果，而体系是涉及导致这些结果的过程。&lt;/p&gt;
+&lt;p&gt;9	问题1：赢家和输家心怀相同的目标。&lt;/p&gt;
+&lt;p&gt;10	问题2：实现一个目标只是短暂的改变。&lt;/p&gt;
+&lt;p&gt;11	实现一个目标只会暂时改变你的生活。这正是改进这个概念违反直觉之处。&lt;/p&gt;
+&lt;p&gt;12	假如你只是围绕着结果动脑筋想办法，你只能取得一时的改进。为了取得一劳永逸的成效，你需要解决体系层面上的问题。修正输入端，输出端就会自行修正。&lt;/p&gt;
+&lt;p&gt;13	问题3：目标束缚了你的幸福感。&lt;/p&gt;
+&lt;p&gt;14	只要你创建的体系在正常运行，你就会在整个过程中感受到快乐。另外，一个体系取得成功的方式有多种，而不仅仅是你最初想象的那一种。&lt;/p&gt;
+&lt;p&gt;15	问题4：目标与长远改进的大方向不一致。&lt;/p&gt;
+&lt;p&gt;16	设定目标的目的是赢得比赛。构建体系的目的是持续参与这项赛事。意在长远的思维方式不会拘泥于具体的目标。这不是为了取得任何单一的成就，而是一个精益求精、日趋进步的循环过程。归根结底，你对这个过程锲而不舍的坚持决定着你的进步。&lt;/p&gt;
+&lt;p&gt;17	微习惯体系&lt;/p&gt;
+&lt;p&gt;18	如果你很难改变自己的习惯，问题的根源不是你，而是你的体系。坏习惯循环往复，不是因为你不想改变，而是因为你用来改变的体系存在问题。你要做的是，不求拔高你的目标，但求落实你的体系。&lt;/p&gt;
+&lt;h4 id=&#34;你的习惯如何塑造你的身份&#34;&gt;你的习惯如何塑造你的身份&lt;/h4&gt;
+&lt;p&gt;19	关注整个体系，而非单一目标，这是本书的核心主题之一。&lt;/p&gt;
+&lt;p&gt;20	这就是“微习惯”一词的含义，也就是说，它是一种有规律的练习或惯常举动，本身微不足道且简单易行，却是不可思议的力量之源；    它也是复合增长体系中的一个组成部分。&lt;/p&gt;
+&lt;p&gt;21	如果你想要更好的结果，那就别再设定目标，转而全力关注你的体系。不求拔高你的目标，但求落实你的体系。&lt;/p&gt;
+&lt;p&gt;22	结果意味着你得到了什么，过程意味着你做什么，身份则关系到你的信仰。&lt;/p&gt;
+&lt;p&gt;23	真正的行为上的改变是身份的改变&lt;/p&gt;
+&lt;p&gt;24	你可能会出于某种动机而培养一种习惯，但让你长期保持这种习惯的唯一原因是它已经与你的身份融为一体。&lt;/p&gt;
+&lt;p&gt;25	目标不是阅读一本书，而是成为读者。&lt;/p&gt;
+&lt;p&gt;​        目标不是跑马拉松，而是成为跑步者。&lt;/p&gt;
+&lt;p&gt;​        目标不是学习一种乐器，而是成为音乐家。&lt;/p&gt;
+&lt;h4 id=&#34;培养良好习惯的四步法&#34;&gt;培养良好习惯的四步法&lt;/h4&gt;
+&lt;p&gt;26	导致结果满意的行为往往会得以重复，而产生不愉快结果的行为得以重复的概率较低&lt;/p&gt;
+&lt;p&gt;27	习惯是从经验中学到的心理捷径。从某种意义上来说，习惯只是你过去为解决问题而采取的步骤的记忆。只要条件合适，你就可以调用这种记忆并自动应用相同的解决方案。大脑记忆过去的主要原因是为了预测如何更好地应对未来。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;第一定律-让它显而易见&#34;&gt;第一定律 -- 让它显而易见&lt;/h3&gt;
+&lt;h4 id=&#34;看着不对劲儿的那个人&#34;&gt;看着不对劲儿的那个人&lt;/h4&gt;
+&lt;p&gt;28	心理学家卡尔·荣格（Carl Jung）所说：“除非你让下意识意识化，否则它将支配你的生活，而你会称之为命运。”&lt;/p&gt;
+&lt;p&gt;29	听到你大声说出的坏习惯会让后果显得更加触手可及。这增加了行动的难度，从而防止自己不知不觉就落入你本想摆脱的窠臼。即使是你只想提醒自己该办哪些事，这种方法也很有用。只需大声说出“明天午饭后，我要去邮局”，就能提高你去的可能性。你以这种方式让自己认识到行动的必要性——而这的确会让你的生活有大改观。&lt;/p&gt;
+&lt;p&gt;30	行为转变的过程总是始于自觉。像指差确认以及习惯记分卡这类做法会专门帮你认清你的习惯并认识到触发它们的提示，这使得你有可能以对你有益的方式做出回应。&lt;/p&gt;
+&lt;h4 id=&#34;培养新习惯的最佳方式&#34;&gt;&lt;strong&gt;培养新习惯的最佳方式&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;31	通过说出你的行动，指差确认将你的意识程度从下意识的习惯状态提升到警觉的水平。&lt;/p&gt;
+&lt;p&gt;32	当你的梦想模糊不清时，你很容易整天任由时间耗费在一些琐事上，无暇顾及为了取得成功而必须做的具体事宜，并且总是能给自己这种状况找借口。&lt;/p&gt;
+&lt;p&gt;33	你需要给予你的习惯在这个世界上存在的时间和空间。&lt;/p&gt;
+&lt;p&gt;34	正如作家贾森·茨威格（Jason Zweig）所指出的那样：“很显然，若是缺乏刻意的努力，你永远都不会主动去健身。但是就像听见铃声就流口水的狗一样，条件反射在你身上的作用，就是让你在本该健身却尚未开始的时候感到坐立不安。”&lt;/p&gt;
+&lt;p&gt;35	行为转变的第一定律是让它显而易见。像执行意图和习惯叠加这样的策略，是为你的习惯创造鲜明的提示，并为何时何地采取行动设计清晰计划的最实用的方法。&lt;/p&gt;
+&lt;p&gt;36	行为转变的第一定律是让它显而易见。&lt;/p&gt;
+&lt;p&gt;两个最常见的提示是时间和地点。&lt;/p&gt;
+&lt;p&gt;创建执行意图是一种策略，你可以用它将新习惯与特定的时间和地点整合。&lt;/p&gt;
+&lt;p&gt;执行意图的公式是：我将于[时间]在[地点][行为]。&lt;/p&gt;
+&lt;p&gt;习惯叠加是一种策略，你可以用它来将新习惯与当前习惯整合。&lt;/p&gt;
+&lt;p&gt;习惯叠加的公式是：继[当前习惯]之后，我将[新习惯]。&lt;/p&gt;
+&lt;p&gt;原动力被高估，环境往往更重要&lt;/p&gt;
+&lt;p&gt;37	你的习惯会根据你所在的房间以及你面前的提示而改变&lt;/p&gt;
+&lt;p&gt;38	将新习惯与新环境联系起来比在老地方建立新习惯容易得多，因为你在老地方会时时处处受到与老习惯相关联的提示的干扰。&lt;/p&gt;
+&lt;p&gt;39	尽可能避免将一种习惯的情境与另一种习惯的混在一起。&lt;/p&gt;
+&lt;p&gt;40	我认识一位作家，他的电脑只用于写作，平板只用于阅读，而手机则专门用于社交媒体和短信。每个习惯都应该有个去处。&lt;/p&gt;
+&lt;p&gt;41	在所有的事物都各安其位、各具用途的稳定环境中，习惯很容易形成。&lt;/p&gt;
+&lt;h4 id=&#34;自我控制的秘密&#34;&gt;&lt;strong&gt;自我控制的秘密&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;42	毅力、勇气和意志力是取得成功的要素，但是增强这些品质的途径不是期望你自己成为一个自律的人，而是创造一个有纪律的环境。&lt;/p&gt;
+&lt;p&gt;43	消除坏习惯的最实用的方法之一是避免接触引起它的提示。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;第二定律-让它有吸引力&#34;&gt;第二定律 -- 让它有吸引力&lt;/h3&gt;
+&lt;h4 id=&#34;怎样是习惯不可抗拒&#34;&gt;怎样是习惯不可抗拒&lt;/h4&gt;
+&lt;p&gt;44	让良好习惯的提示显而易见，让不良习惯的提示脱离视线&lt;/p&gt;
+&lt;p&gt;45	假如你在做一件事的同时得以做另一件你喜爱的事，那么前者很可能会对你产生一定的吸引力。&lt;/p&gt;
+&lt;h4 id=&#34;在习惯形成中亲友所起的作用&#34;&gt;在习惯形成中亲友所起的作用&lt;/h4&gt;
+&lt;p&gt;46	我们将要看到的，就是无论你的文化崇尚什么样的习惯，那些习惯就会成为最有吸引力的行为。&lt;/p&gt;
+&lt;p&gt;47	法国哲学家蒙田（Michel）曾这样写道：“社会生活的习俗和实践裹挟着我们前行。”&lt;/p&gt;
+&lt;p&gt;48	培养好习惯的最有效方式之一就是加入一种文化，在这种文化中，你偏爱的行为被认定为是正常行为。&lt;/p&gt;
+&lt;h4 id=&#34;如何找到并消除你坏习惯的根源&#34;&gt;&lt;strong&gt;如何找到并消除你坏习惯的根源&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;49	渴望只是深层动机的具体表现。你的大脑并非因为渴望吸烟、查看照片或玩电子游戏而进化。在更深层次上，你只是想减少不确定性和缓解焦虑，赢得社会认可和接纳，或者获得一定的社会地位。&lt;/p&gt;
+&lt;p&gt;50	渴望是一种缺乏某些东西的感觉，是改变你内在状态的愿望。&lt;/p&gt;
+&lt;p&gt;51	欲望就是你的现状与你设想中的未来状况之间的差别。&lt;/p&gt;
+&lt;p&gt;52	总而言之，你感受到的特定欲望和你展现出的高频动作，其实都体现着你深藏的、蠢蠢欲动的根本动机。&lt;/p&gt;
+&lt;p&gt;53	当我们将习惯与积极的情感联系起来时，习惯就有了吸引力，我们有了这种认识就可以为己所用，不断寻找乐趣，同时避免烦心事。&lt;/p&gt;
+&lt;p&gt;54	重建你的习惯，突出它们的益处而非不足，这种短平快的方式可以改变你的思维方式，并让一个习惯更有吸引力。&lt;/p&gt;
+&lt;p&gt;55	你可以将“我很紧张”定义为“我很兴奋，肾上腺素的增加帮助我集中注意力。”135&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;第三定律-让它简便易行&#34;&gt;第三定律 -- 让它简便易行&lt;/h3&gt;
+&lt;h4 id=&#34;漫步前行但绝不后退&#34;&gt;漫步前行，但绝不后退&lt;/h4&gt;
+&lt;p&gt;56	伏尔泰这样写道：“因追求最佳而丢掉了足够好。”138&lt;/p&gt;
+&lt;p&gt;57	我们大多数人都是回避批评的专家。遭遇失败或被公开评判令人感觉不好，所以我们倾向于避免落入那种境地。这就是你总是在酝酿却不采取行动的最大原因：你是想让可能遭遇的失败来得晚一些。&lt;/p&gt;
+&lt;p&gt;58	如果你想掌握一种习惯，关键是从重复开始，无须力求完美。你不必描画出新习惯的每一个特征。你只需要不断练习。这是第三定律的第一条要点：你需要关注的是次数。&lt;/p&gt;
+&lt;p&gt;59	习惯的形成是一种行为通过重复变得越来越自动化的过程。&lt;/p&gt;
+&lt;p&gt;60	随着每一次重复，细胞间的信号传递得到改善，神经连接变得更加紧密。&lt;/p&gt;
+&lt;p&gt;61	乔治·H.刘易斯（George H.Lewes）指出：“人们在学习一门外语、演奏一种乐器或演练尚不熟悉的动作时，会感到难度极大，因为每种感觉必经的通道尚未建立起来；但是，连续不断地重复打通了沟通途径之后，这种困难顿时烟消云散；这些动作变得如此连贯自如，即便心不在焉也能一气呵成。”&lt;/p&gt;
+&lt;p&gt;62	所有习惯都遵循类似的演变轨迹，从刻苦练习到行动自如，这一过程被称为自动性。自动性是指无须考虑每一个步骤而实施一种行为的能力，146 这种能力发生在下意识起作用的时候。&lt;/p&gt;
+&lt;h4 id=&#34;最省力法则&#34;&gt;最省力法则&lt;/h4&gt;
+&lt;p&gt;63	图省事才是一个聪明而非愚蠢的策略&lt;/p&gt;
+&lt;p&gt;64	精力是宝贵的，而大脑的设定就是尽一切可能保存精力。&lt;/p&gt;
+&lt;p&gt;65	让它简便易行的说法不仅仅是做容易的事，其主旨是当其时尽可能确保你可以毫不费力地去做具有长期回报的事。&lt;/p&gt;
+&lt;p&gt;66	归根结底，为了养成更好的习惯，我们不得不耗费很大精力，设法克服与我们已有的好习惯相关的惰性，同时加大与不良习惯相关的阻力。&lt;/p&gt;
+&lt;h4 id=&#34;怎样利用两分钟规则停止拖延&#34;&gt;怎样利用两分钟规则停止拖延&lt;/h4&gt;
+&lt;p&gt;67	当你开始培养一种新习惯时，它所用时间不应超过两分钟。&lt;/p&gt;
+&lt;h4 id=&#34;怎样让好习惯不可避免坏习惯难以养成&#34;&gt;怎样让好习惯不可避免，坏习惯难以养成&lt;/h4&gt;
+&lt;p&gt;68	成功不是简单地让好习惯简便易行，更重要的是让坏习惯难以延续。&lt;/p&gt;
+&lt;p&gt;69	破除坏习惯的最好方式就是让它变得不切实际。不断提高其难度，直到你心灰意懒&lt;/p&gt;
+&lt;p&gt;70	科技给人们的生活带来了一定程度的便利，让你可以随心所欲。你感觉有些饿，叫个外卖就可以让人把食物送到你家门口。你感觉有点无聊，登入社交媒体，你会沉浸在令人眼花缭乱的内容里。当你实际上可以在零付出的情形下满足自己的愿望，你会发现自己不断受到一时冲动的摆布。自动化的缺点是，我们满足于一件接一件地做些不用费脑子的事，再也不想抽时间做些稍有难度但最终更有意义的事。&lt;/p&gt;
+&lt;p&gt;71	我在工作之余总是禁不住要浏览社交媒体上的内容。我只要感觉有些无聊，就会拿起手机。人们很容易自我安慰说这些做法“只是放松一下”而已，但是随着时间的推移，它们会累积成一个严重的问题。持续不断的“再过一分钟”会妨碍我做任何重要的事。（我不是唯一的一个。一般人每天在社交媒体上平均耗费两个多小时。171 你可以想象一下每年多出的600小时可以做多少有意义的事！）&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;第四定律-让它令人愉悦&#34;&gt;第四定律 -- 让它令人愉悦&lt;/h3&gt;
+&lt;h4 id=&#34;行为转变的基本准则&#34;&gt;行为转变的基本准则&lt;/h4&gt;
+&lt;p&gt;72	一般来说，你从一项行动中越快享受到乐趣，你就越应该质疑它是否符合你的长远利益。&lt;/p&gt;
+&lt;p&gt;73	几乎每个领域的成功都要求你忽略即时奖励，而代之以延迟奖励。&lt;/p&gt;
+&lt;p&gt;74	凡是长远地看能带给你回报的事，你可以给它添加一点即时快乐；凡是不能的，你可以添加一点即时痛苦。&lt;/p&gt;
+&lt;p&gt;75	奖励可以启动一种习惯的培养进程，身份则可以维持一种习惯。&lt;/p&gt;
+&lt;h4 id=&#34;怎样天天保持好习惯&#34;&gt;怎样天天保持好习惯&lt;/h4&gt;
+&lt;p&gt;76	习惯追踪具有三方面的功效：其一，创建视觉提示，提醒你采取行动；其二，内在激励机制，因为你清楚地看到了你的进步轨迹，并且不想失去它，以及其三，每当你记录下又一项成功的习惯实例时，你都会享受到满足感。另外，习惯追踪提供了视觉证据，证明你在把自己塑造成为你特别想成为的那类人，这本身就是一种令人感觉愉快的即时、内在满足的形式。&lt;/p&gt;
+&lt;p&gt;77	问题不在于出差错，而是如果不能做完美，就干脆不做的错误想法。&lt;/p&gt;
+&lt;p&gt;78	复利的首要规则：除非万不得已，否则永远不要打断它。”&lt;/p&gt;
+&lt;p&gt;79	千万不要无所事事。不要让亏损蚕食你的复利。&lt;/p&gt;
+&lt;p&gt;80	度量只有在引导你并辅助大局时才有积极作用，它不应成为主角并让你疲于奔命。每个数字只不过是整个系统中的一条反馈罢了。&lt;/p&gt;
+&lt;p&gt;81	在我们这个数据驱动的世界里，我们倾向于高估数字的作用，低估任何短暂的、柔性的、难以量化的东西。我们错误地认为只有能够度量的因素才是唯一真实存在的因素，但是仅仅因为你能度量一些东西，并不意味着它们就是最重要的东西。不能仅仅因为一些东西不可测度，就认定它们根本不重要。&lt;/p&gt;
+&lt;h4 id=&#34;问责伙伴何以能改变一切&#34;&gt;问责伙伴何以能改变一切&lt;/h4&gt;
+&lt;p&gt;82	如果你想戒掉不良习惯并避免不健康行为，那就给这类习惯和行为添加即时成本，这样可以有效地降低它们发生的概率。&lt;/p&gt;
+&lt;p&gt;83	我们之所以难以戒掉坏习惯，就是因为它们在某种程度上迎合了我们的需要。就我所知，加快随这种行为而来的惩戒速度是摆脱这种困境的最佳方式。有行动便有惩罚，不能有丝毫迟滞。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;高级战术-怎样从单纯的好转向真正的伟大&#34;&gt;高级战术 -- 怎样从单纯的好转向真正的伟大&lt;/h3&gt;
+&lt;h4 id=&#34;揭秘天才当基因重要和无关紧要时&#34;&gt;揭秘天才（当基因重要和无关紧要时）&lt;/h4&gt;
+&lt;p&gt;84	经科学分析验证的“五大”性格特征是目前得到公认的性格类别图谱。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1.开放性：从好奇和创造性的一端到谨慎和一丝不苟的另一端。
+
+2.自觉性：从有条理和效率高到随意性和自发性。
+
+3.外向性：从活泼开朗、活力十足到孤独和保守（也就是外向型人格和内向性人格的区别）。
+
+4.亲和性：从待人友好并富于同情心到挑剔和淡漠。
+
+5.神经质：从焦虑不安和敏感多疑到自信、冷静和心态平和。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;85	学会玩一个你胜算大的游戏是保持充沛动力并有成就感的关键。&lt;/p&gt;
+&lt;p&gt;86	你是否适合一项任务的标志不在于你是否喜欢它，而在于你是否能比大多数人更容易承受这项任务带来的痛苦。当别人觉得苦不堪言时，你却能自得其乐？伤害别人多于伤害你的事，就是你生来就适合做的事&lt;/p&gt;
+&lt;p&gt;87	“心流”指的是你因为全神贯注地投入到手头的工作，从而忘记了周边世界存在的一种精神状态。&lt;/p&gt;
+&lt;p&gt;88	我的天性是什么？此刻，你可以暂时忘记你接受的教育，忽略主流社会告诉你的事情，忽略别人对你的期望。扪心自问：“我觉得什么很自然？我何时感觉充满活力？我何时看到了自己的真面目？”不要急于自我评判，也不要刻意讨人欢心。不要犹疑不定或自我批评。只注重乐在其中的感觉。无论何时，只要你感觉真实可信，你前进的方向就是正确的。&lt;/p&gt;
+&lt;p&gt;89	注自己能否充分发挥自己的潜力，要比与他人攀比收效更显著。人的能力是有限的这一事实，与你是否已达到能力的上限无关。人们常常过于纠结自己能力的极限，以至于放弃了充分调动自己潜能的努力。&lt;/p&gt;
+&lt;p&gt;90	要确保你的习惯长期令人满意，最好的方法之一就是选择与你的个性和技能相匹配的行为。努力做好容易做的事。&lt;/p&gt;
+&lt;h4 id=&#34;金发女孩准则如何在生活和工作中保持充沛动力&#34;&gt;金发女孩准则：如何在生活和工作中保持充沛动力&lt;/h4&gt;
+&lt;p&gt;91	保持动力和达到最大欲望的途径之一，就是去做“难易程度刚刚好”的事。&lt;/p&gt;
+&lt;p&gt;92	金发女孩准则指出，人们在处理其能力可及的事务时积极性最高。难易程度适中，刚刚好。&lt;/p&gt;
+&lt;p&gt;93	做力所能及、难易适中的事，似乎是保持激励水平居高不下的关键所在。&lt;/p&gt;
+&lt;p&gt;94	归根结底这取决于谁能应付每天枯燥乏味的训练，一遍又一遍地反复做同样的举重动作。&lt;/p&gt;
+&lt;p&gt;95	真正的成功人士也会和其他人一样感到激情消退。唯一不同的是，尽管感到枯燥乏味，他们仍然想办法坚持下去。&lt;/p&gt;
+&lt;p&gt;96	成功的最大威胁不是失败，而是倦怠。&lt;/p&gt;
+&lt;p&gt;97	男人都图新鲜，无论是春风得意的还是郁郁寡欢的，全都急于改变现状。&lt;/p&gt;
+&lt;p&gt;98	我们都有人生目标并心怀梦想，但是，假如你只在心血来潮或一时兴起时才做出一些努力，那么无论你的目标或梦想是什么，你都不可能取得显著的成果。&lt;/p&gt;
+&lt;p&gt;99	当你感到心烦意乱、苦不堪言或精疲力竭时，是鼓足干劲还是萌生退意，这是专业人士和业余人士的分水岭。&lt;/p&gt;
+&lt;p&gt;100	专业人员依照既定计划行事，毫不动摇；业余爱好者则随波逐流，任性而为。专业人士知道对他们来说什么最重要，并有目的地去做；业余爱好者则随生活中的突发情况而变。&lt;/p&gt;
+&lt;p&gt;101	成为出色的人的必经之路，是无休止地反复做同样的事，且痴心不改。你必须爱上厌倦。&lt;/p&gt;
+&lt;h4 id=&#34;培养好习惯的负面影响&#34;&gt;培养好习惯的负面影响&lt;/h4&gt;
+&lt;p&gt;102	你在鸡毛蒜皮的琐事上耗费的精力越少，你能用在真正重要的事情上的精力就会更多。&lt;/p&gt;
+&lt;p&gt;103	习惯动作+刻意练习=精通&lt;/p&gt;
+&lt;p&gt;104	你越是让某种单一信念定义你，当面临生活中的挑战时，你就越难适应。&lt;/p&gt;
+&lt;p&gt;105	要想减轻随身份丧失而来的负面影响，关键是必须重新定义自己，这样即使你的特定角色发生了变化，你也可以保留身份的重要方面。&lt;/p&gt;
+&lt;p&gt;106	《道德经》&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;人之生也柔弱，其死也坚强。
+
+草木之生也柔脆，其死也枯槁。
+
+故坚强者死之徒，柔弱者生之徒。
+
+是以兵强则灭，木强则折。
+
+强大处下，柔弱处上。
+
+——老子
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;107	习惯带来了许多好处，但缺点是它们也会让我们陷入以前的思维和行为模式，不能跟上时代前进的步伐。一切都是无常的。生活在不断变化，所以你需要定期检查一下，看看你固有的习惯和信仰是否还在为你服务。&lt;/p&gt;
+&lt;p&gt;缺乏自我意识是毒药，反思和回顾是解药。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;结论-获得持久成果的秘诀&#34;&gt;结论 -- 获得持久成果的秘诀&lt;/h3&gt;
+&lt;p&gt;108	成功不是要达到的目标，也不是要跨越的终点线。它是一个让人得以进步的体系、精益求精的过程。&lt;/p&gt;
+&lt;p&gt;109	幸福是已得到满足的欲望与酝酿中的欲望之间的空当。”247 同样，痛苦则是渴望改变现状与改变得以实现那一刻之间的空当。&lt;/p&gt;
+&lt;p&gt;110	有足够理由活着的人几乎可以忍受任何生存方式。&lt;/p&gt;
+&lt;p&gt;111	如果你的动机和欲望足够强大（也就是说，你为什么要行动），即使困难重重，你也会采取行动。&lt;/p&gt;
+&lt;p&gt;112	痛苦推动进步。所有痛苦的根源是对改变现状的渴望。这也是所有进步的源泉。对改变现状的渴求激励着你采取行动。想得到更多的欲念驱使着人们寻求改进，开发新技术，达到更高的水平。内心涌动着渴望，意味着我们不满意，但动力十足。没有渴望，我们就心满意足，不思进取。&lt;/p&gt;
+&lt;p&gt;113	你的行为揭示了你想得到一些东西的程度。如果你一直在说要尽快做某件事，但你迟迟不动，那就说明你并不真想要它。是时候正视自己的内心了，你的行为揭示了你真正的动机。&lt;/p&gt;
+&lt;p&gt;114	失败的痛苦与期望的高度正相关。当欲望很强烈时，结果不符合要求会令人感到痛苦。你一开始并不惦记的东西，得不到也无所谓，但得不到你日思夜想的东西会让你备受打击。这就是为什么人们说：“我不想抱有太大的希望。”&lt;/p&gt;
+&lt;p&gt;115	欲望负责点火，快乐保持烈火持续燃烧。&lt;/p&gt;
+">《掌控习惯》-- 摘抄</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://hellojunyi.github.io/post/lesslesssu-shi-pao-bu-xiu-xing-greatergreater/"" data-c="
+          &lt;p&gt;威廉.詹姆斯&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突破疲惫与沮丧的极限后，&lt;/p&gt;
+&lt;p&gt;我们或许会感到前所未有的放松与力量&lt;/p&gt;
+&lt;p&gt;这些潜在的力量不曾被发掘&lt;/p&gt;
+&lt;p&gt;因为我们从未强迫自己跨越那堵艰难重重的高墙&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;P3  罗伯斯.佛洛斯特（美国诗人）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最佳的出路，就在坚持向前的方向&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P14 伊斯雷尔.内贝克（美国Blind Pilot乐队主唱）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;世上唯一真实的界限，是你人生那条起跑线&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P24 佚名&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你永远不会知道到底有多坚强，知道坚强变成你人生唯一的选择&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P33 老子&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;千里之行，始于足下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P45 科特.寇班（涅槃主唱）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一心想成为别人，是虚耗自我。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P55 伊凡.乔伊纳德（攀岩好手）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;理解越多，欲求越少。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P65  萧伯纳&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;做让你畏惧的事。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P74 甘地（印度领袖）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;力量不是来自身体，而是来自不屈的意志&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P87 约翰.缪尔（美国国家公园之父）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;山峦在呼唤我，我必须往那儿走。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P97 詹姆斯.盖尔文（美国作家）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;白雪。骄阳。砂石。苍天。他正在做他熟悉、热爱的工作。正是此刻，正值此时。没有紧迫的压力，唯有向前的动力。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P109  “男子汉”蓝迪.沙瓦吉（美国摔跤手）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你没有站在深渊边缘，就表示你占用太多位置了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P124 吐帕克.夏库尔（非裔美国饶舌歌手）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;穿上我的鞋，走一英里，你也会像我一样疯狂。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P146 道元禅师（普劝坐禅仪）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不要为得到自由而工作，而要让工作本身变成自由。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P153 日本谚语&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;跌倒七次，要爬起来八次。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P167 拉拉穆里族谚语&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当你赤脚碰触大地，而且与地球融为一体，表示你可以无穷无尽地跑下去。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P180 马可.戴维斯（美国田径选手）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;付出多少，就获得多少回报。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P192 海明威（美国作家）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;生活让我们遍体鳞伤，但到后来，那些受伤的地方会变得更坚强。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P205 希波克拉底（古希腊医生、西方医学奠基者）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以食为药，以药为食。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P224 莱昂纳德.科恩&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;万事万物皆有裂痕，有裂痕，光明才得以照进。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P241 李小龙&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;清空思绪，无体，无形，如水一般。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P250 鲁米（伊斯兰教神秘主义诗人）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;让我们所爱的美，成为我们的作为&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;P257 杰里米.科林斯（美国登山艺术家）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有时候最棒的旅程并非由东往西，也不是从地面攀至顶峰，而是头顶直达心灵。在这个过程中，我们找到了自己。&lt;/p&gt;
+&lt;/blockquote&gt;
+">《素食跑步修行》-- 摘抄</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://hellojunyi.github.io/post/lesslessrong-mu-greatergreater/"" data-c="
+          &lt;p&gt;采采荣木，&lt;br&gt;
+结根于兹。&lt;br&gt;
+晨耀其华，&lt;br&gt;
+夕已丧之。&lt;br&gt;
+人生若寄，&lt;br&gt;
+憔悴有时。&lt;br&gt;
+静言孔念，&lt;br&gt;
+中心怅而。&lt;br&gt;
+--陶渊明《荣木》节选&lt;/p&gt;
+">《荣木》</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://hellojunyi.github.io/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
+&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
+&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
+">关于</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://hellojunyi.github.io/post/hello-gridea/"" data-c="
+          &lt;p&gt;👏  欢迎使用 &lt;strong&gt;Gridea&lt;/strong&gt; ！&lt;br&gt;
+✍️  &lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/getgridea/gridea&#34;&gt;Github&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://gridea.dev/&#34;&gt;Gridea 主页&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://fehey.com/&#34;&gt;示例网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;特性&#34;&gt;特性👇&lt;/h2&gt;
+&lt;p&gt;📝  你可以使用最酷的 &lt;strong&gt;Markdown&lt;/strong&gt; 语法，进行快速创作&lt;/p&gt;
+&lt;p&gt;🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片&lt;/p&gt;
+&lt;p&gt;🏷️  你可以对文章进行标签分组&lt;/p&gt;
+&lt;p&gt;📋  你可以自定义菜单，甚至可以创建外部链接菜单&lt;/p&gt;
+&lt;p&gt;💻  你可以在 &lt;strong&gt;Windows&lt;/strong&gt;，&lt;strong&gt;MacOS&lt;/strong&gt; 或 &lt;strong&gt;Linux&lt;/strong&gt; 设备上使用此客户端&lt;/p&gt;
+&lt;p&gt;🌎  你可以使用 &lt;strong&gt;𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌&lt;/strong&gt; 或 &lt;strong&gt;Coding Pages&lt;/strong&gt; 向世界展示，未来将支持更多平台&lt;/p&gt;
+&lt;p&gt;💬  你可以进行简单的配置，接入 &lt;a href=&#34;https://github.com/gitalk/gitalk&#34;&gt;Gitalk&lt;/a&gt; 或 &lt;a href=&#34;https://github.com/SukkaW/DisqusJS&#34;&gt;DisqusJS&lt;/a&gt; 评论系统&lt;/p&gt;
+&lt;p&gt;🇬🇧  你可以使用&lt;strong&gt;中文简体&lt;/strong&gt;或&lt;strong&gt;英语&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力&lt;/p&gt;
+&lt;p&gt;🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步&lt;/p&gt;
+&lt;p&gt;🌱 当然 &lt;strong&gt;Gridea&lt;/strong&gt; 还很年轻，有很多不足，但请相信，它会不停向前 🏃&lt;/p&gt;
+&lt;p&gt;未来，它一定会成为你离不开的伙伴&lt;/p&gt;
+&lt;p&gt;尽情发挥你的才华吧！&lt;/p&gt;
+&lt;p&gt;😘 Enjoy~&lt;/p&gt;
+">Hello Gridea</a>
+      </div>
+      
+    </div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let items = document.querySelectorAll('.item');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+    
+    close.addEventListener('click', function() {
+      searchMask.style = 'display: none;'
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    items.forEach(item => {
+      let a = item.querySelector('a');
+      contents.push({
+        title: a.innerText,
+        details: a.dataset.c,
+        link: a.href
+      })
+      item.remove();
+    })
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          let start = Date.now();
+          let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              if (content.title.includes(segment)) {
+                find = true;
+                positions.push({
+                  start: content.title.indexOf(segment),
+                  count: segment.length
+                })
+              } else if (content.details.includes(segment)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
+
+<input hidden id="copy" />
+<script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
+  let language = '';
+  if (language !== '') {
+    let map = new Map();
+    if (language === 'en') {
+      map.set('search', 'Search');
+      map.set('category', 'Categories');
+      map.set('article', 'Articles');
+      map.set('tag', 'Tags');
+      map.set('top', 'Top');
+      map.set('publish', 'published');
+      map.set('minute', ' minutes');
+      map.set('read-more', 'Read More');
+      map.set('view', 'View');
+      map.set('words', ' words');
+      map.set('category-in', 'category in');
+      map.set('preview', 'Meta');
+      map.set('index', 'Toc');
+      map.set('no-archives', "You haven't created yet");
+      map.set('archives', " articles in total");
+      map.set('cloud-tags', " tags in total");
+      map.set('copyright', "Copyright: ");
+      map.set('author', "Author: ");
+      map.set('link', "Link: ");
+      map.set('leave-message', "Leave a message");
+      map.set('format', "Links Format");
+      map.set('site-name', "Name: ");
+      map.set('site-link', "Link: ");
+      map.set('site-desc', "Desc: ");
+      map.set('stat', " related results, taking ");
+      map.set('stat-time', " ms");
+      map.set('site-img', "Image: ");
+    }
+
+    if (map.size > 0) {
+      let lanElems = document.querySelectorAll('.language');
+      lanElems.forEach(elem => {
+        let lan = elem.dataset.lan, text = map.get(lan);
+        if (elem.__proto__ === HTMLInputElement.prototype) {
+          elem.placeholder = text
+        } else {
+          if (elem.dataset.count) {
+            text = elem.dataset.count + text;
+          }
+          elem.textContent = text;
+        }
+      })
+    }
+  }
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+
+</script>
+<script src="/media/js/motion.js"></script>
+
+
+
+<script src="/media/js/mouse/love.js"></script>
+
+
+
+
+
 </html>
