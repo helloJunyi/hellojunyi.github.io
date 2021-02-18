@@ -2,24 +2,27 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hello Gridea | 后院自留地</title>
+<title>VBA | 后院自留地</title>
 <link rel="shortcut icon" href="https://hellojunyi.github.io//favicon.ico?v=1613636827260">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://hellojunyi.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Hello Gridea | 后院自留地 - Atom Feed" href="https://hellojunyi.github.io//atom.xml">
+<link rel="alternate" type="application/atom+xml" title="VBA | 后院自留地 - Atom Feed" href="https://hellojunyi.github.io//atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="👏  欢迎使用 Gridea ！
-✍️  Gridea 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...
+    <meta name="description" content="数组
+arr（）
+声明：arr（1 to 10）或 arr（）
+#语法
+'固定长度数组声明
+Dim [变量名](开始序号 to 结束序号) As [数据类型]
+'动态数组声明
+Dim [变量名]() As [数据类型]
 
-Github
-Gridea 主页
-示例网站
-特性👇
-📝  你可以使用最酷的 Markdo..." />
-    <meta name="keywords" content="Gridea" />
+'实例
+Dim n..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -81,54 +84,98 @@ Gridea 主页
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Hello Gridea
+              VBA
             </h2>
             <div class="post-info">
               <span>
-                2018-12-12
+                2021-02-03
               </span>
               <span>
                 2 min read
               </span>
               
-                <a href="https://hellojunyi.github.io/tag/sORL3YNP0/" class="post-tag">
-                  # Gridea
-                </a>
-              
             </div>
-            
-              <img class="post-feature-image" src="https://hellojunyi.github.io//post-images/hello-gridea.png" alt="">
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+                <h3 id="数组">数组</h3>
+<p>arr（）</p>
+<p><strong>声明</strong>：arr（1 to 10）或 arr（）</p>
+<pre><code class="language-vb">#语法
+'固定长度数组声明
+Dim [变量名](开始序号 to 结束序号) As [数据类型]
+'动态数组声明
+Dim [变量名]() As [数据类型]
+
+'实例
+Dim names(1 to 10) As String  '声明包含10个文本类型元素的数组
+Dim names() As String         '声明长度未知的文本类型数组
+</code></pre>
+<p><strong>赋值</strong>：</p>
+<p>基本语法：<code>[数组名](元素序号) = [数据]</code> 例子如下：</p>
+<pre><code class="language-vb">'声明数组
+Dim arr(1 to 5) As String
+'数组赋值
+arr(1) = &quot;Zhang San&quot;
+arr(2) = &quot;Li Si&quot;
+arr(3) = &quot;Wang Wu&quot;
+</code></pre>
+<h3 id="对象">对象</h3>
+<p>worksheet，workbook，object</p>
+<p><strong>声明</strong>：跟其他类型基本一样</p>
+<pre><code class="language-vb">'语法
+'前期绑定声明语法
+Dim [变量名] As [对象类型]
+'后期绑定声明语法
+Dim [变量名] As Object
+
+'实例
+Dim sh As Worksheet
+Dim car As Object
+</code></pre>
+<p>赋值：<code>Set [变量名] = [对象类型数据]</code> 必须有Set。例子如下：</p>
+<pre><code>'声明工作表类型的对象
+Dim sheet As Worksheet
+'将名称为“绩效表”的工作表，赋到 sheet 变量
+Set sheet = Worksheets(&quot;绩效表&quot;)
+</code></pre>
+<p>如对象有多个属性，可以用<code>with</code>+对象和<code>End With</code>语句</p>
+<pre><code>Dim sheet As Worksheet
+Set sheet = Worksheets(&quot;绩效表&quot;)
+
+With sheet
+    .Name = &quot;旧绩效&quot;
+    .Visible = False
+End With
+</code></pre>
+<h2 id="数组-2">数组</h2>
+<h3 id="静态数组">静态数组</h3>
+<p>静态数组即长度固定的数组。长度类型有两种：1指定上标（默认下标为0为1），2指定上下标（不受限制）。但下标必须为一个常数。</p>
+<pre><code class="language-vb">Dim arr(5) as integer        #表示arr（0 to 5）,共6个元素。如在模块声明Option Base，则为arr（1 to 5），共5个元素。
+Dim arr(1 to 5) as integer   #表示arr共有5个语素
+Dim arr(5)                   #一般不指定数组类型，默认为Variant
+Dim arr                      #不指定数组，在过程中，直接用Array函数，直接赋值变为一维素组。
+
+Dim arr ()
+</code></pre>
+<p>​</p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
+<li>
+<ul>
+<li><a href="#%E6%95%B0%E7%BB%84">数组</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1">对象</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E7%BB%84-2">数组</a>
+<ul>
+<li><a href="#%E9%9D%99%E6%80%81%E6%95%B0%E7%BB%84">静态数组</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -138,6 +185,15 @@ Gridea 主页
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hellojunyi.github.io/post/guan-hu-xi-ping-jing-de-di-yi-tang-ke/">
+              <h3 class="post-title">
+                观呼吸 -- 平静的第一堂课
+              </h3>
+            </a>
+          </div>
         
 
         
