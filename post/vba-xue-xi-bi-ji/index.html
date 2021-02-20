@@ -1,0 +1,1036 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VBA学习笔记 | 后院自留地</title>
+<link rel="shortcut icon" href="https://hellojunyi.github.io//favicon.ico?v=1613809126423">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hellojunyi.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="VBA学习笔记 | 后院自留地 - Atom Feed" href="https://hellojunyi.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="这是学习VBA中的一些笔记与总结。
+大部分资料来自于《Excel 2010 VBA 入门与实战》与懒人Excel
+
+基本概念
+VBA: Visual Basic for Applications
+对象，属性，方法
+过程和函数（Sub &am..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hellojunyi.github.io/">
+  <img class="avatar" src="https://hellojunyi.github.io//images/avatar.png?v=1613809126423" alt="">
+  </a>
+  <h1 class="site-title">
+    后院自留地
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              VBA学习笔记
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-02-20
+              </span>
+              <span>
+                24 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>这是学习VBA中的一些笔记与总结。<br>
+大部分资料来自于《Excel 2010 VBA 入门与实战》与<a href="https://www.lanrenexcel.com/excel-vba-tutorial/">懒人Excel</a></p>
+<!-- more -->
+<h2 id="基本概念">基本概念</h2>
+<p><strong>VBA: Visual Basic for Applications</strong><br>
+对象，属性，方法<br>
+过程和函数（Sub &amp; Function）</p>
+<p><strong>宏与VBA的区别</strong>：<br>
+宏：一组可以运行的VBA代码片段（即：使用VBA编写的一组代码片段）<br>
+VBA：一种编程语言，在微软桌面应用程序中执行通用的自动化（OLE）任务的编程语言。</p>
+<p><strong>能保存VBA代码的工作薄格式：</strong><br>
+Excel 2007-2003（<em>.xls），</em><br>
+<em>Excel启动宏的工作薄（</em>.xlsm）<br>
+因此Excel工作薄（*.xlsx）不能保存</p>
+<h2 id="变量与常量">变量与常量</h2>
+<h3 id="变量">变量</h3>
+<h4 id="声明变量">声明变量</h4>
+<p><code>Dim [变量名] As [数据类型]</code></p>
+<p>[变量名] 就是该变量的名称</p>
+<p>[数据类型] 是该变量的数据类型</p>
+<pre><code>Dim name As String 
+Dim age As Integer
+</code></pre>
+<p><strong>注意：如果没有声明，默认数据类型为Variant。</strong></p>
+<pre><code>Dim name = &quot;张飞&quot;                               #没有指定数据类型时，默认为Variant
+Dim a as integer , b as integer , c as integer  #a b c 都是integer类型
+Dim a ， b ， c as integer                      #a b是Variant，c是integer abc可以赋值小数，但是输出是ab是原始数据，c为整数。
+</code></pre>
+<h4 id="变量命名">变量命名</h4>
+<ul>
+<li>必须以字母开头</li>
+<li>建议用<strong>驼峰法</strong>命名：第一个单词以小写字母开始；从第二个单词开始以后的每个单词的首字母都采用大写字母<br>
+如：myFirstName、myLastName</li>
+</ul>
+<h4 id="变量类型">变量类型</h4>
+<h5 id="数字类型">数字类型</h5>
+<p>数字类型的变量顾名思义，均是以数字变量。不同类型其数据范围有区别。大多数默认值为0。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>类型</strong></th>
+<th style="text-align:center"><strong>说明</strong></th>
+<th style="text-align:center">占用空间</th>
+<th><strong>数据范围</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Byte</td>
+<td style="text-align:center">字节</td>
+<td style="text-align:center">1字节</td>
+<td>0 至 255</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Integer</strong></td>
+<td style="text-align:center"><strong>普通整型</strong></td>
+<td style="text-align:center">2字节</td>
+<td>-32,768 至 32,767</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Long</strong></td>
+<td style="text-align:center"><strong>长整型</strong></td>
+<td style="text-align:center">4字节</td>
+<td>-2,147,483,648  至 2,147,483,648</td>
+</tr>
+<tr>
+<td style="text-align:center">Single</td>
+<td style="text-align:center">单精度浮点数</td>
+<td style="text-align:center">4字节</td>
+<td>在表示负数时： -3.402823E38 ~ -1.401298E-45   <br />  在表示正数时： 1.401298E-45  ~ 3.402823E38</td>
+</tr>
+<tr>
+<td style="text-align:center">Double</td>
+<td style="text-align:center">双精度浮点数</td>
+<td style="text-align:center">8字节</td>
+<td>在表示负数时： -1.79769313486231E308 ~  -4.94065645841247E-324   <br />  在表示正数时：  4.94065645841247E-324 ~ 1.79769313486231E308</td>
+</tr>
+<tr>
+<td style="text-align:center">Currency</td>
+<td style="text-align:center">货币</td>
+<td style="text-align:center">8字节</td>
+<td>-922,337,203,685,477.5808  至  922,337,203,685,477.5807</td>
+</tr>
+<tr>
+<td style="text-align:center">Decimal</td>
+<td style="text-align:center">小数型</td>
+<td style="text-align:center">14字节</td>
+<td>未放置定点数： +/-  79,228,162,514,264,337,593,543,950,335   <br />  放置定点数： +/- 7.9228162514264337593543950335</td>
+</tr>
+</tbody>
+</table>
+<h5 id="非数字类型">非数字类型</h5>
+<p>非数字变量通常不能直接参与算术运算。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">占用空间</th>
+<th>数据范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>String</strong></td>
+<td style="text-align:center"><strong>文本类型</strong></td>
+<td style="text-align:center">字符串长</td>
+<td>0 至 20亿字符 （&quot;10086&quot;,&quot;欢迎光临&quot;）</td>
+</tr>
+<tr>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:center">逻辑值（布尔型）</td>
+<td style="text-align:center">2字节</td>
+<td>True 或 False</td>
+</tr>
+<tr>
+<td style="text-align:center">Date</td>
+<td style="text-align:center">日期和时间</td>
+<td style="text-align:center">8字节</td>
+<td>时间：00:00:00 至 23:59:59  （#10:05 AM#）<br />日期： 100-1-1 至 9999-12-31 （#2020-01-01#）</td>
+</tr>
+<tr>
+<td style="text-align:center">Object</td>
+<td style="text-align:center">对象</td>
+<td style="text-align:center"></td>
+<td>VBA 和 Excel 对象</td>
+</tr>
+</tbody>
+</table>
+<h5 id="通用类型">通用类型</h5>
+<p>通用数据类型，指的是可存储任何类型的数据。在程序运行过程，VBA 可以自动识别数据类型，参与计算。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+<th>数据范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variant</td>
+<td>任意类型</td>
+<td>不限</td>
+</tr>
+</tbody>
+</table>
+<h4 id="变量的赋值">变量的赋值</h4>
+<p><code>[变量名] = [数据]</code></p>
+<p>即把右边的数据赋值给左边的变量，数据可以是“直接数据内容”也可以是其他变量数据。</p>
+<h4 id="变量定义域运算符号">变量定义域&amp;运算符号</h4>
+<figure data-type="image" tabindex="1"><img src="https://hellojunyi.github.io//post-images/1613808871774.jpg" alt="" loading="lazy"></figure>
+<h4 id="总结">总结</h4>
+<p>变量：变量声明（变量名，变量类型），变量赋值。</p>
+<p>变量类型一般常用为：整型（integer，long），字符串（string），浮点（double），默认任意（Variant）</p>
+<p>变量赋值：如没有指定则默认为Variant。</p>
+<h3 id="常量">常量</h3>
+<p>**定义：**程序之前已经确定，执行时，保存的值或字符串不会发生改变。</p>
+<p>**分类：**直接常量、符号常量、系统常量</p>
+<p><strong>常量声明与赋值</strong></p>
+<p><code>Const [常量名] As [数据类型] = [值]</code></p>
+<pre><code>声明 π 常量
+Const Pi As Double = 3.14159
+</code></pre>
+<h2 id="程序过程控制">程序过程控制</h2>
+<h3 id="判断程序">判断程序</h3>
+<h4 id="if-then-else-elseif">If ... Then ... Else( ElseIf )</h4>
+<p>基本语法：</p>
+<pre><code>If 条件表达式1 Then
+    '表达式1真时，执行的代码
+ElseIf 条件表达式2 Then
+    '表达式2真时，执行的代码
+ElseIf 条件表达式3 Then
+    '表达式3真时，执行的代码
+    ...
+ElseIf 条件表达式n Then
+    '表达式n真时，执行的代码
+Else
+    '以上表达式都不为真时，执行的代码
+End If
+</code></pre>
+<p>例子：判断学生成绩的优良</p>
+<pre><code>Sub MyCode()
+
+    Dim i As Integer
+
+    For i = 2 To 10
+
+        If Cells(i, &quot;B&quot;).Value &gt;= 85 Then
+            Cells(i, &quot;D&quot;) = &quot;优&quot;
+        ElseIf Cells(i, &quot;B&quot;).Value &gt;= 75 Then
+            Cells(i, &quot;D&quot;) = &quot;良&quot;
+        ElseIf Cells(i, &quot;B&quot;).Value &gt;= 60 Then
+            Cells(i, &quot;D&quot;) = &quot;及格&quot;
+        Else
+            Cells(i, &quot;D&quot;) = &quot;不及格&quot;
+        End If
+
+    Next i
+    
+End Sub
+</code></pre>
+<h4 id="select-case">Select Case</h4>
+<p><code>Select Case</code>结构是对同一个变量进行多次判断的另一种方式。相对于If ElseIf Else结构，它把条件表达式中的变量提取出来，使得代码结构更简洁，也更易于阅读。</p>
+<p>基本语法如下：</p>
+<pre><code>Select Case 变量
+	Case 判断条件 1
+    	'条件 1 真时，执行的代码
+	Case 判断条件 2
+    	'条件 2 真时，执行的代码
+	Case 判断条件 3
+    	'条件 3 真时，执行的代码
+    Case Else
+    	'之前的所有条件都不为真时，执行的代码
+End Select
+</code></pre>
+<p>代码例子：</p>
+<pre><code>Sub MyCode()
+
+    Dim i As Integer
+
+    For i = 2 To 10
+
+        Select Case Cells(i, &quot;B&quot;).Value
+            Case Is &gt;= 85                 # Case &gt;= 85 ,is会自动补齐
+                Cells(i, &quot;D&quot;) = &quot;优&quot;
+            Case Is &gt;= 75
+                Cells(i, &quot;D&quot;) = &quot;良&quot;
+            Case Is &gt;= 60
+                Cells(i, &quot;D&quot;) = &quot;及格&quot;
+            Case Else
+                Cells(i, &quot;D&quot;) = &quot;不及格&quot;
+        End Select
+
+    Next i
+
+End Sub
+</code></pre>
+<p>注意：select case匹配的条件也是按顺序，由上而下，且is自动补齐。</p>
+<h3 id="循环结构">循环结构</h3>
+<h4 id="fornext">For...Next</h4>
+<p>循环可以按指定次数，循环执行一段代码。For 循环使用一个数字变量，从初始值开始，每循环一次，变量值增加或减小，直到变量的值等于指定的结束值时，循环结束。</p>
+<p>基本语法：</p>
+<pre><code>For [变量] = [初始值] To [结束值] Step [步长]
+    '这里是循环执行的语句
+Next
+</code></pre>
+<p>例子：</p>
+<pre><code>Sub MyCode()
+
+    Dim i As Integer
+    Dim sum As Integer
+    
+    For i = 1 To 10 Step 1
+        sum = sum + i
+    Next
+
+End Sub
+</code></pre>
+<p>注意：step 可以是负数（-2，-3），在删除单元格时，一般由下往上，使用负数。</p>
+<h4 id="for-each">For Each</h4>
+<p><code>For Each</code> 循环用于逐一遍历一个数据集合中的所有元素。数据集合包括数组、Excel 对象集合、字典等。</p>
+<p><code>For Each</code> 循环不需要一个数字变量，但是需要与数据集合中的元素相同的数据类型变量。</p>
+<p>基本语法如下：</p>
+<pre><code>For Each [元素] In [元素集合]
+    '循环执行的代码
+Next [元素]
+</code></pre>
+<p>例子：</p>
+<pre><code>Sub MyCode()
+
+    Dim sh As Worksheet
+    
+    For Each sh In Worksheets
+        Debug.Print sh.Name
+    Next sh
+
+End Sub
+</code></pre>
+<h4 id="do-while-循环">Do While 循环</h4>
+<p>用于满足指定条件时循环执行一段代码的情形。循环的指定条件在 <code>While</code> 关键词后书写。</p>
+<p><code>Do While … Loop</code> 循环与<code>Do … Loop While</code> 循环，两者大致一样，但后者时至少执行了一次循环再判断条件。</p>
+<p>基本语法：</p>
+<pre><code>Do While [条件表达式]
+    '循环执行的代码
+Loop
+</code></pre>
+<p>例子：</p>
+<pre><code>Sub MyCode()
+
+    Dim i As Integer
+    Dim sum As Integer
+    
+    i = 1
+    Do While i &lt;= 10
+        sum = sum + i
+        i = i + 1
+    Loop
+
+End Sub
+</code></pre>
+<h4 id="do-until-循环">Do Until 循环</h4>
+<p><code>Do Until</code> 循环与 <code>Do While</code> 循环类似。不同点在于，<code>Do While</code> 在条件表达式为真时，继续执行循环；而 <code>Do Until</code> 在条件表达式为真时，停止执行循环。两者用法相似</p>
+<p><code>Do Until … Loop</code> 循环与<code>Do … Loop Until</code> 循环相似，后者时执行了一次代码才判断。</p>
+<p>基本语法：</p>
+<pre><code>Do Until [条件表达式]
+    '循环执行的代码
+Loop
+</code></pre>
+<pre><code>Do
+    '循环执行的代码
+Loop Until [条件表达式]
+</code></pre>
+<h3 id="退出控制语句">退出控制语句</h3>
+<h4 id="exit-for-exit-do">Exit For &amp; Exit Do</h4>
+<p>用于跳出循环过程，一般在提前结束循环时使用，均适用于 <code>For Next</code> 循环和 <code>For Each</code> 循环。</p>
+<h4 id="goto">GoTo</h4>
+<p>无条件地转移到过程中指定的行（行的名字：Line1，Line2，FirstLine，LastLine)</p>
+<h3 id="总结-2">总结</h3>
+<figure data-type="image" tabindex="2"><img src="https://hellojunyi.github.io//post-images/1613808689253.jpg" alt="" loading="lazy"></figure>
+<p><strong>6种循环结构：</strong></p>
+<table>
+<thead>
+<tr>
+<th>循环结构</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>For … Next 循环</td>
+<td>按指定次数循环执行</td>
+</tr>
+<tr>
+<td>For Each 循环</td>
+<td>逐一遍历数据集合中的每一个元素</td>
+</tr>
+<tr>
+<td>Do While … Loop 循环</td>
+<td>当条件为真时，循环执行</td>
+</tr>
+<tr>
+<td>Do … Loop While 循环</td>
+<td>当条件为真时，循环执行。无论条件真假，至少运行一次</td>
+</tr>
+<tr>
+<td>Do Until … Loop 循环</td>
+<td>直到条件为真时，停止执行</td>
+</tr>
+<tr>
+<td>Do … Loop Until 循环</td>
+<td>直到条件为真时，停止执行。无论条件真假，至少运行一次</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3种退出控制结构：</strong></p>
+<table>
+<thead>
+<tr>
+<th>跳出语句</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exit For</td>
+<td>跳出 For 循环</td>
+</tr>
+<tr>
+<td>Exit Do</td>
+<td>跳出 Do While/Until 循环</td>
+</tr>
+<tr>
+<td>GoTo</td>
+<td>跳出到指定的行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="声明与赋值">声明与赋值</h2>
+<p><strong>4种变量</strong></p>
+<p><strong>基本类型变量</strong>：基本类型变量是那些存储单个数据的变量，例如数字、文本、日期等。</p>
+<p><strong>通用变量</strong>：通用变量，即 Variant 类型变量。该变量的类型在程序运行过程中，根据赋值的数据自动指定。</p>
+<p><strong>数组</strong>：数组包含多个变量的集合。</p>
+<p><strong>对象</strong>：对象包含一些列属性和方法</p>
+<h3 id="基本类型变量">基本类型变量</h3>
+<p>integer，long，double，</p>
+<p><strong>声明</strong></p>
+<pre><code>'语法
+Dim [变量名] As [数据类型]
+
+'实例
+Dim name As String
+Dim age As Integer
+Dim height As Double
+Dim birthday As Date
+</code></pre>
+<p><strong>赋值</strong>：实际中，一般把Let省略</p>
+<pre><code>'语法，两种写法相同
+Let [变量名] = [数据]
+[变量名] = [数据]
+
+'实例
+Dim name As String
+Let name = &quot;Zhang San&quot;
+
+Dim age As Integer
+Let age = 30
+
+Dim birthday As Date
+Let birthday = #2000-1-1#
+</code></pre>
+<h3 id="通用变量">通用变量</h3>
+<p>Variant</p>
+<p><strong>声明</strong>：跟基本变量一样。如没有声明，则默认为Variant，但是运算效率低。</p>
+<pre><code>'语法
+Dim [变量名] As Variant
+Dim [变量名]
+
+'实例
+Dim message As Variant
+Dim message
+</code></pre>
+<p><strong>赋值</strong>：跟基本变量一样。</p>
+<pre><code>'声明变量（两者相同）
+Dim message As Variant
+Dim message
+
+'赋值
+message = &quot;Hello World&quot;
+message = 1234567890
+message = #2018-12-1#
+</code></pre>
+<h3 id="数组">数组</h3>
+<p>arr（）</p>
+<p><strong>声明</strong>：arr（1 to 10）或 arr（）</p>
+<pre><code>'语法
+'固定长度数组声明
+Dim [变量名](开始序号 to 结束序号) As [数据类型]
+'动态数组声明
+Dim [变量名]() As [数据类型]
+
+'实例
+Dim names(1 to 10) As String  '声明包含10个文本类型元素的数组
+Dim names() As String         '声明长度未知的文本类型数组
+</code></pre>
+<p><strong>赋值</strong>：</p>
+<p>基本语法：<code>[数组名](元素序号) = [数据]</code> 例子如下：</p>
+<pre><code>'声明数组
+Dim arr(1 to 5) As String
+'数组赋值
+arr(1) = &quot;Zhang San&quot;
+arr(2) = &quot;Li Si&quot;
+arr(3) = &quot;Wang Wu&quot;
+</code></pre>
+<h3 id="对象">对象</h3>
+<p>worksheet，workbook，object</p>
+<p><strong>声明</strong>：跟其他类型基本一样</p>
+<pre><code>'语法
+'前期绑定声明语法
+Dim [变量名] As [对象类型]
+'后期绑定声明语法
+Dim [变量名] As Object
+
+'实例
+Dim sh As Worksheet
+Dim car As Object
+</code></pre>
+<p>赋值：<code>Set [变量名] = [对象类型数据]</code> 必须有Set。例子如下：</p>
+<pre><code>'声明工作表类型的对象
+Dim sheet As Worksheet
+'将名称为“绩效表”的工作表，赋到 sheet 变量
+Set sheet = Worksheets(&quot;绩效表&quot;)
+</code></pre>
+<p>如对象有多个属性，可以用<code>with</code>+对象和<code>End With</code>语句</p>
+<pre><code>Dim sheet As Worksheet
+Set sheet = Worksheets(&quot;绩效表&quot;)
+
+With sheet
+    .Name = &quot;旧绩效&quot;
+    .Visible = False
+End With
+</code></pre>
+<h3 id="总结-3">总结</h3>
+<figure data-type="image" tabindex="3"><img src="https://hellojunyi.github.io//post-images/1613808710292.jpg" alt="" loading="lazy"></figure>
+<h2 id="数组-2">数组</h2>
+<h3 id="种类">种类</h3>
+<h4 id="静态数组">静态数组</h4>
+<p>**静态数组即长度固定的数组。**长度类型有两种：1指定上界（默认下界为0为1），2指定上下界（不受限制）。但下标必须为一个常数。</p>
+<pre><code>Dim arr(5) as integer        #表示arr（0 to 5）,共6个元素。如在模块声明Option Base，则为arr（1 to 5），共5个元素。
+Dim arr(1 to 5) as integer   #表示arr共有5个语素
+Dim arr(5)                   #一般不指定数组类型，默认为Variant
+Dim arr                      #不指定为数组，在过程中，直接用Array函数，直接赋值变为一维素组。
+
+Dim arr (5,5)            #多维数组，一共6*6=36个元素
+Dim arr (1 to 5,1 to 5)  #多维数组，一共5*5=25个元素 注意两者的区别
+</code></pre>
+<p>​    <strong>注意</strong>：一维数组：如没有指定，数组的下表肯定是0，即<code>arr（0）</code>而不是<code>arr（1）</code>。<br>
+​               多维数组：可以想象为一个局部的l表格（二维数组），默认下界为0。<br>
+​               如在模块声明Option Base 1 ，则默认的下界为1。</p>
+<h4 id="动态数组">动态数组</h4>
+<p><strong>动态数组即长度没有固定的数组</strong>。过程使用中，必须确定动态数据的长度，才能赋值（即先声明程度，再赋值）<br>
+没有指定数组的长度，在过程应用中，可以直接赋值数组或者<code>ReDim</code>重新声明数组的长度。<br>
+注意：在赋值常量或数值（非数值时）必须声明动态数组的长度（这样才能知道把值赋值在数组那个位置）。</p>
+<p>使用步骤：先声明一个没有下标的数组，即arr（），然后在需要使用时，直接赋值数组，或Redim重新声明数组的大小</p>
+<pre><code>Dim arr（）, i as integer
+i = 5
+ReDim  arr（2，i）           #此定义了一个3*6的数组（默认下界为0），即3行，6列，共18 个元素的数组。
+</code></pre>
+<h3 id="数组函数">数组函数</h3>
+<p>数组函数：Array（），LBound（数组的下界），UBound（数组的上界），ReDim（重新定义数组），IsArray（），Erase<br>
+数组函数的对象是数组，而不是元素，因此不用写位置。正确：Erase arr ，错误 Erase arr （ 1，1 ）。</p>
+<h4 id="array">Array</h4>
+<p><strong>Array</strong>：定义函数赋值。把一组元素直接赋值给数组，一维数组。</p>
+<pre><code>Dim arr ()
+arr = Array ( 1 , 2 , 3 , 4 ,5 )   #直接数组赋值，不用声明动态数组长度。arr（4），arr（0）=1，arr（1）=1……
+</code></pre>
+<h4 id="lbound-与-ubound">LBound 与 UBound</h4>
+<p>LBound（数组的下界），UBound（数组的上界）。两者使用方法基本一样</p>
+<pre><code>LBound （数组名称，[,维数]）         #如不写维数，默认为1
+
+Dim arr（4，5） 
+LBound ( arr,2) :  UBound ( arr,2)    #第2维的上下界。2维数组下界默认为0。
+</code></pre>
+<h4 id="redim">ReDim</h4>
+<pre><code>ReDim [Preserve] 数组名称（第1维上界，第2维上界）[As 数据类型]
+</code></pre>
+<p>Redim只针对动态数组，静态数组已经固定长度不适用。<br>
+ReDim会清空以前数组的数据。Preserve能保留以前数据，但是只能扩充最后一维的大小（前部维数必须相同），并不能增加数组的维数。</p>
+<pre><code>ReDim x ( 10 , 10 ,10 )
+...
+ReDim x ( 10 , 10 , 15)
+</code></pre>
+<h4 id="isarray-与-erase">IsArray 与 Erase</h4>
+<p>IsArray：判断数据是不是数据，如IsArray （arr）。Erase：清除数组的数据，如Erase arr。</p>
+<h3 id="赋值与使用">赋值与使用</h3>
+<h4 id="静态数组-2">静态数组</h4>
+<p>不能用数组（<code>Array</code>函数，或<code>Range(“a1:c10”)</code>)赋值。一般用for循环，定位给数组内的每个元素赋值。</p>
+<h4 id="动态数组-2">动态数组</h4>
+<p>1 可以使用数组（<code>Array</code>函数，或<code>Range(“a1:c10”)</code>)赋值。<br>
+2 Redim，重新定义数组的长度。之后用法跟静态数组相同。使用时最好把下界也标明。</p>
+<p>重点是动态数组的数组赋值，特别需要注意的下界与上界，以及Redim Preserve的用法。</p>
+<p><strong>数组<code>Range(“a1:c10”)</code>赋值给数组，默认下界为1</strong>。这与其他赋值方法不同，默认均为0。</p>
+<pre><code>dim arr ()
+arr = Range (“a1:c10”)  #特别注意下界，此时数组为arr（1 To 10 ， 1 To 3），10行3列，下界为表格的1。
+</code></pre>
+<h4 id="使用">使用</h4>
+<p>当声明了数组，且数组有元素（即有固定长度），则可以使用数组。需注意的是，给整个数组<strong>数组<code>Range(“a1:c10”)</code>赋值</strong>，无论数组的下界上界如何，也是第一个元素顶格然后覆盖赋值。超出数组则输入#N/A。如下例子</p>
+<pre><code>Sub text()
+Dim arr(2 To 5, 4 To 6)
+
+arr(2, 4) = 20
+arr(3, 5) = 30
+
+Range(&quot;a1:h6&quot;) = arr                #结果为[a1]=20,[b2]=30 ,超出范围为#N/A
+
+End Sub
+</code></pre>
+<h3 id="总结-4">总结</h3>
+<p>数组arr(1 to 10 , 1 to 5 )如同一栋大楼(10层，每层5间房)，元素就是房间里的存放的东西。arr(3,5),可以看作为3层5号房，元素即为里面存放的东西。<br>
+在使用中，特别要注意的是动态数组的下上界。</p>
+<h2 id="过程与函数">过程与函数</h2>
+<h3 id="过程相关概念">过程相关概念</h3>
+<p>系统提供：1.事件过程 ， 2. 内部函数过程<br>
+用户定义：1. <code>Sub</code>过程 ，2. <code>Function</code>函数过程 ， 3. <code>Property</code>属性过程 ，4. <code>Event</code>事件过程</p>
+<h4 id="sub">Sub</h4>
+<p>基本语法：</p>
+<pre><code>[Private] [Public] [Friend] [Static] Sub  &lt;过程名&gt; ( [变量名1] As [数据类型1],...[变量名n] As [数据类型n] )
+    语句1
+    语句2
+    ...
+    语句3
+End Sub
+</code></pre>
+<p>例子：</p>
+<pre><code>'声明一个过程
+Sub SayHello(name As String)
+    Msgbox &quot;Hello&quot; &amp; name
+End Sub
+
+'在另一个过程，调用上述过程，调用时，提供一个实际的 name 参数
+Sub MyCode()
+    SayHello &quot;World 2&quot;
+End Sub
+</code></pre>
+<p>解释：我们在运行 <code>MyCode</code> 过程时，提供了 <code>name</code> 变量，即 <code>World 2</code> ，运行时弹出对话框显示 <code>Hello World 2</code>。</p>
+<h4 id="function">Function</h4>
+<p>基本语法：</p>
+<pre><code>[Private] [Public] [Friend] [Static] Function &lt;函数名&gt; ([变量名1] As [数据类型1],...[变量名n] As [数据类型n]) As [返回值类型]
+    语句1
+    ...
+    语句3
+    [函数名] = [返回值]
+End Function
+</code></pre>
+<p>例子：</p>
+<pre><code>Function Add2Number(num1 As Double, num2 As Double) As Double
+    Add2Number = num1 + num2
+End Function
+</code></pre>
+<h4 id="过程与函数的不同">过程与函数的不同</h4>
+<p><strong>1 声明语句不同：</strong><br>
+函数的声明语句是 <code>Function</code> 和 <code>End Function</code>。<br>
+过程的声明语句是 <code>Sub</code> 和 <code>End Sub</code>。</p>
+<p><strong>2 函数可以返回值:</strong><br>
+函数相对子过程最大的不同点是，函数可以返回指定的值。调用函数时，使用一个变量存储函数返回的值，可以在后续的代码中使用。<br>
+这里需要指出的是，函数可以不返回值，这种情况其作用与子过程相同。因此建议，不需要返回值时，直接使用子过程代替函数。</p>
+<p><strong>3 函数可以返回值:</strong><br>
+函数声明时也需要指定其返回值的类型。其语法与变量声明类似，在函数名后指定数据类型。</p>
+<pre><code>Function MyFunc() As String   # 指定返回值类型，此函数将返回文本类型的值
+................ 
+End Function
+</code></pre>
+<p><strong>4 函数主体代码中，返回值赋值到函数自己:</strong></p>
+<pre><code>Function MyFunc() As String
+    '此函数将返回 Hello World 的文本
+    MyFunc = &quot;Hello World&quot;
+End Function
+</code></pre>
+<p><strong>5 调用函数时，使用类型与函数返回值类型相同的变量获得返回值：</strong><br>
+当主程序中调用函数获取其值时，需要使用类型与函数返回值类型相同的变量，否则程序会出错。</p>
+<pre><code>Sub MyCode()
+    Dim text As String  # 声明与函数返回值相同类型的变量
+    text = MyFunc       # 调用函数，获得其返回的值
+    Range(&quot;A1&quot;) = text  # 使用函数返回的值
+
+End Sub
+-----------------------
+Function MyFunc() As String  # 此函数被上面的过程调用
+    MyFunc = &quot;Hello World&quot;   # 此函数将返回 Hello World 的文本
+End Function
+</code></pre>
+<p><strong>6 函数可在单元格内公式中使用：</strong><br>
+与 Excel 内置的函数一样，用户自定义编写的函数可在公式中直接使用，其用法与内置函数一样。<br>
+<img src="https://hellojunyi.github.io//post-images/1613809123162.png" alt="" loading="lazy"></p>
+<h3 id="调用函数">调用函数</h3>
+<h4 id="直接调用">直接调用</h4>
+<p>直接写过程名称，即可调用过程函数</p>
+<pre><code>Sub Main()
+    MySub 2019,&quot;年&quot;            #如果子过程需要输入参数，多个参数只需用逗号（,）分开即可。
+End Sub
+
+Sub MySub(val1 As Integer, val2 As String)
+    '代码
+End Sub
+</code></pre>
+<h4 id="call调用">Call调用</h4>
+<p>使用 Call 关键词调用时，Call 后接过程名。</p>
+<pre><code>Sub Main()
+    Call MySub(2019,&quot;年&quot;)     #如果子过程需要输入参数，则需要将参数放在括号内。没有则写（）
+End Sub
+
+Sub MySub(val1 As Integer, val2 As String)
+    '代码
+End Sub
+</code></pre>
+<h3 id="过程的参数传递">过程的参数传递</h3>
+<h4 id="形参与实参的结合">形参与实参的结合</h4>
+<p>形参：过程在定义时出现的参数名称，没有具体的值<br>
+实参：实际调用时，传递给过程的参数的具体值。具体的值可以是常量，变量或数组。<br>
+在VBA 中，形参与实参结合时有两种方式：按位置结合和按参数名称结合。</p>
+<p><strong>按位置结合</strong>：传递的参数顺序必须与定义过程时参数的顺序完全相同。<br>
+<strong>按参数名称结合</strong>：调用参数时，输入形参的名称，将形参的名称与实参用 “ <code>:=</code> ” 符号连接起来。</p>
+<h4 id="按传值方式传递参数-byval">按传值方式传递参数--ByVal</h4>
+<p><strong>ByVal</strong>：传递参数的值（by Value）。<br>
+传递变量时，复制一份该变量，传入过程或函数。在过程和函数内部对该变量进行修改，只对该副本有效，对上一级过程（父过程）的变量没有影响。</p>
+<pre><code>Sub 传值方式()
+    Dim x As Integer
+    x = 25
+    Debug.Print &quot;主过程中变量x = &quot; &amp; x
+    testValue x
+    Debug.Print &quot;主过程中变量x = &quot; &amp; x
+End Sub
+--------------------------------------------
+Public Sub testValue(ByVal x As Integer)
+    x = x + 10
+    Debug.Print &quot;子程序中变量x= &quot; &amp; x
+End Sub
+</code></pre>
+<pre><code>主过程中变量x = 25
+子程序中变量x= 35
+主过程中变量x = 25
+</code></pre>
+<h4 id="按传地址方式传递参数-byref">按传地址方式传递参数--ByRef</h4>
+<p><strong>ByRef</strong>：传递参数的引用（By Refer）<br>
+传递变量时，将该变量的引用地址（<strong>内存中的地址</strong>）传入过程或函数。传入引用地址意味着，在过程或函数内部对其修改时，也会影响上一级过程（父过程）中的变量的值。<br>
+<strong>注意：如定义过程时，没有在形参前添加ByVal或ByRef，则默认为ByRef。</strong></p>
+<pre><code>Sub 传地址方式()
+    Dim x As Integer
+    x = 25
+    Debug.Print &quot;主过程中变量x = &quot; &amp; x
+    testValue x
+    Debug.Print &quot;主过程中变量x = &quot; &amp; x
+End Sub
+--------------------------------------- 
+Public Sub testValue(ByRef x As Integer)  #如没有指定，也默认为ByRef
+    x = x + 10
+    Debug.Print &quot;子程序中变量x= &quot; &amp; x
+End Sub
+</code></pre>
+<pre><code>主过程中变量x = 25
+子程序中变量x= 35
+主过程中变量x = 35
+</code></pre>
+<h3 id="可选参数和可变参数">可选参数和可变参数</h3>
+<h4 id="可选参数">可选参数</h4>
+<p>可选参数：在函数或过程定义时的形参是固定的，但在调用时可以根据情况，不用指定某个实参。<br>
+可选参数语法：在参数名前添加 <code>Optional</code> 关键词。例如：</p>
+<p>语法：<code>Optional [参数名] As [数据类型]</code></p>
+<pre><code>Sub test (num As Double, Optional base As Integer)
+    '子过程代码
+End Sub
+</code></pre>
+<h4 id="可选参数的默认值">可选参数的默认值</h4>
+<p>可选参数定以后，如果在子过程中使用，需要判断参数有无提供。否则未提供而直接使用时，程序会出错。针对这种情况，VBA 提供了默认值机制，即可选参数未提供时，使用预算设置好的默认值。</p>
+<p>语法：<code>Optional [参数名] As [数据类型] = [默认值]</code>。例子：</p>
+<pre><code>Sub Main()
+    Test 100, 100  '返回 1
+    Test 100  '返回 2
+End Sub
+---------------------------------
+Sub Test (num As Double, Optional base As Integer = 10)
+    Debug.Print Log(num) / Log(base)
+End Sub
+</code></pre>
+<h4 id="可选参数的位置">可选参数的位置</h4>
+<p>当子过程有多个参数时，其中的<strong>可选参数需写在参数列表的末尾</strong>，否则 VBA 提示错误。</p>
+<h3 id="可变参数">可变参数</h3>
+<p>可变参数：可变参数表示过程中，实参的个数是不确定的。<br>
+定义可变参数时，在最后一个参数前面加上<strong>ParamArray</strong>关键字，之后过程将可以接受任意个数的参数。</p>
+<pre><code>Sub 主程序()
+    Dim sum1 As Integer, sum2 As Integer
+    getsum sum1, 1, 2, 3, 4, 5
+    Debug.Print &quot;sum1 等于 &quot; &amp; sum1
+    getsum sum2, 2, 4, 6
+    Debug.Print &quot;sum2 等于 &quot; &amp; sum2
+End Sub
+------------------------------------------------
+Sub getsum(sum As Integer, ParamArray intNum())
+    For idx = LBound(intNum) To UBound(intNum)
+        sum = sum + intNum(idx)
+    Next
+End Sub
+------------------------------------------------
+sum1 等于 15
+sum2 等于 12
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">基本概念</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F">变量与常量</a>
+<ul>
+<li><a href="#%E5%8F%98%E9%87%8F">变量</a>
+<ul>
+<li><a href="#%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F">声明变量</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D">变量命名</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B">变量类型</a>
+<ul>
+<li><a href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B">数字类型</a></li>
+<li><a href="#%E9%9D%9E%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B">非数字类型</a></li>
+<li><a href="#%E9%80%9A%E7%94%A8%E7%B1%BB%E5%9E%8B">通用类型</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%98%E9%87%8F%E7%9A%84%E8%B5%8B%E5%80%BC">变量的赋值</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89%E5%9F%9F%E8%BF%90%E7%AE%97%E7%AC%A6%E5%8F%B7">变量定义域&amp;运算符号</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E9%87%8F">常量</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A8%8B%E5%BA%8F%E8%BF%87%E7%A8%8B%E6%8E%A7%E5%88%B6">程序过程控制</a>
+<ul>
+<li><a href="#%E5%88%A4%E6%96%AD%E7%A8%8B%E5%BA%8F">判断程序</a>
+<ul>
+<li><a href="#if-then-else-elseif">If ... Then ... Else( ElseIf )</a></li>
+<li><a href="#select-case">Select Case</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84">循环结构</a>
+<ul>
+<li><a href="#fornext">For...Next</a></li>
+<li><a href="#for-each">For Each</a></li>
+<li><a href="#do-while-%E5%BE%AA%E7%8E%AF">Do While 循环</a></li>
+<li><a href="#do-until-%E5%BE%AA%E7%8E%AF">Do Until 循环</a></li>
+</ul>
+</li>
+<li><a href="#%E9%80%80%E5%87%BA%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5">退出控制语句</a>
+<ul>
+<li><a href="#exit-for-exit-do">Exit For &amp; Exit Do</a></li>
+<li><a href="#goto">GoTo</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93-2">总结</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A3%B0%E6%98%8E%E4%B8%8E%E8%B5%8B%E5%80%BC">声明与赋值</a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F">基本类型变量</a></li>
+<li><a href="#%E9%80%9A%E7%94%A8%E5%8F%98%E9%87%8F">通用变量</a></li>
+<li><a href="#%E6%95%B0%E7%BB%84">数组</a></li>
+<li><a href="#%E5%AF%B9%E8%B1%A1">对象</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93-3">总结</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E7%BB%84-2">数组</a>
+<ul>
+<li><a href="#%E7%A7%8D%E7%B1%BB">种类</a>
+<ul>
+<li><a href="#%E9%9D%99%E6%80%81%E6%95%B0%E7%BB%84">静态数组</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84">动态数组</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0">数组函数</a>
+<ul>
+<li><a href="#array">Array</a></li>
+<li><a href="#lbound-%E4%B8%8E-ubound">LBound 与 UBound</a></li>
+<li><a href="#redim">ReDim</a></li>
+<li><a href="#isarray-%E4%B8%8E-erase">IsArray 与 Erase</a></li>
+</ul>
+</li>
+<li><a href="#%E8%B5%8B%E5%80%BC%E4%B8%8E%E4%BD%BF%E7%94%A8">赋值与使用</a>
+<ul>
+<li><a href="#%E9%9D%99%E6%80%81%E6%95%B0%E7%BB%84-2">静态数组</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84-2">动态数组</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8">使用</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93-4">总结</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%87%BD%E6%95%B0">过程与函数</a>
+<ul>
+<li><a href="#%E8%BF%87%E7%A8%8B%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5">过程相关概念</a>
+<ul>
+<li><a href="#sub">Sub</a></li>
+<li><a href="#function">Function</a></li>
+<li><a href="#%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%8D%E5%90%8C">过程与函数的不同</a></li>
+</ul>
+</li>
+<li><a href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0">调用函数</a>
+<ul>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8">直接调用</a></li>
+<li><a href="#call%E8%B0%83%E7%94%A8">Call调用</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">过程的参数传递</a>
+<ul>
+<li><a href="#%E5%BD%A2%E5%8F%82%E4%B8%8E%E5%AE%9E%E5%8F%82%E7%9A%84%E7%BB%93%E5%90%88">形参与实参的结合</a></li>
+<li><a href="#%E6%8C%89%E4%BC%A0%E5%80%BC%E6%96%B9%E5%BC%8F%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0-byval">按传值方式传递参数--ByVal</a></li>
+<li><a href="#%E6%8C%89%E4%BC%A0%E5%9C%B0%E5%9D%80%E6%96%B9%E5%BC%8F%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0-byref">按传地址方式传递参数--ByRef</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0%E5%92%8C%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">可选参数和可变参数</a>
+<ul>
+<li><a href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0">可选参数</a></li>
+<li><a href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC">可选参数的默认值</a></li>
+<li><a href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0%E7%9A%84%E4%BD%8D%E7%BD%AE">可选参数的位置</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">可变参数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hellojunyi.github.io/post/guan-hu-xi-ping-jing-de-di-yi-tang-ke/">
+              <h3 class="post-title">
+                观呼吸 -- 平静的第一堂课
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea">Gridea</a>
+  <a class="rss" href="https://hellojunyi.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
