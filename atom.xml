@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hellojunyi.github.io/</id>
     <title>后院自留地</title>
-    <updated>2021-02-20T08:19:10.680Z</updated>
+    <updated>2021-02-26T02:35:25.283Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hellojunyi.github.io/"/>
     <link rel="self" href="https://hellojunyi.github.io/atom.xml"/>
@@ -10,6 +10,1566 @@
     <logo>https://hellojunyi.github.io/images/avatar.png</logo>
     <icon>https://hellojunyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 后院自留地</rights>
+    <entry>
+        <title type="html"><![CDATA[【跟着王老师学Excel VBA 】视频学习笔记]]></title>
+        <id>https://hellojunyi.github.io/post/gen-zhao-wang-lao-shi-xue-excel-vba-shi-pin-xue-xi-bi-ji/</id>
+        <link href="https://hellojunyi.github.io/post/gen-zhao-wang-lao-shi-xue-excel-vba-shi-pin-xue-xi-bi-ji/">
+        </link>
+        <updated>2021-02-26T02:20:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>本文为B站【跟着王老师学Excel VBA 】视频的学习笔记。以前工作中接触过VBA，发觉VBA使很多重复动作都可以半自动化很方便，但是没人指导又觉VBA高深且难学。王老师这系列的视频，本人觉得对初学者来说非常友好（有趣且易懂），即使不能全都学会（也不用全都会，实际工作不会处处用到），但是对办公工作还是有很多好处。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>本文为B站【跟着王老师学Excel VBA 】视频的学习笔记。以前工作中接触过VBA，发觉VBA使很多重复动作都可以半自动化很方便，但是没人指导又觉VBA高深且难学。王老师这系列的视频，本人觉得对初学者来说非常友好（有趣且易懂），即使不能全都学会（也不用全都会，实际工作不会处处用到），但是对办公工作还是有很多好处。</p>
+<!-- more -->
+<p>代码编程这些东西，有刚需要求，才能越写越好。只是看视频做示范，不写过一段时间又忘了。这笔记，就是为了以后如果需要，也可以快速的查阅，快速的拾起VBA的知识。VBA在编程语言中，相对简单易懂，方便编程入门。学懂了VBA对以后学习其他的编程语言，无论在信心还是编程的知识中，还是有不少的帮助。</p>
+<h2 id="第1讲">第1讲</h2>
+<h3 id="整行-复制-插入粘贴">整行 -- 复制 -- 插入粘贴</h3>
+<pre><code>Rows(&quot;1:1&quot;).Select
+Selection.Copy
+Selection.Insert [shift:=xlDown]       # shift:=xlDown 插入整行下移 
+</code></pre>
+<h3 id="整行选整行-删除">整行（选整行） -- 删除</h3>
+<pre><code>Rows(i &amp; &quot;:&quot; &amp; i).Select
+Selection.Delete [shift:=xlUp]
+</code></pre>
+<h3 id="整行选所在单元格-删除">整行（选所在单元格） -- 删除</h3>
+<pre><code>Range(&quot;a1&quot;).Select
+[Application.CutCopyMode = False]
+Selection.EntireRow.Delete [shift:=xlUp]       # EntireRow 整行
+</code></pre>
+<h2 id="第2讲-for循环-if判断语句">第2讲 -- For循环 &amp; If判断语句</h2>
+<h3 id="for循环select判断数组">For循环，Select判断，数组</h3>
+<p><strong>专业代号的判断</strong></p>
+<pre><code>Sub 专业代号判断()
+
+Dim arr1(), arr2(), i As Integer
+
+arr1 = Range(&quot;b2:c100&quot;)               # 把range区间赋值给数组（下界为1）
+arr2 = Range(&quot;e2:f100&quot;)
+
+For i = 1 To 50
+    '判断专业代号
+    Select Case arr1(i, 1)            #  即 case = arr（），然后case去匹配
+        Case Is = &quot;理工&quot;
+            arr1(i, 2) = &quot;LG&quot;
+        Case Is = &quot;文科&quot;
+            arr1(i, 2) = &quot;WK&quot;
+        Case Is = &quot;财经&quot;
+            arr1(i, 2) = &quot;CJ&quot;
+    End Select
+    
+    '判断性别
+       Select Case arr2(i, 1)
+           Case Is = &quot;男&quot;
+               arr2(i, 2) = &quot;先生&quot;
+           Case Is = &quot;女&quot;
+               arr2(i, 2) = &quot;女士&quot;
+           Case Is = &quot;&quot;
+        GoTo line                     #  GoTo 跳到指定位置，跳出整个循环
+       End Select
+
+Next
+
+line:
+Range(&quot;b2:c100&quot;) = arr1               #  把数组的值再返回到range区间
+Range(&quot;e2:f100&quot;) = arr2
+
+End Sub
+</code></pre>
+<p>这个例子不需要用到数组，此为是为了尝试使用数组。</p>
+<h3 id="if-else-与-select-case-的比较">If Else 与 Select Case 的比较</h3>
+<p>个人个税计算练习</p>
+<h4 id="if-else">If Else</h4>
+<pre><code>Sub eachif判断()
+
+Dim rng As Range
+Dim i As Integer
+Dim x As Long
+
+i = 1
+
+For Each rng In Range(&quot;c2:c1000&quot;)               # 使用 for each,且使用单元格属性的rng
+    
+    If rng = &quot;&quot; Then                            # 判断是否有数据，是否继续运行
+        GoTo line1
+    End If
+    
+    x = rng - 3500
+    i = i + 1
+    If x &gt; 80000 Then                           # if条件判断，从上到下顺序，逐一判断
+            Range(&quot;f&quot; &amp; i) = x * 0.45 - 13505
+        ElseIf x &gt; 55000 Then
+            Range(&quot;f&quot; &amp; i) = x * 0.35 - 5505
+        ElseIf x &gt; 35000 Then
+            Range(&quot;f&quot; &amp; i) = x * 0.3 - 2755
+        ElseIf x &gt; 9000 Then
+            Range(&quot;f&quot; &amp; i) = x * 0.25 - 1005
+        ElseIf x &gt; 4500 Then
+            Range(&quot;f&quot; &amp; i) = x * 0.2 - 555
+        ElseIf x &gt; 1500 Then
+            Range(&quot;f&quot; &amp; i) = x * 0.1 - 105
+        ElseIf x &gt; 0 Then
+            Range(&quot;f&quot; &amp; i) = x * 0.3
+        ElseIf x &lt; 0 Then
+            Range(&quot;f&quot; &amp; i) = 0
+    End If
+Next
+
+line1:
+
+End Sub
+</code></pre>
+<h4 id="select-case">Select Case</h4>
+<pre><code>Sub eachselect判断()
+
+Dim rng As Range
+Dim x As Long
+Dim i As Integer
+
+i = 1
+
+For Each rng In Range(&quot;c2:c1000&quot;)             # 使用 for each,且使用单元格属性的rng
+
+    If rng = &quot;&quot; Then                          # 判断是否有数据，是否继续运行
+       GoTo 300
+    End If
+    
+    '判断范围 
+    x = rng - 3500
+    i = i + 1
+    Select Case x                            # Select匹配判断，从上到下顺序，逐一判断
+        Case Is &gt; 80000
+            Range(&quot;e&quot; &amp; i) = x * 0.45 - 13505
+        Case Is &gt; 55000
+            Range(&quot;e&quot; &amp; i) = x * 0.35 - 5505
+        Case Is &gt; 35000
+            Range(&quot;e&quot; &amp; i) = x * 0.3 - 2755
+        Case Is &gt; 9000
+            Range(&quot;e&quot; &amp; i) = x * 0.25 - 1005
+        Case Is &gt; 4500
+            Range(&quot;e&quot; &amp; i) = x * 0.2 - 555
+        Case Is &gt; 1500
+            Range(&quot;e&quot; &amp; i) = x * 0.1 - 105
+        Case Is &gt; 0
+            Range(&quot;e&quot; &amp; i) = x * 0.03
+        Case Is &lt; 0
+            Range(&quot;e&quot; &amp; i) = 0
+    End Select
+Next
+
+300
+    
+End Sub
+</code></pre>
+<h4 id="if课件原代码">If课件原代码</h4>
+<pre><code>Sub 测试()
+
+Dim rng1 As Range
+Dim x As Integer
+
+For Each rng1 In Range(&quot;c2:c100&quot;)
+     If rng1 = &quot;&quot; Then
+       Exit For
+     End If
+    
+    x = x + 1
+     If rng1 &lt;= 3500 Then
+            Range(&quot;d&quot; &amp; x + 1) = 0
+       ElseIf rng1 &gt; 3500 And rng1 &lt;= 3500 + 1500 Then
+            Range(&quot;d&quot; &amp; x + 1) = rng1 * 3 - 0
+       ElseIf rng1 &gt; 3500 + 1500 And rng1 &lt;= 3500 + 4500 Then
+            Range(&quot;d&quot; &amp; x + 1) = rng1 * 10 - 105
+       ElseIf rng1 &gt; 3500 + 4500 And rng1 &lt;= 3500 + 9000 Then
+            Range(&quot;d&quot; &amp; x + 1) = rng1 * 20 - 555
+       ElseIf rng1 &gt; 3500 + 9000 And rng1 &lt;= 3500 + 35000 Then
+            Range(&quot;d&quot; &amp; x + 1) = rng1 * 25 - 1005
+       ElseIf rng1 &gt; 3500 + 35000 And rng1 &lt;= 3500 + 55000 Then
+            Range(&quot;d&quot; &amp; x + 1) = rng1 * 30 - 2755
+       ElseIf rng1 &gt; 3500 + 55000 And rng1 &lt;= 3500 + 80000 Then
+            Range(&quot;d&quot; &amp; x + 1) = rng1 * 35 - 5505
+       ElseIf rng1 &gt; 3500 + 80000 Then
+            Range(&quot;d&quot; &amp; x + 1) = rng1 * 45 - 13505
+    End If
+Next
+
+End Sub
+</code></pre>
+<h3 id="总结">总结</h3>
+<p><strong>For</strong> ：适合于有限次数，如2 to 100 ，即99次。step 为步距，<code>step -1</code>，则为负步距。<br>
+<strong>For Each</strong>：适合只知道范围，但是不知道具体次数</p>
+<p><strong>If Else</strong> ： 适合条件范围判断<br>
+<strong>Select Case</strong> ： 适合具体数据匹配判断<br>
+判断顺序由高到低，最高层为唯一限定条件，会影响后继的判断。后继判断必须在上层以外（或者上层是下层的子集）。</p>
+<h2 id="第3讲-工作表">第3讲 -- 工作表</h2>
+<h3 id="基本内容">基本内容</h3>
+<p><strong>对象</strong>：worksheet , workbook , range  #工作本，工作薄，单元格<br>
+<strong>属性</strong>：Count  , Name<br>
+<strong>方法</strong>：Select , Add , Delete , Copy</p>
+<h3 id="对象-sheets1">对象 sheets(1)</h3>
+<pre><code class="language-co">工作表：sheet1, sheets(“1月”)，sheets(1) 。表的三种形式
+单元格：[a1],Range(&quot;a1&quot;)，Cell（1,1）都表示单元格a1，但Range，Cells可以使用i，作为变量使用。
+工作表类型：sheet包含worksheet, chart, Ms Excel.
+</code></pre>
+<h3 id="属性-countname">属性 Count,Name</h3>
+<pre><code>Count: Sheets.Count    # 计算表格的数目
+Name: Sheets(1).Name   # 表格Sheets（1）的名字
+DisplayAlerts          # 警告显示框的属性 Application.DisplayAlerts
+</code></pre>
+<h3 id="方法-selectadddeletecopy">方法 Select,Add,Delete,Copy</h3>
+<pre><code>Delete: Sheets(1).Delete          # Application.DisplayAlerts = False ( True ) 连用， 隐藏跳出窗口
+Select: Sheets(1).Select          # 选择Sheets( 1 )
+Add: Sheets.Add after:=sheets(1)  # 给参数赋值: 参数名:=? , add 的默认参数为before:=sheets(1)
+Copy: Sheets(1).Copy              # 会直接新建文件复制（需保存）。因此一般加参数after:= sheets(?)
+</code></pre>
+<p><strong>注意Add与Copy的区别</strong>：Add是新建，是空白的工作表。Copy是复制，是原有的表格。前者会在同一个表格，后者默认会新建文件。</p>
+<h2 id="第4课-工作薄">第4课 -- 工作薄</h2>
+<p><strong>Workbooks 方法</strong><br>
+Open，（Active），Save，SaveAs，Close</p>
+<p><strong>Workbooks 与 Workbook的区别</strong><br>
+Workbooks：不具体指定某个工作薄（带复数，一种类型，群体）<br>
+Workbook：具体指定那个工作薄（特定，具体个体）</p>
+<p><strong>Application属性</strong><br>
+Application. ScreenUpdating = False ： 关闭屏幕更新<br>
+Application. DisplayAlerts = False ： 关闭警告显示框</p>
+<h3 id="openactivesaveclose">Open,Active,Save,Close</h3>
+<pre><code>Sub test()
+
+Application.DisplayAlerts = False                  # 关闭显示框提示
+Application.ScreenUpdating = False                 # 关闭屏幕更新
+
+Workbooks.Open Filename:=&quot;d;\data\1.xlsx&quot;          # 打开文件
+ActiveWorkbook.Sheets(1).Range(&quot;a1&quot;) = &quot;到此一游&quot;   # Activeworkbook,当前活动工作薄
+ActiveWorkbook.Save                                # 当前活动工作薄保存
+Activeworkbool.Close                               # 当前活动工作薄关闭
+
+Application.DisplayAlerts = True                   # 打开显示框提示
+Application.ScreenUpdating = True                  # 打开显示框提示
+
+End Sub
+</code></pre>
+<h3 id="addsaveascopy">Add,SaveAS,Copy</h3>
+<pre><code>Sub test()
+Dim sht As Worksheet
+
+For Each sht In Sheets
+    sht.Copy                                                         # Copy自动生成表格
+    ActiveWorkbook.SaveAs Filename:=&quot;d:\data\&quot; &amp; sht.Name &amp; &quot;.xlsx&quot;  # 另存为文件
+    ActiveWorkbook.Close                                             # 关闭表格
+Next
+
+End Sub
+</code></pre>
+<p><strong>Workbooks. Add</strong>：会自动生成一张空白工作薄<br>
+<strong>sheets(1).Copy</strong>：会自动生成一张空白工作薄,复制到工作薄<br>
+<strong>Save与SaveAs</strong>：<code>Save</code>直接保存到”文档“，<code>SaveAs</code>可以保存到指定路径(不保存到”文档“)。</p>
+<h3 id="总结-2">总结</h3>
+<p>特别需要注意以下几点：</p>
+<pre><code>Sheets.Add           # 在当前的工作薄生成
+Sheets(1).Copy       # 没有指定路径，会生成新的工作薄
+Workbooks.Add        # 生成新的工作薄，默认路径为”文档“。需另存为SaveAs
+没有Workbooks.Copy   # 没有学过工作薄复制
+</code></pre>
+<h2 id="第5课-单元格">第5课 -- 单元格</h2>
+<h3 id="表达方式">表达方式</h3>
+<pre><code>[A1]：不支持变量
+Cells(1,1)：只能表示一个格子
+Range(&quot;A1&quot;)：常用，可以表一个要格子也能是范围
+Range(&quot;A1:K1&quot;).Offset(2,1)：区域偏移后选择
+</code></pre>
+<h3 id="常用属性-offset-endedxlupentirerow-resize">常用属性--Offset、Ended（xlUp），EntireRow、Resize</h3>
+<pre><code>Value（值）,Text（内容文字）
+
+Offset 偏移:range(&quot;a1&quot;).offset(10,0)
+End(xlUp) 边界:已有数据的边界，此单元格必有数据或者是边界第1行或最后1行
+                常用例子Range(&quot;a65536&quot;).End (xlUp) ，Range(&quot;a65536&quot;).End (xlUp) .Row
+                End(xlDown),End(xltoLeft),End(xltoRight)
+
+Resize 重新选区:range(&quot;a10&quot;).resize(1,10)，相当于range(&quot;a10 : j10&quot;)
+EntireRow 整行:range(&quot;a10&quot;).EntireRow
+
+Row（行号），Column(列号)
+</code></pre>
+<h3 id="常用操作-select-delete-copy-clear-autofilter">常用操作--Select、Delete、Copy、Clear、Autofilter</h3>
+<pre><code>Select（选中）
+Delete（删除）
+Copy（复制）: Range(&quot;a1:a10&quot;) copy Range(&quot;b1&quot;)  # [b1]为目的位置
+Clean（清除内容和格式），ClearContents(清空内容) ，ClearFormats(清除格式)
+AutoFilter(自动筛选)
+</code></pre>
+<pre><code>Sub 拆分表格()
+Dim i As Integer, j As Integer, k As Integer
+
+Call 清空
+
+For j = 2 To Sheets.Count
+    For i = 2 To Range(&quot;a65536&quot;).End(xlUp).Row
+        If Sheets(1).Range(&quot;d&quot; &amp; i) = Sheets(j).Name Then
+            k = Sheets(j).Range(&quot;a65536&quot;).End(xlUp).Row
+            Range(&quot;d&quot; &amp; i).EntireRow.Copy Sheets(j).Range(&quot;a&quot; &amp; k + 1)
+        End If
+    Next
+Next
+End Sub
+-----------------------------------------------------------------
+Sub 清空()
+Dim i As Integer
+For i = 2 To Sheets.Count
+    Sheets(i).Range(&quot;a2:f10000&quot;).Clear
+Next
+End Sub
+</code></pre>
+<h3 id="总结-3">总结</h3>
+<pre><code>需要理解 &amp; 记住写法 的概念
+Range(&quot;A1&quot;)
+Range(&quot;A1&quot;).Offset(2,1)
+Range(&quot;a10&quot;).End(xlUp)
+Range(“A1”).resize(2,2)
+Range(“A1”).copy
+Call QK
+
+需要理解的概念
+A1]	Cells(1,1)
+Select	 Copy	Delete	ClearContents	Value	Text	Row	Column
+Range(&quot;a1&quot;).EntireRow
+Range(“a1:f100”).AutoFilter field:=4, Criteria1:=“=苏州&quot;
+</code></pre>
+<p>![](D:\softwares\Program Files\data\picture\方法属性.png)</p>
+<h2 id="第6课-单元格">第6课 -- 单元格</h2>
+<h3 id="数据拆分到多表autofilter筛选">数据拆分到多表（Autofilter筛选）</h3>
+<p><strong>判断表名，Autofilter筛选复制</strong></p>
+<p><code>Range(“a1:f100”).AutoFilter field:=4, Criteria1:=“=苏州&quot;</code></p>
+<pre><code>Sub chaifenshuju()
+Dim sht As Worksheet
+Dim k, i, j As Integer
+Dim irow As Integer  # 这个说的是一共多少行
+
+irow = Sheet1.Range(&quot;a65536&quot;).End(xlUp).Row  # 拆分表
+
+### 拆分表格 ###
+For i = 2 To irow
+    k = 0
+    For Each sht In Sheets  # 判断是否已有表名
+        If sht.Name = Sheet1.Range(&quot;d&quot; &amp; i) Then
+            k = 1
+        End If
+    Next
+    
+    If k = 0 Then  # 根据判断结果建立新工作表
+        Sheets.Add after:=Sheets(Sheets.Count)
+        Sheets(Sheets.Count).Name = Sheet1.Range(&quot;d&quot; &amp; i)
+    End If
+
+Next
+
+### 拷贝数据 ###
+For j = 2 To Sheets.Count  # 拷贝数据
+    Sheet1.Range(&quot;a1:f&quot; &amp; irow).AutoFilter Field:=4, Criteria1:=Sheets(j).Name
+    Sheet1.Range(&quot;a1:f&quot; &amp; irow).Copy Sheets(j).Range(&quot;a1&quot;)
+Next
+
+Sheet1.Range(&quot;a1:f&quot; &amp; irow).AutoFilter # 恢复没有筛选状态
+
+End Sub
+</code></pre>
+<h3 id="msgbox-与-inputbox">Msgbox 与  Inputbox</h3>
+<p>Msgbox: <code>Msgbox “你好”</code></p>
+<p>Inputbox: <code>i = Inputbox (“请输入”)</code></p>
+<pre><code>Sub 对话框()
+Dim i As String
+
+i = InputBox(&quot;请输入祝福语&quot;)
+MsgBox &quot;祝你牛年 &quot; &amp; i &amp; &quot;！ 牛气冲天！ &quot;
+
+End Sub
+</code></pre>
+<img src="D:\softwares\Program Files\data\picture\inputbox与msgbox.jpg" style="zoom:70%;" />
+<h3 id="根据部门创建表格拆分">根据部门创建表格（拆分）</h3>
+<pre><code>Sub chaifenshuju()
+
+Dim sht As Worksheet
+Dim k, i, j As Integer
+Dim irow As Integer '这个说的是一共多少行
+Dim l As Integer
+
+l = InputBox(&quot;请输入你要按哪列分&quot;)
+
+##### 删除无意义的表 #####
+Application.DisplayAlerts = False
+If Sheets.Count &gt; 1 Then
+    For Each sht1 In Sheets
+        If sht1.Name &lt;&gt; &quot;数据&quot; Then
+            sht1.Delete
+        End If
+    Next
+End If
+Application.DisplayAlerts = True '这个地方上课的时候我没改成true，请大家注意一下
+
+irow = Sheet1.Range(&quot;a65536&quot;).End(xlUp).Row
+'拆分表
+For i = 2 To irow
+    k = 0
+    For Each sht In Sheets
+        If sht.Name = Sheet1.Cells(i, l) Then
+            k = 1
+        End If
+    Next
+    
+    If k = 0 Then
+        Sheets.Add after:=Sheets(Sheets.Count)
+        Sheets(Sheets.Count).Name = Sheet1.Cells(i, l)
+    End If
+Next
+
+'拷贝数据
+For j = 2 To Sheets.Count
+    Sheet1.Range(&quot;a1:f&quot; &amp; irow).AutoFilter Field:=l, Criteria1:=Sheets(j).Name
+    Sheet1.Range(&quot;a1:f&quot; &amp; irow).Copy Sheets(j).Range(&quot;a1&quot;)
+Next
+
+Sheet1.Range(&quot;a1:f&quot; &amp; irow).AutoFilter
+
+Sheet1.Select
+
+MsgBox &quot;已处理完毕&quot;
+
+End Sub
+</code></pre>
+<h3 id="合并多个工作表合并">合并多个工作表（合并）</h3>
+<pre><code>Sub hebing()
+Dim i, j As Integer   'i是数据源表的最后一行，j是目标表(数据表)的最后一行
+Dim sht As Worksheet
+
+'先要删除所有数据
+Sheet1.Range(&quot;a1:f65536&quot;).ClearContents
+
+'复制表头
+Sheet2.Range(&quot;a1:f1&quot;).Copy Sheet1.Range(&quot;a1&quot;)
+
+'复制数据
+For Each sht In Sheets
+    If sht.Name &lt;&gt; &quot;数据&quot; Then
+        i = sht.Range(&quot;a65536&quot;).End(xlUp).Row
+        j = Sheet1.Range(&quot;a65536&quot;).End(xlUp).Row
+        sht.Range(&quot;a2:f&quot; &amp; i).Copy Sheet1.Range(&quot;a&quot; &amp; j + 1)
+    End If
+Next
+End Sub
+
+'#################################################################################################
+'隐藏任务：
+'因为工作中的表，表头不一定只有一行，能不能执行程序以前弹出inputbox，问一下用户表头有几行，然后再合并
+'如果表头有两行，则其他表数据要从第三行开始取
+'#################################################################################################
+</code></pre>
+<h3 id="总结-4">总结</h3>
+<pre><code>##### 需要理解并记住写法的概念 #####
+Msgbox “你好”
+I = Inputbox (“请输入”)
+
+##### 需要理解的概念 #####
+批量创建表时，回避表名重名问题
+</code></pre>
+<h2 id="第7课-事件与典型应用">第7课 -- 事件与典型应用</h2>
+<h3 id="with语句-单元格格式设置">With语句 -- 单元格格式设置</h3>
+<pre><code>Sub 宏4()
+    With Selection.Interior
+        .Pattern = xlSolid
+        .PatternColorIndex = xlAutomatic
+        .Color = 65535
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+End Sub
+</code></pre>
+<p>![](D:\softwares\Program Files\data\picture\with语句使用.jpg)</p>
+<h3 id="事件与典型应用">事件与典型应用</h3>
+<p><strong>自动筛选代码</strong></p>
+<p><strong>事件停止代码：</strong><code>Application.EnableEvents = False</code></p>
+<pre><code>Worksheet                                                   Change
+-------------------------------------------------------------------
+Private Sub Worksheet_Change(ByVal Target As Range)
+
+    Application.EnableEvents = False
+    Call 筛选
+    Application.EnableEvents = True
+
+End Sub
+-------------------------------------------------------------------
+Sub 筛选 ()
+    Range(&quot;l1:q10000&quot;).ClearContents
+    Range(&quot;A1:F232&quot;).AutoFilter Field:=4, Criteria1:=Range(&quot;i2&quot;)
+    Range(&quot;A1:F232&quot;).Copy Range(&quot;l1&quot;)
+    Range(&quot;A1:F232&quot;).AutoFilter
+end Sub
+</code></pre>
+<p><strong>自动更新</strong></p>
+<p><strong>刷新代码：</strong><code>RefreshAll</code></p>
+<pre><code>Worksheet                                                  Activate
+--------------------------------------------------------------------
+Private Sub Worksheet_Activate()
+	ActiveWorkbook.RefreshAll
+End Sub
+</code></pre>
+<p><strong>重要数据自动备份代码</strong></p>
+<p><strong>复制另存为：</strong><code>SaveCopyAs</code><br>
+<strong>格式代码，现在代码：</strong><code>Format(Now(), &quot;yyyymmddhhmmss&quot;)</code></p>
+<pre><code>Workbook                                                               BeforeSave
+----------------------------------------------------------------------------------
+Private Sub Workbook_BeforeSave(ByVal SaveAsUI As Boolean, Cancel As Boolean)
+	ThisWorkbook.SaveCopyAs &quot;d:\data\&quot; &amp; Format(Now(), &quot;yyyymmddhhmmss&quot;) &amp; &quot;.xls&quot;
+End Sub
+
+</code></pre>
+<p><strong>制作密码验证</strong></p>
+<p><strong>隐藏：</strong><code>sht.Visible = xlSheetVeryHidden</code><br>
+<strong>显示：</strong><code>Sht.Visible = xlSheetVisible</code></p>
+<pre><code>Workbook                                      BeforeClose                  
+---------------------------------------------------------
+Private Sub Workbook_BeforeClose(Cancel As Boolean)
+Dim sht As Worksheet
+'隐藏所有表
+For Each sht In Sheets
+    If sht.Name &lt;&gt; &quot;登录界面&quot; Then
+        sht.Visible = xlSheetVeryHidden
+    End If
+Next
+End Sub
+----------------------------------------------------------
+Private Sub Workbook_Open()
+Dim i
+
+i = InputBox(&quot;请输入密码&quot;)
+
+If i = &quot;123&quot; Then
+    Sheet1.Visible = xlSheetVisible
+    Sheet2.Visible = xlSheetVisible
+    Sheet3.Visible = xlSheetVisible
+ElseIf i = &quot;456&quot; Then
+    Sheet4.Visible = xlSheetVisible
+    Sheet5.Visible = xlSheetVisible
+    Sheet6.Visible = xlSheetVisible
+Else
+    MsgBox &quot;密码输入错误&quot;
+    ThisWorkbook.Close
+End If
+        
+End Sub
+</code></pre>
+<p>![](D:\softwares\Program Files\data\picture\工作事件薄3.jpg)</p>
+<h3 id="总结-5">总结</h3>
+<p><strong>需要理解并记住写法的概念</strong></p>
+<pre><code>Application.EnableEvents = False    ThisWorkbook.SaveCopyAs
+Format()  Now()
+</code></pre>
+<p><strong>需要理解的概念</strong></p>
+<pre><code>Sheet1.Visible = xlSheetVeryHidden
+Sheet1.Visible = xlSheetVisble
+</code></pre>
+<h2 id="第8课-函数使用公式">第8课 -- 函数（使用公式）</h2>
+<h3 id="工作表函数worksheetfunction">工作表函数（WorksheetFunction）</h3>
+<p><strong>Application.WorksheetFunction：所有工作表函数公式的集合</strong></p>
+<pre><code>CountA（计算非空值），CountIf（条件计算），VLookup（查找）
+k = Application.WorksheetFunction.CountA(Sheets(i).Range(&quot;a:a&quot;)) 
+l = Application.WorksheetFunction.CountIf(Sheets(i).Range(&quot;f:f&quot;), &quot;男&quot;)
+m = Application.WorksheetFunction.CountIf(Sheets(i).Range(&quot;f:f&quot;), &quot;女&quot;)
+</code></pre>
+<h3 id="错误回避on-error">错误回避（On Error）</h3>
+<p>**On Error Resume 或 GoTo ：**如果发生错误，“继续进行”或“跳到那行”<br>
+<strong>On Error Resume Next</strong> （在For循环使用）</p>
+<p><strong>考生成绩统计&amp;查询系统</strong></p>
+<pre><code>Sub chaxun()
+
+On Error Resume Next
+
+Sheet1.Range(&quot;d14&quot;).ClearContents
+
+For i = 2 To Sheets.Count
+    Sheet1.Range(&quot;d14&quot;) = Application.WorksheetFunction.VLookup(Sheet1.Range(&quot;d9&quot;), Sheets(i).Range(&quot;a:h&quot;), 5, 0)
+    Sheet1.Range(&quot;d16&quot;) = Application.WorksheetFunction.VLookup(Sheet1.Range(&quot;d9&quot;), Sheets(i).Range(&quot;a:h&quot;), 6, 0)
+    Sheet1.Range(&quot;d18&quot;) = Application.WorksheetFunction.VLookup(Sheet1.Range(&quot;d9&quot;), Sheets(i).Range(&quot;a:h&quot;), 3, 0)
+    Sheet1.Range(&quot;d20&quot;) = Application.WorksheetFunction.VLookup(Sheet1.Range(&quot;d9&quot;), Sheets(i).Range(&quot;a:h&quot;), 8, 0)
+    Sheet1.Range(&quot;d22&quot;) = Sheets(i).Name 
+
+    If Sheet1.Range(&quot;d14&quot;) &lt;&gt; &quot;&quot; Then
+        Exit For
+    End If
+
+Next
+End Sub
+</code></pre>
+<h3 id="vba函数vba">VBA函数（VBA）</h3>
+<p><code>IsNumeri</code>：判断运算结果是否为数值。<br>
+<code>val</code>：返回包含于字符串内的数字，字符串中是一个适当类型的数值。<br>
+<code>InStr</code>：寻找字节在数据中的第几位。<br>
+<code>Split</code>：切片函数。<strong>结果数组以0开始</strong></p>
+<p><strong>提取年份和周的信息</strong></p>
+<pre><code>Sub 提取()
+
+On Error Resume Next
+For i = 2 To Sheet2.Range(&quot;a65536&quot;).End(xlUp).Row
+    Sheet2.Range(&quot;b&quot; &amp; i) = Split(Sheet2.Range(&quot;a&quot; &amp; i), &quot;-&quot;)(2) &amp; &quot;年 第&quot; &amp; Split(Sheet2.Range(&quot;a&quot; &amp; i), &quot;-&quot;)(3) &amp; &quot;周&quot;
+Next
+End Sub
+----------------结果------------------------
+产品信息	提取年份和周的信息
+PW-023-2015-37-001	2015年 第37周
+YF-03-2015-19-001	2015年 第19周
+wqwqw	
+qwd	
+PW-004-2015-21-002	2015年 第21周
+</code></pre>
+<p><strong>转化日期 -- DateSerial , Left , Mid</strong></p>
+<pre><code>Sub 转化()
+
+With Sheet1
+    For i = 2 To .Range(&quot;a65536&quot;).End(xlUp).Row
+        .Range(&quot;b&quot; &amp; i) = DateSerial(Left(.Range(&quot;a&quot; &amp; i), 4), Mid(.Range(&quot;a&quot; &amp; i), 5, 2), Right(.Range(&quot;a&quot; &amp; i), 2))
+    Next
+End With
+End Sub
+-------------------------------------------------------
+假日期	     转化为日期格式
+20140808	2014/8/8
+20160926	2016/9/26
+</code></pre>
+<p><strong>提取身份证号码 -- DateSerial , Left , Mid</strong></p>
+<pre><code>Sub 提取身份证号码()
+With Sheet2
+    For i = 2 To .Range(&quot;a65536&quot;).End(xlUp).Row
+        .Range(&quot;b&quot; &amp; i) = DateSerial(Mid(.Range(&quot;a&quot; &amp; i), 7, 4), Mid(.Range(&quot;a&quot; &amp; i), 11, 2), Mid(.Range(&quot;a&quot; &amp; i), 13, 2))
+    Next
+End With
+End Sub
+----------------------------------------------------------
+身份证	              生日
+420203198808089201	1988/8/8
+220938199009268643	1990/9/26
+
+</code></pre>
+<h3 id="总结-6">总结</h3>
+<pre><code>需要理解并记住写法的概念
+InStr()--位置   IsNumeric()--判断
+Split()--切片   Val()--转化
+On Error Resume Next
+
+需要理解的概念
+Countif  Vlookup这些函数如何在VBA里调用：Application.WorksheetFunction
+</code></pre>
+<p>![](D:\softwares\Program Files\data\picture\常用变量与VBA函数.jpg)</p>
+<h2 id="第9课-自定义函数和带参数过程">第9课 -- 自定义函数和带参数过程</h2>
+<h3 id="创建自定义函数function">创建自定义函数（Function）</h3>
+<p><strong>Function A  ( )</strong></p>
+<p><strong>日期抓换与提取生日</strong></p>
+<pre><code>Sub 转化()
+With Sheet1
+    For i = 2 To .Range(&quot;a65536&quot;).End(xlUp).Row
+        .Range(&quot;b&quot; &amp; i) = rqzh(Range(&quot;a&quot; &amp; i))
+    Next
+End With
+End Sub
+-----------------------------------------------------------------
+Sub 提取生日()
+With Sheet2
+    For i = 2 To .Range(&quot;a65536&quot;).End(xlUp).Row
+        .Range(&quot;b&quot; &amp; i) = rqzh(Mid(Range(&quot;a&quot; &amp; i), 7, 8))
+    Next
+End With
+End Sub
+-----------------------------------------------------------------
+Function rqzh(str As String) # 日期转换公式函数
+	rqzh = DateSerial(Left(str, 4), Mid(str, 5, 2), Right(str, 2))
+End Function
+</code></pre>
+<p><strong>在工作表中调用VBA函数</strong></p>
+<pre><code>Function jqzf(str As String, str1 As String, i As Integer)
+	jqzf = Split(str, str1)(i - 1)
+End Function
+</code></pre>
+<h3 id="创建带参数的过程sub">创建带参数的过程（Sub）</h3>
+<p>**Sub过程：**是一组动作，操作<br>
+**函数：**是运算<br>
+**共同点：**带参数，就可以在其他过程中被调用</p>
+<p><strong>Sub 创建表的函数调用</strong></p>
+<pre><code>Sub 创建表(str As String)
+Dim sht As Worksheet
+
+    For Each sht In Sheets
+        If sht.Name = str Then
+            k = 1
+        End If
+    Next
+
+    If k = 0 Then
+        Sheets.Add after:=Sheets(Sheets.Count)
+        Sheets(Sheets.Count).Name = str
+    End If
+    
+End Sub
+-------------------------------------------------
+Sub abc1()
+    Call cjb(Sheet1.Range(&quot;a1&quot;))
+    Sheet1.Select
+End Sub
+-------------------------------------------------
+Sub abc2()
+    Call cjb(Sheet2.Range(&quot;a8&quot;))
+    Sheet2.Select
+End Sub
+</code></pre>
+<h3 id="使用加载宏工具">使用加载宏工具</h3>
+<p><strong>STEP1 把代码放在“代码库”里</strong></p>
+<p>新建代码文件 -- 另存为 -- Excel 97-2003 加载宏（.xla）或者 Excel 97-2003 加载宏（.xlam）-- 代码库地址<br>
+代码库地址（默认唯一承认地址）：C:\Users\G.E\AppData\Roaming\Microsoft\AddIns</p>
+<p><strong>STEP2 告诉Excel每次打开文件都加载</strong><br>
+开发工具 -- 加载项 -- 加载（选择相应的宏）</p>
+<p><strong>STEP3 设置宏按钮</strong><br>
+文件 -- 选项 -- 快速访问工具栏 -- 常用命令 -- 宏</p>
+<p><strong>代码库 与 函数库</strong><br>
+可以把相应的代码跟函数加载到库里面，方便调用。<br>
+删除库时，需要在Step2中，把库的“勾选”取消，取消加载调用。</p>
+<h3 id="总结-7">总结</h3>
+<pre><code>--------需要理解并记住写法的概念----------
+Function ZMJ()
+
+-------------需要理解的概念--------------
+什么是函数 
+为什么要有带参数的过程，带参数的过程如何调用
+如何设置加载宏
+</code></pre>
+<h2 id="第10课-dir函数打开跨文件函数">第10课 -- Dir函数（打开跨文件函数）</h2>
+<h3 id="将对象赋值到变量">将对象赋值到变量</h3>
+<p><strong>把一个对象赋值到一个变量里：<strong>Set sht = Sheets.Add。对象赋值用</strong>Set</strong></p>
+<h3 id="认识dir函数">认识Dir函数</h3>
+<p><strong>Dir :</strong><br>
+1 验证是否有该文件<br>
+2 把文件名值返回到单元格，或对象赋值到变量中<br>
+3 “ * ”返回第1个文件，之后第2个……最后一个为空，之后“错误”</p>
+<p><strong>Dir标准化代码（通用代码 -- 壳子）：打开文件夹文件</strong></p>
+<pre><code>Sub 打开文件()
+Dim str As String
+Dim wb As Workbook
+
+str = Dir(&quot;d:\data\*.xls*&quot;)  # 通识符，包含xls的文件
+
+For i = 1 To 100
+    Set wb = Workbooks.Open(&quot;d:\data\&quot; &amp; str)
+    ..............包含代码................
+    wb.Close
+    str = Dir 
+    If str = &quot;&quot; Then
+        Exit For
+    End If
+Next
+
+End Sub
+</code></pre>
+<p><strong>多文件合并（打开文件并根据文件名工作表命名）</strong></p>
+<pre><code>Sub 文件合并()
+Dim str As String
+Dim wb As Workbook
+Dim sht As Worksheet
+
+str = Dir(&quot;d:\data\*.xls*&quot;)  # 打开文件夹文件
+
+For i = 1 To 100
+    Set wb = Workbooks.Open(&quot;d:\data\&quot; &amp; str) # 对象赋值
+    For Each sht In wb.Sheets
+        sht.Copy after:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count) # 赋值工作表
+        ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count).Name = Split(wb.Name, &quot;.&quot;)(0) &amp; sht.Name # 工作表命名
+    Next
+    wb.Close         # 关闭工作文件
+    str = Dir        # 打开下一个文件
+    If str = &quot;&quot; Then  # 判断是不是最后一个文件，决定退出循环
+        Exit For
+    End If
+Next
+End Sub
+</code></pre>
+<h3 id="find函数">Find函数</h3>
+<p><strong>Find 通用性代码</strong></p>
+<pre><code>Sub test()
+Dim rng As Range
+
+Set rng = Range(&quot;d:d&quot;).Find(Range(&quot;l3&quot;))
+    If Not rng Is Nothing Then            # 如果rng is nothing 是NOt
+        Range(&quot;m3&quot;) = rng.Offset(0, 3)
+    End If
+
+End Sub
+</code></pre>
+<h3 id="总结-8">总结</h3>
+<p><strong>需要理解并记住写法的概念</strong></p>
+<pre><code>SET sht = sheet1
+Dir (“D:\data\*.*”)
+Range(“a:a”).find（“张三”)
+</code></pre>
+<h2 id="第11课-数组">第11课 -- 数组</h2>
+<h3 id="vba数组及常用操作">VBA数组及常用操作</h3>
+<p>什么是数组：一组变量，能大幅度提升速度<br>
+如何定义数组<br>
+动态数组与静态数组<br>
+计算数组大小<strong>Ubound</strong>和<strong>Lbound</strong><br>
+重定义数组大小<strong>ReDim [Preserve] Arr(10)</strong></p>
+<h3 id="应用实例解析">应用实例解析</h3>
+<p>如何将区域赋值给数组<br>
+数组的维度<br>
+给数组赋值与取值</p>
+<p><strong>查找销量冠军--动态数组</strong></p>
+<pre><code>Sub test()
+Dim arr()
+Dim j, i As Integer
+
+j = Range(&quot;a65536&quot;).End(xlUp).Row - 1
+
+ReDim arr(1 To j)
+
+For i = 1 To j
+    arr(i) = Range(&quot;b&quot; &amp; i + 1) * Range(&quot;c&quot; &amp; i + 1)
+Next
+
+Range(&quot;h3&quot;) = Application.WorksheetFunction.Max(arr)
+Range(&quot;h2&quot;) = Range(&quot;a&quot; &amp; Application.WorksheetFunction.Match(Range(&quot;h3&quot;), arr, 0) + 1)
+
+MsgBox LBound(arr)
+
+End Sub
+</code></pre>
+<h3 id="总结-9">总结</h3>
+<p><strong>具体可以参看另一篇VBA的数组笔记</strong></p>
+<p><strong>需要理解并记住写法的概念</strong></p>
+<pre><code>Dim Arr() As String
+Range(“a1”)=Arr(2,1)
+Arr=Range(“a1:b10”)
+</code></pre>
+<p><strong>需要理解的概念</strong></p>
+<pre><code>什么是数组         Dim Arr(10，2) 
+Ubound和Lbound    ReDim [Preserve]  Arr(10) 
+使用数组的优势
+Timer             GOTO 100
+</code></pre>
+<h2 id="第12课-activex控件">第12课 -- ActiveX控件</h2>
+<h3 id="activex控件与表单控件">ActiveX控件与表单控件</h3>
+<h3 id="按钮控件-commandbutton">按钮控件 -- CommandButton</h3>
+<p><strong>常用属性</strong></p>
+<pre><code>Caption 标题
+Enabled 可用性
+Visible 可见性
+---------------------------------------------------------------------------------------------------
+Sub test1()
+    Sheet1.CommandButton1.Caption = &quot;结束&quot;
+    Sheet1.CommandButton1.Enabled = False
+    Sheet1.CommandButton1.Visible = False
+End Sub
+-- CommandButton ------------------------------- MouseMove -----------------# 事件--鼠标悬浮移动 # 
+Sub 鼠标悬浮移动()
+    Sheet1.CommandButton1.Top = Sheet1.CommandButton1.Top + Sheet1.CommandButton1.Height 
+End Sub
+</code></pre>
+<h3 id="标签控件-label-a">标签控件 -- Label （A）</h3>
+<p><strong>常用属性</strong></p>
+<pre><code>Caption 标题
+Enabled 可用性
+Visible 可见性
+---------------------------------------------------------------------------------
+Sub test1()
+    Sheet1.Label1.Caption = &quot;ABCD&quot;
+    Sheet1.Label1.Visible = False
+End Sub
+</code></pre>
+<h3 id="单选按钮控件-optionbutton">单选按钮控件 -- OptionButton</h3>
+<p><strong>常用属性</strong></p>
+<pre><code>Caption 标题
+Enabled 可用性
+Visible 可见性
+GroupName 组名
+Value 返回值
+-----------------------------------------------------------------------------------
+Sub test()
+    If Sheet1.OptionButton1.Value = True Then
+        MsgBox &quot;男性&quot;
+    ElseIf Sheet1.OptionButton2.Value = False Then
+        MsgBox &quot;女性&quot;
+    Else
+        MsgBox &quot;未选择性别&quot;
+    End If
+End Sub
+</code></pre>
+<h3 id="微调按钮控件-spinbutton">微调按钮控件 -- SpinButton</h3>
+<p><strong>常用属性</strong></p>
+<pre><code>Enabled 可用性
+Visible 可见性
+Value 返回值         # 一般与事件Click连用，返回值
+Min 最小值
+Max最大值
+---------------------------------------------------------------------------------
+Sub test()
+    Sheet1.SpinButton1.Min = 1
+    Sheet1.SpinButton1.Max = 10
+    Range(&quot;a1&quot;) = Sheet1.SpinButton1.Value
+End Sub
+</code></pre>
+<p>随堂小测--代码</p>
+<pre><code>Private Sub CommandButton3_Click()
+Call chengji
+End Sub
+---------------------------------------------------------
+Private Sub OptionButton1_Click()
+Sheet3.Range(&quot;g&quot; &amp; Sheet2.SpinButton1.Value + 1) = &quot;A&quot;
+End Sub
+---------------------------------------------------------
+Private Sub OptionButton2_Click()
+Sheet3.Range(&quot;g&quot; &amp; Sheet2.SpinButton1.Value + 1) = &quot;B&quot;
+End Sub
+---------------------------------------------------------
+Private Sub OptionButton3_Click()
+Sheet3.Range(&quot;g&quot; &amp; Sheet2.SpinButton1.Value + 1) = &quot;C&quot;
+End Sub
+---------------------------------------------------------
+Private Sub OptionButton4_Click()
+Sheet3.Range(&quot;g&quot; &amp; Sheet2.SpinButton1.Value + 1) = &quot;D&quot;
+End Sub
+---------------------------------------------------------
+Private Sub SpinButton1_Change()
+Call xieru
+End Sub
+----------------------------------------------------主要代码-----------------------------------
+Sub xieru()
+Dim i As Integer '题号
+
+i = Sheet2.SpinButton1.Value
+
+'写入数据
+
+With Sheet2
+    '清空单选按钮
+    .OptionButton1.Value = False
+    .OptionButton2.Value = False
+    .OptionButton3.Value = False
+    .OptionButton4.Value = False
+    '写入题目
+    .Label2.Caption = i
+    .Label3 = Sheet3.Range(&quot;a&quot; &amp; i + 1)
+    .Label4 = Sheet3.Range(&quot;b&quot; &amp; i + 1)
+    .Label5 = Sheet3.Range(&quot;c&quot; &amp; i + 1)
+    .Label6 = Sheet3.Range(&quot;d&quot; &amp; i + 1)
+    .Label7 = Sheet3.Range(&quot;e&quot; &amp; i + 1)
+    '查看是否有CD两个选项
+    If .Label6.Caption = &quot;&quot; Then
+       .OptionButton3.Visible = False
+    Else
+        .OptionButton3.Visible = True
+    End If
+    
+    If .Label7.Caption = &quot;&quot; Then
+       .OptionButton4.Visible = False
+    Else
+        .OptionButton4.Visible = True
+    End If
+    '返回之前的答案
+    If Sheet3.Range(&quot;g&quot; &amp; i + 1) = &quot;A&quot; Then
+        .OptionButton1.Value = True
+    ElseIf Sheet3.Range(&quot;g&quot; &amp; i + 1) = &quot;B&quot; Then
+        .OptionButton2.Value = True
+    ElseIf Sheet3.Range(&quot;g&quot; &amp; i + 1) = &quot;C&quot; Then
+        .OptionButton3.Value = True
+    ElseIf Sheet3.Range(&quot;g&quot; &amp; i + 1) = &quot;D&quot; Then
+        .OptionButton4.Value = True
+    End If
+    
+End With
+
+End Sub
+-------------------------------------------------------------------
+Sub csh()
+Sheet2.SpinButton1.Max = Sheet3.Range(&quot;a65536&quot;).End(xlUp).Row - 1
+End Sub
+--------------------------------------------------------------------
+Sub chengji()
+Dim i, k As Integer
+For i = 1 To Sheet2.SpinButton1.Max
+    If Sheet3.Range(&quot;g&quot; &amp; i + 1) = Sheet3.Range(&quot;f&quot; &amp; i + 1) Then
+        k = k + 1
+    End If
+Next
+</code></pre>
+<h3 id="总结-10">总结</h3>
+<p><strong>需要理解并记住写法的概念</strong></p>
+<pre><code>Enabled   Value    Visible  Caption
+</code></pre>
+<p><strong>需要理解的概念</strong></p>
+<pre><code>什么是控件
+控件的各类事件
+CommandButton （按钮）    OptionButton（单选按钮）    Label （标签）    SpinButton （微调按钮）  
+</code></pre>
+<h2 id="第13课-窗体与控件">第13课 -- 窗体与控件</h2>
+<h3 id="窗体-uerform">窗体 -- UerForm</h3>
+<p><strong>创建窗体</strong></p>
+<pre><code>右键 -- 插入“用户窗体”
+</code></pre>
+<p><strong>窗体属性</strong></p>
+<pre><code>Caption 标题
+Enabled 可用性
+Visible 可见性
+ShowModal 显示模式
+</code></pre>
+<p><strong>窗体方法</strong></p>
+<pre><code>ShowModal 显示模式：Show 显示  Hide 隐藏
+</code></pre>
+<p><strong>窗体事件</strong></p>
+<pre><code>UserForm_Activate 激活
+UserForm_QueryClose 退出
+</code></pre>
+<p><strong>窗体的显示及Excel表格的隐藏</strong></p>
+<pre><code>--- Workbook ------------------------------------------- Open ----- # 打开Excel时，显示窗体
+Private Sub Workbook_Open()
+User Form.Show
+End Sub
+</code></pre>
+<pre><code>--- UserForn------------------------------------------ Activate ---- # 激活窗体时，Excel隐藏
+Private Sub UserForm_Activate()
+Application.Visible = False
+End Sub
+--- UserForn ---------------------------------------- QueryClose ---- # 关闭窗体时，Excel退出
+Private Sub UserForm_QueryClose(Cancel As Integer, CloseMode As Integer)
+Application.Quit                                                      # 退出Excel时，应保存数据
+End Sub
+</code></pre>
+<p><strong>注意：通常退出Excel前，先保存Excel文件</strong></p>
+<h3 id="文本框-textbox">文本框 -- TextBox</h3>
+<p><strong>文本框（TextBox）与标签框（Label）的区别</strong></p>
+<pre><code>TextBox给用户输入文字。Label是标签，内容不能改。
+</code></pre>
+<p><strong>TexBox属性</strong></p>
+<pre><code>Enabled 可用性
+Visible 可见性
+Value 返回值
+PasswordChar 密码字符      #设置密码时，密码不可见，显示的字符
+TabIndex 按下Tab键时的切换顺序
+</code></pre>
+<p><strong>用户登录界面</strong></p>
+<pre><code>Private Sub CommandButton1_Click()
+
+If UserForm1.TextBox1.Value = &quot;张三&quot; And UserForm1.TextBox2.Value = &quot;123&quot; Then
+    Sheet2.Unprotect Password:=&quot;test&quot;
+    Sheet2.Visible = xlSheetVisible
+    Me.Hide
+ElseIf UserForm1.TextBox1.Value = &quot;李四&quot; And UserForm1.TextBox2.Value = &quot;0000&quot; Then
+    Sheet3.Unprotect Password:=&quot;test&quot;
+    Sheet3.Visible = xlSheetVisible
+    Me.Hide
+End If
+</code></pre>
+<p>End Sub</p>
+<h3 id="复选按钮-checkbox">复选按钮 -- CheckBox</h3>
+<p><strong>复选框(Checkbox)与单选框（OptionButton）的区别</strong></p>
+<pre><code>1 前者可多选，后者是互斥。
+2 根据名字可知Check是检测，Option是选择。
+</code></pre>
+<p><strong>CheckBox属性</strong></p>
+<pre><code>Enabled 可用性
+Visible 可见性
+Value 返回值  # True 或者 False
+</code></pre>
+<h3 id="下拉框-combobox复合框">下拉框 -- ComboBox（复合框）</h3>
+<p><strong>ComboBox（下拉框）属性</strong></p>
+<pre><code>Enabled 可用性 Visible 可见性 Value 返回值
+List 数据源列表
+</code></pre>
+<p><strong>ComboBox（下拉框）方法</strong></p>
+<pre><code>AddItem 增加一个下拉项目
+RemoveItem 移除一个项目
+Clear 清除所有项目
+</code></pre>
+<p><strong>基本代码</strong></p>
+<pre><code>-----------------------  增加下拉框的选项  # AddItem # ------------------------
+Sub test1()
+UserForm1.ComboBox1.AddItem &quot;苏州&quot;
+End Sub
+----------------  把单元格一列数据设置为下拉的数据源  # AddItem # ---------------
+Sub test2()
+For i = 2 To 6
+    UserForm1.ComboBox1.AddItem Sheet1.Range(&quot;a&quot; &amp; i)
+Next
+End Sub
+--------------------  删除掉下拉框里的一项  # RemoveItem # ---------------------
+Sub test3()
+Call test2
+UserForm1.ComboBox1.RemoveItem (1) '删除第二项
+End Sub
+----------------------  清空下拉框数据源   # Clear # --------------------------
+Sub test4()
+Call test2
+UserForm1.ComboBox1.Clear
+End Sub
+------------------  计算下拉框里有多少个选项  # ListCount # ---------------------
+Sub test5()
+Call test2
+MsgBox UserForm1.ComboBox1.ListCount
+End Sub
+------------   把下拉框数据源里某个值输出到单元格  # 赋值 #  ---------------------
+Sub test6()
+Call test2
+Range(&quot;c2&quot;) = UserForm1.ComboBox1.List(1)
+End Sub
+-------------  把下拉框里所有的选项输出到单元格区域  # 赋值 #   ------------------
+Sub test7()
+Call test2
+Range(&quot;d1:d5&quot;) = UserForm1.ComboBox1.List
+End Sub
+</code></pre>
+<h3 id="列表框-listbox">列表框 -- ListBox</h3>
+<p><strong>ListBox属性</strong></p>
+<pre><code>Enabled 可用性 Visible 可见性 Value 返回值
+ColumnCount 列
+List 数据源列表
+</code></pre>
+<p><strong>ListBox方法 -- 基本与下拉框ComboBox一样</strong></p>
+<pre><code>AddItem 增加一个下拉项目
+RemoveItem 移除一个项目
+Clear 清除所有项目
+</code></pre>
+<h3 id="总结-11">总结</h3>
+<p>**会员查询代码 -- 联想显示 **</p>
+<pre><code>------------------------- 点击选中相关的号码，隐藏列表框 -------------
+Private Sub ListBox1_Click()
+Me.TextBox1 = Me.ListBox1.Value
+Me.ListBox1.Visible = False
+End Sub
+-------------------------- 联想 符合相关的号码 ----------------------
+Private Sub TextBox1_Change()
+Dim arr()
+If Len(TextBox1.Value) &gt;= 4 Then
+    Me.ListBox1.Clear
+    arr = Sheet1.Range(&quot;i2:i&quot; &amp; Sheet1.Range(&quot;a65536&quot;).End(xlUp).Row)
+    
+    For i = LBound(arr) To UBound(arr)
+        If InStr(arr(i, 1), Me.TextBox1.Value) &gt; 0 Then
+            Me.ListBox1.AddItem arr(i, 1)
+        End If
+    Next
+    If Me.ListBox1.ListCount &gt; 0 Then
+    Me.ListBox1.Visible = True
+    End If
+
+Else
+    Me.ListBox1.Clear
+    Me.ListBox1.Visible = False
+
+End If
+End Sub
+</code></pre>
+<p><strong>需要理解并记住写法的概念</strong></p>
+<pre><code>UserForm1.Show  .Hide            Caption
+</code></pre>
+<p><strong>需要理解的概念</strong></p>
+<pre><code>UserForm_Activate 事件         UserForm_QueryClose 事件
+UserForm1.Show    .Hide
+TextBox（文本框）    CheckBox（复选框）    ComboBox（下拉框）    ListBox （列表框）
+联想输入的原理  
+</code></pre>
+<h2 id="第14课-vba中用户信息交互">第14课 -- VBA中用户信息交互</h2>
+<h3 id="msgbox">MsgBox</h3>
+<p><strong>MsgBox对话框样式参数</strong></p>
+<pre><code>参数：
+Msgbox(提示文字，按钮类型，标题文字，帮助文件，帮助文件索引)
+示例：
+MsgBox &quot;你还好吗？&quot;, 4 + 32, &quot;打招呼对话框&quot;, &quot;C:/a.chm&quot;, 0
+</code></pre>
+<p><strong>按钮类型：可使用加号连接</strong></p>
+<p>![image-20210225090249809](D:\softwares\Program Files\data\picture\msgbox.png)</p>
+<p><strong>MsgBox对话框的返回值</strong></p>
+<pre><code>示例：
+A = MsgBox (&quot;你还好吗？&quot;, 4 + 32, &quot;打招呼对话框&quot;, &quot;C:/a.chm&quot;, 0)
+</code></pre>
+<img src="D:\softwares\Program Files\data\picture\msgbox返回值.png" alt="image-20210225090558766" style="zoom: 50%;" />
+<h3 id="inputbox">InputBox</h3>
+<p><strong>InputBox函数样式参数</strong></p>
+<pre><code>参数：
+Inputbox(提示文字，标题文字，默认值，左边距，上边距，帮助文件，帮助文件索引)
+示例：
+InputBox &quot;请输入姓名&quot;, &quot;登陆框&quot;, &quot;此处输入&quot;, 100, 100, &quot;C:/a.chm&quot;, 0
+Name = InputBox(&quot;请输入姓名&quot;, &quot;登陆框&quot;, &quot;此处输入&quot;, 100, 100, &quot;C:/a.chm&quot;, 0)
+</code></pre>
+<p><strong>Inputbox方法样式参数</strong></p>
+<pre><code>参数：
+Inputbox(提示文字，标题文字，默认值，左边距，上边距，帮助文件，帮助文件索引，输入类型)
+示例：
+Application.InputBox &quot;输入金额&quot;, &quot;汇率计算&quot;, &quot;此处输入&quot;, 100, 100, &quot;C:/a.chm&quot;, 0, 1
+A = Application.InputBox(&quot;输入金额&quot;, &quot;汇率计算&quot;, &quot;此处输入&quot;, 100, 100, &quot;C:/a.chm&quot;, 0, 1)
+</code></pre>
+<img src="D:\softwares\Program Files\data\picture\inputbox方法的类型值.png" alt="image-20210225091018466" style="zoom: 67%;" />
+<p><strong>函数与方法的区别</strong></p>
+<p>方法需要指定输入类型。函数没有。但是把InputBox的值赋值到变量时，需要两者都相同。</p>
+<h3 id="getopenfilename">GetOpenFilename</h3>
+<p><strong>GetOpenFilename的参数</strong></p>
+<pre><code>参数：
+GetOpenFilename (文件类型，优先类型，对话框标题，按钮文字，是否支持多选)
+示例：
+A= Application.GetOpenFilename(&quot;新表,*.xlsx,老表,*.xls&quot;, 1, &quot;快特么选！&quot;, &quot;确定&quot;, False)
+注意：
+这个方法并不会真正打开文件，只是返回文件完整路径！
+文件类型参数中，先指定文件类型名，再指定后缀，要成对出现。
+优先类型是指文件类型中列出的各种类型，哪种优先显示。
+例如：&quot;Excel文件,*.xlsx,老表,*.xls,所有文件,*.*&quot;
+</code></pre>
+<p><strong>打开单个文件并关闭 -- 代码</strong></p>
+<pre><code>Sub test()
+Dim str As String
+Dim wb As Workbook
+
+str = Application.GetOpenFilename(&quot;Excel文件,*.xls*&quot;, , &quot;请选择&quot;)
+    If str &lt;&gt; &quot;False&quot; Then
+        Set wb = Workbooks.Open(str)
+
+    '#######################
+    '这里针对打开的WB进行操作
+    '#######################
+
+        wb.Close
+    End If
+
+End Sub
+</code></pre>
+<p><strong>打开多选的文件 -- 代码</strong></p>
+<pre><code>Sub test1()
+Dim arr()
+Dim wb As Workbook
+On Error Resume Next '这一句上课的时候没加
+arr = Application.GetOpenFilename(&quot;Excel文件,*.xls*&quot;, , &quot;请选择&quot;, , True)
+
+    If arr(1) &lt;&gt; &quot;False&quot; Then
+        For i = LBound(arr) To UBound(arr)
+            Set wb = Workbooks.Open(arr(i))
+
+    '#######################
+    '这里针对打开的WB进行操作
+    '#######################
+
+            wb.Close
+        Next
+    End If
+
+End Sub
+</code></pre>
+<h3 id="applicationdialogs">Application.Dialogs</h3>
+<p><strong>Application.Dialog的参数</strong></p>
+<pre><code>参数：
+Dialogs(对话框)
+示例：
+Application.Dialogs(xlDialogSaveAs).Show
+注意：
+对话框中所做的操作会真实执行。
+</code></pre>
+<h3 id="使用宏工具">使用宏工具</h3>
+<pre><code>1 你要有宏：另存为加载宏文件
+2 让他默默跟随Excel：勾选加载项
+3 让他出来被看见：Excel界面上设置按钮
+</code></pre>
+<h3 id="总结-12">总结</h3>
+<p><strong>通用多表合并 -- 标准通用宏代码</strong></p>
+<p><strong>注意</strong>：一般不能<code>xls</code>整表复制到<code>xlsx</code>。因为最大表格：<code>xlsx:XFD1048576</code>,而<code>xls:IV65536</code></p>
+<pre><code>Sub test()
+Dim str()
+Dim i As Integer
+Dim wb, wb1 As Workbook
+Dim sht As Worksheet
+
+Set wb1 = ActiveWorkbook                  #  一般用Wokbooks.Add新建表避免没有激活当前工作薄
+
+On Error Resume Next                      #  加上以后防止点了&quot;取消&quot;发生的错误
+str = Application.GetOpenFilename(&quot;Excel数据文件,*.xls*&quot;, , , , True)
+ 
+    For i = LBound(str) To UBound(str)    #  打开每一个表格
+        Set wb = Workbooks.Open(str(i))
+        
+        For Each sht In wb.Sheets         #  赋值每一个工作表
+            sht.Copy after:=wb1.Sheets(wb1.Sheets.Count)
+            wb1.Sheets(wb1.Sheets.Count).Name = Split(wb.Name, &quot;.&quot;)(0) &amp; sht.Name
+        Next
+        
+        wb.Close
+    Next
+
+End If
+
+End Sub
+</code></pre>
+<p><strong>注意：</strong><code>If str(1) &lt;&gt; &quot;False&quot; Then</code> 不适合用于<strong>数组</strong>检验“取消”。<code>If str &lt;&gt; &quot;False&quot; Then</code>只适合用于打开<strong>单个文件</strong>检验“取消”</p>
+<p><strong>需要理解并记住写法的概念</strong></p>
+<pre><code>Msgbox                                   Application.GetOpenFilenam
+Inputbox
+Application. Inputbox
+</code></pre>
+<p><strong>需要理解的概念</strong></p>
+<pre><code>Msgbox(提示文字，按钮类型，标题文字，帮助文件，帮助文件索引)
+Inputbox(提示文字，标题文字，默认值，左边距，上边距，帮助文件，帮助文件索引，输入类型)
+A= Application.GetOpenFilename(&quot;新表,*.xlsx,老表,*.xls&quot;, 1, &quot;快特么选！&quot;, &quot;确定&quot;, False)
+Application.Dialogs
+</code></pre>
+<h2 id="第15课-使用ado操作外部数据">第15课 -- 使用ADO操作外部数据</h2>
+<h3 id="使用ado连接外部excel数据源">使用ADO连接外部Excel数据源</h3>
+<p><strong>连接步骤：</strong></p>
+<p><strong>1 在VBE界面中：工具 -- 引用 ，勾选“Microsoft ActiveX Data Object x.x Library ”</strong><br>
+<strong>2 连接代码</strong></p>
+<pre><code>Sub test()
+Dim conn As New ADODB.Connection
+conn.Open &quot;Provider = Microsoft.ACE.OLEDB.12.0;Data Source=D:\data\data.xlsx;extended properties=&quot;&quot;excel 12.0;HDR=YES&quot;&quot;&quot;
+     ‘这里使用SQL对数据进行操作
+conn.Close
+End Sub
+</code></pre>
+<p>conn Execute (&quot;select * from [data$]&quot;) ：执行（从什么选取的列数据）</p>
+<p><strong>抓取数据：</strong></p>
+<pre><code>Range(“a1”).CopyFromRecordset conn.Execute(“select * from [data$]”）
+</code></pre>
+<h3 id="常用sql语句">常用SQL语句</h3>
+<p><strong>查询数据</strong></p>
+<pre><code>select * from [data$]
+</code></pre>
+<p><strong>查询某几个字段</strong></p>
+<pre><code>select 姓名,年龄 from [data$]
+</code></pre>
+<p><strong>带条件的查询</strong></p>
+<pre><code>select * from [data$] where 性别 = &quot;男“
+</code></pre>
+<p><strong>合并两个表的数据</strong></p>
+<pre><code>select * from [data$] union all select * from [data2$]
+</code></pre>
+<p><strong>插入新纪录</strong></p>
+<pre><code>insert into [data$] (姓名,性别,年龄) values ('AA','男',33)
+</code></pre>
+<p><strong>修改一条数据</strong></p>
+<pre><code>update [data$] set 性别=‘男’,年龄=16 where 姓名=‘张三‘
+</code></pre>
+<p><strong>删除一****条数据</strong></p>
+<pre><code>delete from [data$] where 姓名='张三'
+</code></pre>
+<p><strong>使用LEFT JOIN …ON… (类似于VLOOKUP）</strong></p>
+<pre><code>select [data3$].姓名,性别,年龄,月薪 from [data$] left join [data3$] on [data$].姓名=[data3$].姓名
+</code></pre>
+<p><strong>先UNION ALL 再LEFT JOIN</strong></p>
+<pre><code>select * from (select * from [data$] union all select * from [data2$])a left join [data3$] on a.姓名=[data3$].姓名
+</code></pre>
+<p><strong>将查询结果赋值到数组</strong></p>
+<pre><code>arr = Application.WorksheetFunction.Transpose(conn.Execute(&quot;select * from [data$]&quot;).GetRows)
+</code></pre>
+<p><strong>使用ADO操作外部数据</strong></p>
+<pre><code>'使用前请确认是否勾选了Microsoft ActiveX Data Object  x.x  Library！！！
+Sub test()
+Dim conn As New ADODB.Connection
+Dim sql As String
+'注意这个链接文件的路径！！！需要把edata文件放入d:\data文件夹！！
+
+Range(&quot;a2:z1000&quot;).ClearContents
+conn.Open &quot;Provider = Microsoft.ACE.OLEDB.12.0;Data Source=D:\data\Edata.xlsx;extended properties=&quot;&quot;excel 12.0;HDR=YES&quot;&quot;&quot;
+
+sql = &quot;select a.姓名,年龄,性别,月薪 from (select * from [data$] union all select * from [data2$])a left join [data3$] on a.姓名=[data3$].姓名&quot;
+
+Range(&quot;a2&quot;).CopyFromRecordset conn.Execute(sql)
+
+conn.Close
+End Sub
+</code></pre>
+<h3 id="使用ado连接access数据库">使用ADO连接Access数据库</h3>
+<p><strong>连接步骤：</strong></p>
+<p><strong>1 在VBE界面中：工具—引用，勾选“Microsoft ActiveX Data Objects x.x Library”</strong><br>
+2 <strong>连接代码</strong></p>
+<pre><code>Sub test()
+Dim conn As New ADODB.Connection
+conn.Open &quot;Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\data\Adata.accdb&quot; 
+         ‘这里使用SQL对数据进行操作
+conn.Close
+End Sub
+</code></pre>
+<p><strong>抓取数据练习</strong></p>
+<pre><code>'使用前请确认是否勾选了Microsoft ActiveX Data Object  x.x  Library！！！
+Sub test()
+Dim conn As New ADODB.Connection
+Dim sql As String
+'注意这个链接文件的路径！！！需要把Adata文件放入d:\data文件夹！！
+
+Range(&quot;a2:z1000&quot;).ClearContents
+conn.Open &quot;Provider = Microsoft.ACE.OLEDB.12.0;Data Source=D:\data\Adata.accdb&quot;
+
+sql = &quot;select 客户ID,公司名称,日期,产品类别,数量,金额,成本 from [客户信息表] left join [交易记录] on [客户信息表].ID=[交易记录].客户ID&quot;
+
+Range(&quot;a2&quot;).CopyFromRecordset conn.Execute(sql)
+
+conn.Close
+End Sub
+</code></pre>
+<h3 id="总结-13">总结</h3>
+<p><strong>需要理解并记住写法的概念</strong></p>
+<pre><code>select * from [data$]
+CONN.OPEN     .EXECUTE   .CLOSE
+</code></pre>
+<p><strong>需要理解的概念</strong></p>
+<pre><code>ADO与打开文件做操作的差别 和不同的应用场景
+理解Ado连接代码的意义
+了解SQL语句
+</code></pre>
+<h2 id="第16课-图形-图片-与-表单控件">第16课 -- 图形 图片 与 表单控件</h2>
+<h3 id="图形-shape">图形 -- Shape</h3>
+<h3 id="图片-picture">图片 -- Picture</h3>
+<h3 id="使用窗体控件">使用窗体控件</h3>
+<h3 id="使用like语句">使用Like语句</h3>
+<h3 id="总结-14">总结</h3>
+<h2 id="第17课-类模块">第17课 -- 类模块</h2>
+<p>类模块：自己制造一个对象属性和方法</p>
+<h3 id="公有与私有">公有与私有</h3>
+<p><strong>Private Sub</strong><br>
+<strong>Public Sub :默认为Public</strong></p>
+<p><strong>变量3个范围：1 单个过程，2 单个模块跨过程（表头声明），3 所有模块（表头Public声明）</strong></p>
+<h3 id="类模块">类模块</h3>
+<p><strong>类的定义</strong></p>
+<p>类：创建自定义对象（同一类型，所有称为“类”），包含对象的属性和方法（可带参数）</p>
+<pre><code>1 把带参数的过程，直接放入了“类模块”的方法。即将过程定义为“类”的方法。类的方法参数即过程的参数。
+2 代码可以写Sub ，还有Function。Sub是过程，是动作（方法）。Function是函数，返回值（属性）。
+  在“类”模块中，属性为Property，相当于Function函数。
+</code></pre>
+<p><strong>创建方法与属性</strong></p>
+<pre><code>方法（Sub）：---------- Sub 名称（） 
+属性（Property）：Get（只读），Let（）或 Set（写入）------例如： Property Get 名称（）
+</code></pre>
+<p><strong>代码</strong></p>
+<pre><code>-------------【方法】【代参数】---【创建新工作表】--------------
+Sub Sadd(str As String)
+Dim sht, sht1 As Worksheet
+    For Each sht In Sheets
+        If sht.Name = str Then
+            k = k + 1
+        End If
+    Next
+    
+    If k = 0 Then
+        Set sht1 = Sheets.Add
+        sht1.Name = str
+    End If
+End Sub
+-------------【方法】【不代参数】---【新建工作表】--------------
+Sub Add()
+	Sheets.Add after:=Sheets(Sheets.Count)
+End Sub
+-------------【属性】【只读】---【计算工作表数目】--------------
+Property Get Scount()
+	Scount = Sheets.Count	
+End Property
+</code></pre>
+<p><strong>类的导出与导入 -- 创建开发工具包</strong></p>
+<p>可以建立相应的类，建立“类”库，方便调用。</p>
+<h3 id="do-while循环">Do While循环</h3>
+<p>具体看另一篇VBA代码笔记</p>
+<pre><code>Do..................loop
+Do While.......loop
+If.................Exit Do
+</code></pre>
+<h3 id="总结-15">总结</h3>
+<p><strong>需要理解并记住写法的概念</strong></p>
+<pre><code>Private Sub
+Public Sub
+Public I 慎用
+</code></pre>
+<p><strong>需要理解的概念</strong></p>
+<pre><code>使用自定义函数取代 Public I
+什么是类
+什么是对象  属性  方法 
+自定义对象  自定义对象的属性   自定义对象的方法
+</code></pre>
+<h2 id="第18课-vba字典与用户界面">第18课 -- VBA字典与用户界面</h2>
+<h3 id="vba字典">VBA字典</h3>
+<p><strong>定义</strong></p>
+<pre><code>字典：特殊数组。一个只有两列（key - Item）的方便查找的特殊数组。
+字典用途：1 快速查找数据。因为Keys 与 Items 一一对应Key唯一
+         2 去重复值（只有唯一的Keys，Keys不能相同重复。Items可以重复）
+         3 Key不能保留重复值（重复值归一，便于统计）
+也可以看成是只有两列的表格，如同查字典一样，在key，可以查到相应的Item
+</code></pre>
+<p><strong>使用方法</strong></p>
+<p>1 VBE界面 工具 -- 引用 -- 浏览 （System）-- 加载<strong>scrrun.dll</strong> -- 再勾选<code>Microsoft Scripting Runting</code> -- 确定<br>
+2 直接在代码中创建</p>
+<pre><code>Dim dic
+Set dic = CreateObject(&quot;Scripting.Dictionary&quot;)
+</code></pre>
+<p><strong>创建字典 -- 给字典赋值</strong></p>
+<pre><code>------------------使用【Add】创建-----------
+Dim dic As New Dictionary
+    dic.Add &quot;张三&quot;, 3000
+    dic.Add &quot;李四&quot;, 2000
+    dic.Add &quot;李四&quot;, 6000      #  直接报错，因为已有Key“李四”，不能再新增 
+MsgBox dic(&quot;李四&quot;)            #  报错
+End Sub
+-----------------使用【赋值】创建-------------
+Sub zi2()
+Dim dic As New Dictionary
+    dic(&quot;张三&quot;) = 3000
+    dic(&quot;李四&quot;) = 2000
+    dic(&quot;李四&quot;) = 6000      #  赋值：没有的Key会新增，已有的会重新写入数值
+MsgBox dic(&quot;李四&quot;)          #  6000
+End Sub
+</code></pre>
+<p><strong>字典应用代码</strong></p>
+<pre><code>---------------------【直接用For循环给字典赋值】-------------------------
+Sub 字典()
+Dim dic As New Dictionary
+    For i = 2 To 5
+        dic(Range(&quot;d&quot; &amp; i).Value) = Range(&quot;e&quot; &amp; i).Value         # 相当于数组赋值，需要补全Value
+    Next
+    
+Range(&quot;a6&quot;) = dic(&quot;李四&quot;)
+Range(&quot;a7:d7&quot;) = dic.Keys
+
+End Sub
+------------------------【使用数组给字典赋值】---------------------------
+Sub 字典()
+Dim dic As New Dictionary
+Dim arr()
+arr = Range(&quot;d2:e5&quot;)
+    For i = 1 To 4
+        dic(arr(i, 1)) = arr(i, 2)                              # 把数组arr赋值给字典的Key，Item
+    Next
+Range(&quot;a7&quot;) = dic(&quot;李四&quot;)
+Range(&quot;a8:d8&quot;) = dic.Keys
+
+End Sub
+----------------------------【过程结果一样】-----------------------------
+Key	Item		Key	Item
+1	张三		张三	3000
+2	李四		李四	2000
+3	王五		王五	3000
+			  李四  6666				
+6666				
+张三	李四	王五	#N/A	         # 去重复值，直接有2个“李四”，最后也只保留1个。但Item为最后一个写的值
+</code></pre>
+<p><strong>制作下拉列表 -- 用字典去重复值，得到唯一的Keys作为名称</strong></p>
+<pre><code>Sub test()
+Dim arr()
+Dim dic As New Dictionary
+
+arr = Range(&quot;a2:b13&quot;)
+
+    For i = LBound(arr) To UBound(arr)       # 数组的上下界
+        dic(arr(i, 2)) = 1                   # 把数组的第二列，赋值到Key中，去重复值
+    Next
+Sheet2.ListBox1.List = dic.Keys              # 把不重复的Key赋值到ListBox1中，作为列表
+
+End Sub
+</code></pre>
+<h3 id="用户界面">用户界面</h3>
+<p>创捷三级下拉列表<br>
+销售界面中的控件逻辑</p>
+<h3 id="总结-16">总结</h3>
+<p><strong>需要理解并记住写法的概念</strong></p>
+<p>无</p>
+<p><strong>需要理解的概念</strong></p>
+<pre><code>Dim dic
+Set dic = CreateObject(&quot;Scripting.Dictionary&quot;)
+用户界面中的控件逻辑
+字典的两个好处
+</code></pre>
+<h2 id="第19课-excelaccess-系统开发">第19课 -- Excel+Access 系统开发</h2>
+<h3 id="excel版销售工具的开发">Excel版销售工具的开发</h3>
+<h3 id="数据库迁移至access数据库">数据库迁移至Access数据库</h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[VBA学习笔记]]></title>
         <id>https://hellojunyi.github.io/post/vba-xue-xi-bi-ji/</id>
