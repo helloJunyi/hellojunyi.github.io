@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hellojunyi.github.io/</id>
     <title>后院自留地</title>
-    <updated>2021-07-01T16:09:01.788Z</updated>
+    <updated>2021-07-01T16:13:04.274Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hellojunyi.github.io/"/>
     <link rel="self" href="https://hellojunyi.github.io/atom.xml"/>
@@ -20,7 +20,8 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>此为B站（https:www.bilibili.comvideoBV177411U7Yr）3小时掌握Mysql基础语法，学习笔记。</p>
 <!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/07/02/Fd8SWcfrxj6R7LI.png" alt="" loading="lazy"></figure>
+<p><img src="https://i.loli.net/2021/07/02/Fd8SWcfrxj6R7LI.png" alt="" loading="lazy"><br>
+<img src="https://hellojunyi.github.io//post-images/1625155955878.png" alt="" loading="lazy"></p>
 <h3 id="第2课-第一条sql语句">第2课--第一条SQL语句</h3>
 <p><strong>第一句SQL语句 : select……from……</strong></p>
 <pre><code class="language-mysql">use world; # 选择数据库 
