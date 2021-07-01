@@ -1,0 +1,410 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SQL代码笔记 | 后院自留地</title>
+<link rel="shortcut icon" href="https://hellojunyi.github.io//favicon.ico?v=1625155617958">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hellojunyi.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="SQL代码笔记 | 后院自留地 - Atom Feed" href="https://hellojunyi.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="此为B站（https:www.bilibili.comvideoBV177411U7Yr）3小时掌握Mysql基础语法，学习笔记。
+
+
+第2课--第一条SQL语句
+第一句SQL语句 : select……from……
+use world; #..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hellojunyi.github.io/">
+  <img class="avatar" src="https://hellojunyi.github.io//images/avatar.png?v=1625155617958" alt="">
+  </a>
+  <h1 class="site-title">
+    后院自留地
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              SQL代码笔记
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-07-02
+              </span>
+              <span>
+                8 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>此为B站（https:www.bilibili.comvideoBV177411U7Yr）3小时掌握Mysql基础语法，学习笔记。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/07/02/Fd8SWcfrxj6R7LI.png" alt="" loading="lazy"></figure>
+<h3 id="第2课-第一条sql语句">第2课--第一条SQL语句</h3>
+<p><strong>第一句SQL语句 : select……from……</strong></p>
+<pre><code class="language-mysql">use world; # 选择数据库 
+select id,name,countrycode,district,population
+from world.city; # 指定数据库的表 
+</code></pre>
+<h3 id="第3课-了解sql-show">第3课--了解sql : show</h3>
+<pre><code class="language-mysql">show databases;
+show tables;
+show columns from city;
+</code></pre>
+<h3 id="第4课-排序-order-by">第4课--排序 order by</h3>
+<p><strong>asc 降序，desc 升序</strong></p>
+<p><strong>limit 限制行数</strong></p>
+<pre><code class="language-mysql">use world;
+select id,name,countrycode,district,population
+from world.city order by name asc; # 降序 asc
+
+select id,name,countrycode,district,population
+from world.city order by population desc; # 升序 desc 
+
+select id,name,countrycode,district,population
+from world.city order by CountryCode asc,population asc limit 5; #升序 升序 限制
+
+select id,name,countrycode,district,population
+from world.city order by population desc; # 升序 desc 
+
+select id,name,countrycode,district,population
+from world.city order by CountryCode asc,population asc limit 5; #升序 升序 限制
+</code></pre>
+<h3 id="第5课-过滤数据-where">第5课--过滤数据 where</h3>
+<p><strong>where...and/or，in/not in</strong></p>
+<pre><code class="language-mysql">select id,name,countrycode,district,population
+from world.city 
+where population &gt;= 1000 and population &lt;=10000000 
+	and (CountryCode = &quot;ago&quot; or countrycode =  &quot;ARG&quot;)  #与 and countrycode in (&quot;AGO&quot;,&quot;ARG&quot;) 相同
+order by countrycode asc,population asc limit 10;
+#注意：sql不分大小写 ，即使是列名
+</code></pre>
+<h3 id="第6课-通配符">第6课--通配符</h3>
+<p><strong>需要用like配合 ，百分号（%）与下划线(_)</strong></p>
+<pre><code class="language-mysql">select id,name,countrycode,district,population
+from world.city 
+where name like &quot;Ab%&quot; and name like &quot;%d&quot;; # ab AB 不区分大小写
+select id,name,countrycode,district,population
+from world.city 
+</code></pre>
+<p><strong>where name like &quot;Ab_&quot; ;  # (_)三个空格</strong><br>
+<strong>注意空格 去空格 rtrim(),ltrim()</strong><br>
+<strong>注意null值</strong></p>
+<h3 id="第7课-函数-文本">第7课--函数  文本</h3>
+<p><strong>处理文本 Rtrim() ，Ltrim() 删去左右空格；left(),right()返回字符串的左右第几位</strong></p>
+<p><strong>length() 字符串长度；upper()，lower()字符串大小写；substring（）字符串子集</strong></p>
+<pre><code class="language-mysql">select id,name,countrycode,district,population,length(name) as len_name
+from world.city limit 10; # length()的使用 
+
+select id,name,countrycode,district,population,length(name) as len_name
+from world.city where length(name) = 5; # length()的使用 
+
+select id,name,countrycode,district,population,substring(name,3,100) as sub_name
+from world.city where length(name) = 5; # substring()的用法
+
+select id,name,countrycode,district,population,right(name,3) as rig_name
+from world.city where length(name) = 5; # right(),left()的用法 
+
+select id,name,countrycode,district,population,lower(name) as upp_name
+from world.city where length(name) = 5; # upper(),lower()的用法
+</code></pre>
+<h3 id="第8课-函数-日期和时间">第8课--函数 日期和时间</h3>
+<p><strong>curdate() ，curtime()， datediff()</strong></p>
+<p><strong>date()，year()，month()，day()，time()……</strong></p>
+<pre><code class="language-mysql">select curtime();
+show columns from sys.sys_config; # 显示列名 
+select * from sys.sys_config; # 选取整个数据表（列名在表头）
+select * from sys_config where date(set_time)=&quot;2021-06-23&quot;; # date()的使用
+select * from sys_config where year(set_time)=&quot;2021&quot; and month(set_time)=&quot;6&quot;;# year() month() 使用
+select datediff(now(),set_time) from sys_config; # now()是现在的日期，datediff比较的是日期 
+</code></pre>
+<h3 id="第9课-数值函数">第9课--数值函数</h3>
+<p><strong>聚合函数：返回的都是单个值函数</strong></p>
+<p><strong>avg/count/max/min/sum, distinct 唯一值</strong></p>
+<pre><code class="language-Mysql">use world; 
+select max(population),min(population),avg(population),sum(population),count(population) from world.city;
+#不会计算null值
+select count(*) from city; # 计算有多少数行，但是不包含null
+select distinct countrycode from city; # 唯一值 在select后面 
+select distinct countrycode,name,id from city; # 唯一值(countrycode &amp; name &amp; id三合一)
+select count(distinct countrycode) from city; # 多少的唯一值
+#所有的方法都会忽略null值
+</code></pre>
+<h3 id="10课-分组计算-group-by">10课--分组计算 group by</h3>
+<p><strong>分组计算：根据某种分类，进行该组计算,分组的名称跟组名一致</strong></p>
+<pre><code class="language-mysql">select countrycode,district,avg(population) as avg_popu,sum(population) as sum_popu 
+from world.city 
+group by countrycode,district 
+order by sum_popu asc;
+</code></pre>
+<p><strong>having：分组筛选只用having，where是针对每一条样本</strong></p>
+<pre><code class="language-mysql">select countrycode,district,avg(population) as avg_popu,sum(population) as sum_popu 
+from world.city 
+group by countrycode,district 
+having avg(population) &gt;=1000000
+order by sum(population) asc;
+</code></pre>
+<h3 id="11课-子查询">11课--子查询</h3>
+<pre><code class="language-mysql">select * 
+from
+(select countrycode,district,avg(population) as avg_popu,sum(population) as sum_popu 
+from world.city group by countrycode,district) a
+where a.avg_popu &gt;= 100000 order by sum_popu asc;
+#() as a ,把（）的当做一个新的表a，在从里面查询 
+</code></pre>
+<pre><code class="language-mysql">select * from world.city where population &gt;= (select avg(population) from world.city) order by population asc;
+#where 可以用子查询，但是比较的必须是唯一单一值 
+select * from world.city where population &gt;= (select avg(population) from world.city group by population);
+#语句即使可以运行，但是不正确。因为group by是一列数据
+</code></pre>
+<h3 id="12课-表联结">12课--表联结</h3>
+<p><strong>inner join</strong></p>
+<pre><code class="language-mysql">select a.*,b.*,c.*
+from
+(select * from world.city) a
+inner join
+(select * from country) b
+inner join
+(select * from countrylanguage) c
+on a.countrycode = b.code = c.countrycode;
+</code></pre>
+<p><strong>left join</strong></p>
+<pre><code class="language-mysql">select a.*
+from
+(select * from world.city) a 
+left join
+(select * from country limit 100) b
+on a.CountryCode = b.code
+left join
+(select * from countrylanguage) c
+on c.CountryCode = a.CountryCode;
+</code></pre>
+<h3 id="13课-组合查询-union">13课--组合查询 union</h3>
+<p><strong>union 把查询结果组合起来</strong></p>
+<pre><code class="language-mysql">select id,name from world.city where population &gt;= 1000000
+union
+select id,name from world.city where population &gt;= 100000
+order by id asc;
+#select所选得返回项必须要相同，相同的列 
+#union会自动去重,union all不去重
+#order by 只能放在最后
+</code></pre>
+<h3 id="14课-表的创建与删除">14课--表的创建与删除</h3>
+<pre><code class="language-mysql">use world;
+create table if not exists world.xinjianbiao_test1 # 创建表，列名不能重复 
+as
+select a.id,a.name as name_city,a.countrycode as code_city,a.district,a.population as popu_city,
+b.*,c.*
+from
+(select * from world.city) a 
+left join
+(select * from country limit 100) b
+on a.CountryCode = b.code
+left join
+(select * from countrylanguage) c
+on c.CountryCode = a.CountryCode;
+
+select * from xinjianbiao_test1 limit 100;
+
+drop table if exists world.xinjianbiao_test1; # 丢弃（删除）表
+</code></pre>
+<h3 id="15课-表的创建自定义列名">15课--表的创建（自定义列名）</h3>
+<pre><code class="language-mysql">drop table if exists world.xiaoming_test2;
+create table if not exists world.xiaoming_test2
+(id int null,
+countrycode char(50) not null,
+population int,
+gnp float,
+language char(50),
+primary key (id,countrycode,language) # key可以是几列的合并 
+);
+select * from world.xiaoming_test2
+</code></pre>
+<h3 id="16课-插入查询-insert-into">16课--插入查询 insert into</h3>
+<pre><code class="language-mysql">insert into world.xiaoming_test2
+select a.id,a.countrycode,a.population,b.gnp,c.language
+from
+(select * from world.city) a 
+left join
+(select * from country limit 100) b
+on a.CountryCode = b.code
+left join
+(select * from countrylanguage) c
+on c.CountryCode = a.CountryCode;
+</code></pre>
+<h3 id="17课-更新表删除表">17课--更新表/删除表</h3>
+<pre><code class="language-mysql">alter table world.xiaoming_test2 # alter table 修改表 
+add new_name char(80); # 增加一列
+select * from world.xiaoming_test2;
+alter table world.xiaoming_test2
+drop gnp; # 丢弃一列
+</code></pre>
+<pre><code class="language-mysql">update  world.xiaoming_test2 # 更新数据，一定要用where限定条件。不建议使用 
+set population = 0 where id = 129; # set更新数据 
+delete from world.xiaoming_test2 # delete是删除数据，drop是丢弃整个表  
+where new_name is null;
+</code></pre>
+<p><strong>使用update与delete前，先用select检验数据，保证正确无误。mysql没有撤销功能。</strong></p>
+<h3 id="18课-null值">18课--null值</h3>
+<p><strong>null不是空值也不是0，是一种特殊的值，不能做数学运算</strong></p>
+<pre><code class="language-mysql">select * from world.xinjianbiao_test1 where code is null;  # 使用is null/is not null
+select count(*),count(code)from world.xinjianbiao_test1;  # null值会被忽略计算 
+</code></pre>
+<p><strong>创建表的时候需注明是否允许列存储null值</strong></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E7%AC%AC2%E8%AF%BE-%E7%AC%AC%E4%B8%80%E6%9D%A1sql%E8%AF%AD%E5%8F%A5">第2课--第一条SQL语句</a></li>
+<li><a href="#%E7%AC%AC3%E8%AF%BE-%E4%BA%86%E8%A7%A3sql-show">第3课--了解sql : show</a></li>
+<li><a href="#%E7%AC%AC4%E8%AF%BE-%E6%8E%92%E5%BA%8F-order-by">第4课--排序 order by</a></li>
+<li><a href="#%E7%AC%AC5%E8%AF%BE-%E8%BF%87%E6%BB%A4%E6%95%B0%E6%8D%AE-where">第5课--过滤数据 where</a></li>
+<li><a href="#%E7%AC%AC6%E8%AF%BE-%E9%80%9A%E9%85%8D%E7%AC%A6">第6课--通配符</a></li>
+<li><a href="#%E7%AC%AC7%E8%AF%BE-%E5%87%BD%E6%95%B0-%E6%96%87%E6%9C%AC">第7课--函数  文本</a></li>
+<li><a href="#%E7%AC%AC8%E8%AF%BE-%E5%87%BD%E6%95%B0-%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4">第8课--函数 日期和时间</a></li>
+<li><a href="#%E7%AC%AC9%E8%AF%BE-%E6%95%B0%E5%80%BC%E5%87%BD%E6%95%B0">第9课--数值函数</a></li>
+<li><a href="#10%E8%AF%BE-%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97-group-by">10课--分组计算 group by</a></li>
+<li><a href="#11%E8%AF%BE-%E5%AD%90%E6%9F%A5%E8%AF%A2">11课--子查询</a></li>
+<li><a href="#12%E8%AF%BE-%E8%A1%A8%E8%81%94%E7%BB%93">12课--表联结</a></li>
+<li><a href="#13%E8%AF%BE-%E7%BB%84%E5%90%88%E6%9F%A5%E8%AF%A2-union">13课--组合查询 union</a></li>
+<li><a href="#14%E8%AF%BE-%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%88%A0%E9%99%A4">14课--表的创建与删除</a></li>
+<li><a href="#15%E8%AF%BE-%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%97%E5%90%8D">15课--表的创建（自定义列名）</a></li>
+<li><a href="#16%E8%AF%BE-%E6%8F%92%E5%85%A5%E6%9F%A5%E8%AF%A2-insert-into">16课--插入查询 insert into</a></li>
+<li><a href="#17%E8%AF%BE-%E6%9B%B4%E6%96%B0%E8%A1%A8%E5%88%A0%E9%99%A4%E8%A1%A8">17课--更新表/删除表</a></li>
+<li><a href="#18%E8%AF%BE-null%E5%80%BC">18课--null值</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hellojunyi.github.io/post/gen-zhao-wang-lao-shi-xue-excel-vba-shi-pin-xue-xi-bi-ji/">
+              <h3 class="post-title">
+                【跟着王老师学Excel VBA 】视频学习笔记
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea">Gridea</a>
+  <a class="rss" href="https://hellojunyi.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

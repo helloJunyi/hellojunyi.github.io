@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hellojunyi.github.io/</id>
     <title>后院自留地</title>
-    <updated>2021-06-15T04:23:01.012Z</updated>
+    <updated>2021-07-01T16:07:02.481Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hellojunyi.github.io/"/>
     <link rel="self" href="https://hellojunyi.github.io/atom.xml"/>
@@ -10,6 +10,230 @@
     <logo>https://hellojunyi.github.io/images/avatar.png</logo>
     <icon>https://hellojunyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 后院自留地</rights>
+    <entry>
+        <title type="html"><![CDATA[SQL代码笔记]]></title>
+        <id>https://hellojunyi.github.io/post/sql-dai-ma-bi-ji/</id>
+        <link href="https://hellojunyi.github.io/post/sql-dai-ma-bi-ji/">
+        </link>
+        <updated>2021-07-01T16:03:05.000Z</updated>
+        <summary type="html"><![CDATA[<p>此为B站（https:www.bilibili.comvideoBV177411U7Yr）3小时掌握Mysql基础语法，学习笔记。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>此为B站（https:www.bilibili.comvideoBV177411U7Yr）3小时掌握Mysql基础语法，学习笔记。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/07/02/Fd8SWcfrxj6R7LI.png" alt="" loading="lazy"></figure>
+<h3 id="第2课-第一条sql语句">第2课--第一条SQL语句</h3>
+<p><strong>第一句SQL语句 : select……from……</strong></p>
+<pre><code class="language-mysql">use world; # 选择数据库 
+select id,name,countrycode,district,population
+from world.city; # 指定数据库的表 
+</code></pre>
+<h3 id="第3课-了解sql-show">第3课--了解sql : show</h3>
+<pre><code class="language-mysql">show databases;
+show tables;
+show columns from city;
+</code></pre>
+<h3 id="第4课-排序-order-by">第4课--排序 order by</h3>
+<p><strong>asc 降序，desc 升序</strong></p>
+<p><strong>limit 限制行数</strong></p>
+<pre><code class="language-mysql">use world;
+select id,name,countrycode,district,population
+from world.city order by name asc; # 降序 asc
+
+select id,name,countrycode,district,population
+from world.city order by population desc; # 升序 desc 
+
+select id,name,countrycode,district,population
+from world.city order by CountryCode asc,population asc limit 5; #升序 升序 限制
+
+select id,name,countrycode,district,population
+from world.city order by population desc; # 升序 desc 
+
+select id,name,countrycode,district,population
+from world.city order by CountryCode asc,population asc limit 5; #升序 升序 限制
+</code></pre>
+<h3 id="第5课-过滤数据-where">第5课--过滤数据 where</h3>
+<p><strong>where...and/or，in/not in</strong></p>
+<pre><code class="language-mysql">select id,name,countrycode,district,population
+from world.city 
+where population &gt;= 1000 and population &lt;=10000000 
+	and (CountryCode = &quot;ago&quot; or countrycode =  &quot;ARG&quot;)  #与 and countrycode in (&quot;AGO&quot;,&quot;ARG&quot;) 相同
+order by countrycode asc,population asc limit 10;
+#注意：sql不分大小写 ，即使是列名
+</code></pre>
+<h3 id="第6课-通配符">第6课--通配符</h3>
+<p><strong>需要用like配合 ，百分号（%）与下划线(_)</strong></p>
+<pre><code class="language-mysql">select id,name,countrycode,district,population
+from world.city 
+where name like &quot;Ab%&quot; and name like &quot;%d&quot;; # ab AB 不区分大小写
+select id,name,countrycode,district,population
+from world.city 
+</code></pre>
+<p><strong>where name like &quot;Ab_&quot; ;  # (_)三个空格</strong><br>
+<strong>注意空格 去空格 rtrim(),ltrim()</strong><br>
+<strong>注意null值</strong></p>
+<h3 id="第7课-函数-文本">第7课--函数  文本</h3>
+<p><strong>处理文本 Rtrim() ，Ltrim() 删去左右空格；left(),right()返回字符串的左右第几位</strong></p>
+<p><strong>length() 字符串长度；upper()，lower()字符串大小写；substring（）字符串子集</strong></p>
+<pre><code class="language-mysql">select id,name,countrycode,district,population,length(name) as len_name
+from world.city limit 10; # length()的使用 
+
+select id,name,countrycode,district,population,length(name) as len_name
+from world.city where length(name) = 5; # length()的使用 
+
+select id,name,countrycode,district,population,substring(name,3,100) as sub_name
+from world.city where length(name) = 5; # substring()的用法
+
+select id,name,countrycode,district,population,right(name,3) as rig_name
+from world.city where length(name) = 5; # right(),left()的用法 
+
+select id,name,countrycode,district,population,lower(name) as upp_name
+from world.city where length(name) = 5; # upper(),lower()的用法
+</code></pre>
+<h3 id="第8课-函数-日期和时间">第8课--函数 日期和时间</h3>
+<p><strong>curdate() ，curtime()， datediff()</strong></p>
+<p><strong>date()，year()，month()，day()，time()……</strong></p>
+<pre><code class="language-mysql">select curtime();
+show columns from sys.sys_config; # 显示列名 
+select * from sys.sys_config; # 选取整个数据表（列名在表头）
+select * from sys_config where date(set_time)=&quot;2021-06-23&quot;; # date()的使用
+select * from sys_config where year(set_time)=&quot;2021&quot; and month(set_time)=&quot;6&quot;;# year() month() 使用
+select datediff(now(),set_time) from sys_config; # now()是现在的日期，datediff比较的是日期 
+</code></pre>
+<h3 id="第9课-数值函数">第9课--数值函数</h3>
+<p><strong>聚合函数：返回的都是单个值函数</strong></p>
+<p><strong>avg/count/max/min/sum, distinct 唯一值</strong></p>
+<pre><code class="language-Mysql">use world; 
+select max(population),min(population),avg(population),sum(population),count(population) from world.city;
+#不会计算null值
+select count(*) from city; # 计算有多少数行，但是不包含null
+select distinct countrycode from city; # 唯一值 在select后面 
+select distinct countrycode,name,id from city; # 唯一值(countrycode &amp; name &amp; id三合一)
+select count(distinct countrycode) from city; # 多少的唯一值
+#所有的方法都会忽略null值
+</code></pre>
+<h3 id="10课-分组计算-group-by">10课--分组计算 group by</h3>
+<p><strong>分组计算：根据某种分类，进行该组计算,分组的名称跟组名一致</strong></p>
+<pre><code class="language-mysql">select countrycode,district,avg(population) as avg_popu,sum(population) as sum_popu 
+from world.city 
+group by countrycode,district 
+order by sum_popu asc;
+</code></pre>
+<p><strong>having：分组筛选只用having，where是针对每一条样本</strong></p>
+<pre><code class="language-mysql">select countrycode,district,avg(population) as avg_popu,sum(population) as sum_popu 
+from world.city 
+group by countrycode,district 
+having avg(population) &gt;=1000000
+order by sum(population) asc;
+</code></pre>
+<h3 id="11课-子查询">11课--子查询</h3>
+<pre><code class="language-mysql">select * 
+from
+(select countrycode,district,avg(population) as avg_popu,sum(population) as sum_popu 
+from world.city group by countrycode,district) a
+where a.avg_popu &gt;= 100000 order by sum_popu asc;
+#() as a ,把（）的当做一个新的表a，在从里面查询 
+</code></pre>
+<pre><code class="language-mysql">select * from world.city where population &gt;= (select avg(population) from world.city) order by population asc;
+#where 可以用子查询，但是比较的必须是唯一单一值 
+select * from world.city where population &gt;= (select avg(population) from world.city group by population);
+#语句即使可以运行，但是不正确。因为group by是一列数据
+</code></pre>
+<h3 id="12课-表联结">12课--表联结</h3>
+<p><strong>inner join</strong></p>
+<pre><code class="language-mysql">select a.*,b.*,c.*
+from
+(select * from world.city) a
+inner join
+(select * from country) b
+inner join
+(select * from countrylanguage) c
+on a.countrycode = b.code = c.countrycode;
+</code></pre>
+<p><strong>left join</strong></p>
+<pre><code class="language-mysql">select a.*
+from
+(select * from world.city) a 
+left join
+(select * from country limit 100) b
+on a.CountryCode = b.code
+left join
+(select * from countrylanguage) c
+on c.CountryCode = a.CountryCode;
+</code></pre>
+<h3 id="13课-组合查询-union">13课--组合查询 union</h3>
+<p><strong>union 把查询结果组合起来</strong></p>
+<pre><code class="language-mysql">select id,name from world.city where population &gt;= 1000000
+union
+select id,name from world.city where population &gt;= 100000
+order by id asc;
+#select所选得返回项必须要相同，相同的列 
+#union会自动去重,union all不去重
+#order by 只能放在最后
+</code></pre>
+<h3 id="14课-表的创建与删除">14课--表的创建与删除</h3>
+<pre><code class="language-mysql">use world;
+create table if not exists world.xinjianbiao_test1 # 创建表，列名不能重复 
+as
+select a.id,a.name as name_city,a.countrycode as code_city,a.district,a.population as popu_city,
+b.*,c.*
+from
+(select * from world.city) a 
+left join
+(select * from country limit 100) b
+on a.CountryCode = b.code
+left join
+(select * from countrylanguage) c
+on c.CountryCode = a.CountryCode;
+
+select * from xinjianbiao_test1 limit 100;
+
+drop table if exists world.xinjianbiao_test1; # 丢弃（删除）表
+</code></pre>
+<h3 id="15课-表的创建自定义列名">15课--表的创建（自定义列名）</h3>
+<pre><code class="language-mysql">drop table if exists world.xiaoming_test2;
+create table if not exists world.xiaoming_test2
+(id int null,
+countrycode char(50) not null,
+population int,
+gnp float,
+language char(50),
+primary key (id,countrycode,language) # key可以是几列的合并 
+);
+select * from world.xiaoming_test2
+</code></pre>
+<h3 id="16课-插入查询-insert-into">16课--插入查询 insert into</h3>
+<pre><code class="language-mysql">insert into world.xiaoming_test2
+select a.id,a.countrycode,a.population,b.gnp,c.language
+from
+(select * from world.city) a 
+left join
+(select * from country limit 100) b
+on a.CountryCode = b.code
+left join
+(select * from countrylanguage) c
+on c.CountryCode = a.CountryCode;
+</code></pre>
+<h3 id="17课-更新表删除表">17课--更新表/删除表</h3>
+<pre><code class="language-mysql">alter table world.xiaoming_test2 # alter table 修改表 
+add new_name char(80); # 增加一列
+select * from world.xiaoming_test2;
+alter table world.xiaoming_test2
+drop gnp; # 丢弃一列
+</code></pre>
+<pre><code class="language-mysql">update  world.xiaoming_test2 # 更新数据，一定要用where限定条件。不建议使用 
+set population = 0 where id = 129; # set更新数据 
+delete from world.xiaoming_test2 # delete是删除数据，drop是丢弃整个表  
+where new_name is null;
+</code></pre>
+<p><strong>使用update与delete前，先用select检验数据，保证正确无误。mysql没有撤销功能。</strong></p>
+<h3 id="18课-null值">18课--null值</h3>
+<p><strong>null不是空值也不是0，是一种特殊的值，不能做数学运算</strong></p>
+<pre><code class="language-mysql">select * from world.xinjianbiao_test1 where code is null;  # 使用is null/is not null
+select count(*),count(code)from world.xinjianbiao_test1;  # null值会被忽略计算 
+</code></pre>
+<p><strong>创建表的时候需注明是否允许列存储null值</strong></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【跟着王老师学Excel VBA 】视频学习笔记]]></title>
         <id>https://hellojunyi.github.io/post/gen-zhao-wang-lao-shi-xue-excel-vba-shi-pin-xue-xi-bi-ji/</id>
