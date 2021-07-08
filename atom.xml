@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hellojunyi.github.io/</id>
     <title>后院自留地</title>
-    <updated>2021-07-01T16:49:22.754Z</updated>
+    <updated>2021-07-08T12:47:59.181Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hellojunyi.github.io/"/>
     <link rel="self" href="https://hellojunyi.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://hellojunyi.github.io/images/avatar.png</logo>
     <icon>https://hellojunyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 后院自留地</rights>
+    <entry>
+        <title type="html"><![CDATA[EXCEL常用函数+图表+可视化]]></title>
+        <id>https://hellojunyi.github.io/post/excel-chang-yong-han-shu-tu-biao-ke-shi-hua/</id>
+        <link href="https://hellojunyi.github.io/post/excel-chang-yong-han-shu-tu-biao-ke-shi-hua/">
+        </link>
+        <updated>2021-07-08T12:46:54.000Z</updated>
+        <content type="html"><![CDATA[<p>Excel图表与可视化</p>
+<h3 id="excel中常用的9个函数">EXCEL中常用的9个函数</h3>
+<img src="https://i.loli.net/2021/07/08/svaxeIh3DwJF5uY.jpg" style="zoom:80%;" />
+<h3 id="excel常用的10个图表">Excel常用的10个图表</h3>
+<img src="https://i.loli.net/2021/07/08/4ImzGrptuKPydTE.png" style="zoom:80%;" />
+<h3 id="excel数据可视化6大工具">Excel数据可视化6大工具</h3>
+<img src="https://i.loli.net/2021/07/08/cIKqhgObPYBfpsD.jpg" style="zoom:80%;" />]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SQL代码笔记]]></title>
         <id>https://hellojunyi.github.io/post/sql-dai-ma-bi-ji/</id>
