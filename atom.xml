@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hellojunyi.github.io/</id>
     <title>后院自留地</title>
-    <updated>2021-07-13T08:47:26.071Z</updated>
+    <updated>2021-07-13T10:11:58.623Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hellojunyi.github.io/"/>
     <link rel="self" href="https://hellojunyi.github.io/atom.xml"/>
@@ -95,7 +95,11 @@
         <link href="https://hellojunyi.github.io/post/gen-zhao-wang-lao-shi-xue-excel-shu-ju-tou-shi-biao/">
         </link>
         <updated>2021-07-12T08:32:32.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/07/12/rEQiWzBbyKc9vAH.jpg" alt="" loading="lazy"></figure>
+        <summary type="html"><![CDATA[<p>数据透视表功能强大，只是一般办公不需要太深入学习，例如动态或SQL数据抓取一般也不会用到。后期可以根据需要学习，王佩丰老师的视频一直都值的推荐。这里只是教程数据透视表的粗略思维导图。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>数据透视表功能强大，只是一般办公不需要太深入学习，例如动态或SQL数据抓取一般也不会用到。后期可以根据需要学习，王佩丰老师的视频一直都值的推荐。这里只是教程数据透视表的粗略思维导图。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/07/12/rEQiWzBbyKc9vAH.jpg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
@@ -104,13 +108,21 @@
         <link href="https://hellojunyi.github.io/post/excel-chang-yong-han-shu-tu-biao-ke-shi-hua/">
         </link>
         <updated>2021-07-08T12:46:54.000Z</updated>
-        <content type="html"><![CDATA[<p>Excel图表与可视化</p>
+        <summary type="html"><![CDATA[<p>Excel的函数+图表，功能都非常强大。如果工作中常用很快就会上手，这就是是熟能生巧的意思。不过一段时间不用，就会忘记，这文章就是以前视频的基本总结，方便日后查找。当然也没必要一定要记住所有内容，因为一定会忘记，所有最好的办法是，有需要时，立即上网查找相关的操作。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Excel的函数+图表，功能都非常强大。如果工作中常用很快就会上手，这就是是熟能生巧的意思。不过一段时间不用，就会忘记，这文章就是以前视频的基本总结，方便日后查找。当然也没必要一定要记住所有内容，因为一定会忘记，所有最好的办法是，有需要时，立即上网查找相关的操作。</p>
+<!-- more -->
 <h3 id="excel中常用的9个函数">EXCEL中常用的9个函数</h3>
+<p>文章视频参考：<a href="https://www.jianshu.com/p/68af835de06a">数据分析中常用的9个Excel函数</a></p>
 <img src="https://i.loli.net/2021/07/08/svaxeIh3DwJF5uY.jpg" style="zoom:80%;" />
 <h3 id="excel常用的10个图表">Excel常用的10个图表</h3>
+<p>文章视频参考：<a href="https://www.jianshu.com/p/3ce2dc86ad51">EXCEL数据分析中常用的10个图表</a></p>
 <img src="https://i.loli.net/2021/07/08/4ImzGrptuKPydTE.png" style="zoom:80%;" />
 <h3 id="excel数据可视化6大工具">Excel数据可视化6大工具</h3>
-<img src="https://i.loli.net/2021/07/08/cIKqhgObPYBfpsD.jpg" style="zoom:80%;" />]]></content>
+<img src="https://i.loli.net/2021/07/08/cIKqhgObPYBfpsD.jpg" style="zoom:80%;" />
+<p><strong>四个维度</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/07/13/3zbyV2dG9Qv6Or8.jpg" alt="" loading="lazy"></figure>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[SQL代码笔记]]></title>
