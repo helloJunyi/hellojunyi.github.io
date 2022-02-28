@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hellojunyi.github.io/</id>
     <title>后院自留地</title>
-    <updated>2021-07-15T05:58:49.099Z</updated>
+    <updated>2022-02-28T14:18:36.098Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hellojunyi.github.io/"/>
     <link rel="self" href="https://hellojunyi.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://hellojunyi.github.io/images/avatar.png</logo>
     <icon>https://hellojunyi.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, 后院自留地</rights>
+    <rights>All rights reserved 2022, 后院自留地</rights>
     <entry>
         <title type="html"><![CDATA[【秦路】七周成为数据分析师]]></title>
         <id>https://hellojunyi.github.io/post/qin-lu-qi-zhou-cheng-wei-shu-ju-fen-xi-shi/</id>
@@ -21,97 +21,6 @@
         <content type="html"><![CDATA[<p>这是B站<a href="https://search.bilibili.com/all?keyword=%E3%80%90%E7%A7%A6%E8%B7%AF%E3%80%91%E4%B8%83%E5%91%A8%E6%88%90%E4%B8%BA%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%88&amp;from_source=webtop_search&amp;spm_id_from=333.851">【秦路】七周成为数据分析师</a>的学习思维导图，因为有很多SQL,Excel内容以前也学过，这里只是备份，以便日后能方便查找。</p>
 <!-- more -->
 <img src="https://i.loli.net/2021/07/15/WuTPxZSE25KNvqM.jpg" style="zoom: 80%;" />]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[健身训练]]></title>
-        <id>https://hellojunyi.github.io/post/jian-shen-xun-lian/</id>
-        <link href="https://hellojunyi.github.io/post/jian-shen-xun-lian/">
-        </link>
-        <updated>2021-07-13T08:16:50.000Z</updated>
-        <summary type="html"><![CDATA[<p>这是一个健身up的视频笔记。这个up主视频精短，且很多适合无器械在家锻炼，非常受用。所有笔记视频来之up的<a href="https://space.bilibili.com/66391032?spm_id_from=333.788.b_765f7570696e666f.2">【B站】</a>和<a href="https://www.youtube.com/channel/UCFd-9jAfbuUjwDZjisOwv1w">【Youtube】</a>。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>这是一个健身up的视频笔记。这个up主视频精短，且很多适合无器械在家锻炼，非常受用。所有笔记视频来之up的<a href="https://space.bilibili.com/66391032?spm_id_from=333.788.b_765f7570696e666f.2">【B站】</a>和<a href="https://www.youtube.com/channel/UCFd-9jAfbuUjwDZjisOwv1w">【Youtube】</a>。</p>
-<!-- more -->
-<h2 id="1-体型-久坐紧张缓解训练">1 体型--久坐紧张缓解训练</h2>
-<p>视频：【细思极恐!】这个习惯正在让你慢慢变丑!</p>
-<img src="https://i.loli.net/2021/07/13/GAQIKjuU5tsFRol.jpg" style="zoom:50%;" />
-<h2 id="1-体型-告别圆肩驼背">1 体型--告别圆肩驼背</h2>
-<p>视频：【纠正体态】3步教你快速告别圆肩驼背!(新手必看)</p>
-<p><strong>在生活中改变你的体态</strong></p>
-<p><strong>拉伸放松--紧张肌群（每天早晨）</strong></p>
-<p><strong>激活强化--薄弱肌群（训练时）</strong></p>
-<img src="https://i.loli.net/2021/07/13/sQkwYoeBhP3VbI4.jpg" style="zoom: 67%;" />
-<h2 id="2-减脂-那种运动最减脂">2 减脂--那种运动最减脂</h2>
-<p>视频：【到底哪种运动最减脂-】如何加快减脂速度！</p>
-<p><strong>1 长时间维持中高心率水平</strong></p>
-<p>​	<strong>最佳心率 = 220-年龄 x 60%~70%</strong>  心率（脂肪利用率增加）</p>
-<p><strong>2.多做力量训练</strong></p>
-<img src="https://i.loli.net/2021/07/13/AUWfSwTxRbyB8ZC.jpg" style="zoom:50%;" />
-<h2 id="2-减脂-10分钟脂肪消减训练">2 减脂--10分钟脂肪消减训练</h2>
-<p>视频：【每天一遍】10分钟脂肪消减训练(男女通用)</p>
-<img src="https://i.loli.net/2021/07/13/bJ4qBlPS6k3d7Yi.jpg" style="zoom: 67%;" />
-<h2 id="2-减脂-hiit训练">2 减脂--HIIT训练</h2>
-<p>视频：【快速减脂-】哪种运动更适合于你!(有氧 VS HIIT).-10分钟到地狱-高强度训练Vlog！</p>
-<p><strong>有氧运动与HIIT</strong></p>
-<p><strong>难度</strong>：有氧运动门槛低</p>
-<p><strong>效率</strong>：HIIT高，但是消耗卡路里效率不等于燃脂效率</p>
-<p><strong>心肺功能</strong>：HIIT要求更高，提升训练帮助更大</p>
-<p><strong>是否影响力量训练</strong>：有氧运动相对好点。因为HIIT跟力量训练系统相似。</p>
-<p><strong>减脂效果</strong>：单纯减脂，推荐有氧运动。更容易监控调整。</p>
-<p><strong>趣味性</strong>：HIIT更有趣点，因为不限于形式。</p>
-<p><strong>一套HIIT训练：</strong></p>
-<img src="https://i.loli.net/2021/07/13/dTeVakvJPwyBDi7.jpg" style="zoom: 80%;" />
-<img src="https://i.loli.net/2021/07/13/x1Z3vBW4OtkyXbD.jpg" style="zoom:80%;" />
-<h2 id="3-腹肌-8分钟高效腹肌训练">3 腹肌--8分钟高效腹肌训练</h2>
-<p>视频：【精准刺激】8分钟高效腹肌训练 (男女通用)</p>
-<img src="https://i.loli.net/2021/07/13/6jzv1HEGVdTmuU9.jpg" style="zoom: 50%;" />
-<h2 id="3-腹肌-6分钟高效腹肌训练">3 腹肌--6分钟高效腹肌训练</h2>
-<p>视频：【无器械】6分钟高效腹肌训练(男女通用）</p>
-<img src="https://i.loli.net/2021/07/13/VpwARY2Tx7reG6b.jpg" style="zoom: 67%;" />
-<h2 id="4-胸肌-5分钟高效胸肌训练">4 胸肌--5分钟高效胸肌训练</h2>
-<p>视频：【在家练出完美胸肌-!】5分钟高效胸肌训练(新手必看)</p>
-<p>1 体脂率 13~15% 或者 16~19%</p>
-<p>2 增加整体胸部的肌肉量（胸肌的厚度）</p>
-<p>3 基因</p>
-<h2 id="4-胸肌-打造完美胸型">4 胸肌--打造完美胸型</h2>
-<p>视频：【拯救雌化】如何去除脂肪胸,打造完美胸型！</p>
-<img src="https://i.loli.net/2021/07/13/Pst3dvhT67O8HMD.jpg" style="zoom: 67%;" />
-<h2 id="5-拉伸-科学有效的热身">5 拉伸--科学有效的热身</h2>
-<p>视频：【不要再这样拉伸了!】如何科学有效的热身!</p>
-<p>热身 不等于 拉伸</p>
-<p><strong>静态拉伸</strong> ：保持拉伸姿势不动15-30秒以上（不适合运动前应用）</p>
-<p><strong>动态拉伸</strong>：不在拉伸点上停留</p>
-<p><strong>筋膜放松</strong>：通过施加外力放松筋膜</p>
-<p><strong>热身目的</strong>：提高心率和体温，令大脑兴奋。适度的低强度有氧活动（如跳绳，跑步，控制时间3~5分钟，微微出汗就可以）</p>
-<p><strong>运动前热身</strong>（力量或跑跳性运动），应该是动态拉伸+筋膜放松，避免受伤。</p>
-<p><strong>完整的热身</strong></p>
-<img src="https://i.loli.net/2021/07/13/S1lqnQwgyvXbWd2.jpg" style="zoom: 33%;" />
-<p><strong>动态拉伸--上半身：</strong></p>
-<img src="https://i.loli.net/2021/07/13/NuxtVsSbYy5i6Qv.jpg" style="zoom: 33%;" />
-<p><strong>动态拉伸--下半身：</strong></p>
-<img src="https://i.loli.net/2021/07/13/BXdcJiltqsIyP7S.jpg" style="zoom:33%;" />
-<h2 id="6-习惯-如何做选择">6 习惯--如何做选择</h2>
-<p>视频：我为什么不做“健身”视频了</p>
-<p><strong>如何做出选择？价值观--决定选择</strong></p>
-<pre><code>1 到底用不用做选择--可否同时选择
-2 多方面了解自己--用批判性思维了解自己，避免认知偏差。
-3 想象将来你希望变成的人以及生活状态
-</code></pre>
-<p>想象自己3年后的生活状态。回头考虑现在什么选择可以帮助你变成这样的人</p>
-<h2 id="6-习惯-良好的习惯">6 习惯--良好的习惯</h2>
-<p>视频：这个习惯改变了我的人生</p>
-<p><strong>1.自控能力是一个有限的资源，我们每天做的任何事，任何决定都是在消耗这个有限资源。</strong></p>
-<p><strong>2.最害怕，最困难，最痛苦的事放在每天的第一件事来做（早晨是自控能力巅峰时期）</strong></p>
-<pre><code>1 远离手机
-2 两分钟法则（把任务拆分为小任务）
-3 实施意向，写计划（时间地点任务）
-
-养成1个好习惯：每天30分钟，30天，做1件事
-</code></pre>
-<p><strong>3.挑战困难，让人成长，减少焦虑，会有充实感</strong>。</p>
-<h2 id="6-习惯-早晨做这4件事帮你快速起床">6 习惯--早晨做这4件事帮你快速起床</h2>
-<p>视频：【克服懒惰】早晨做这4件事帮你快速起床!</p>
-<img src="https://i.loli.net/2021/07/13/YTn3J6Qdx5e8uFw.jpg" style="zoom: 67%;" />]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[跟着王老师学：Excel数据透视表]]></title>
@@ -2690,7 +2599,7 @@ sum2 等于 12
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[《掌空习惯》-- 笔记]]></title>
+        <title type="html"><![CDATA[《掌控习惯》-- 笔记]]></title>
         <id>https://hellojunyi.github.io/post/lesslesszhang-kong-xi-guan-greatergreater-zhai-chao/</id>
         <link href="https://hellojunyi.github.io/post/lesslesszhang-kong-xi-guan-greatergreater-zhai-chao/">
         </link>
